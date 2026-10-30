@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Urban Bites | Gourmet Smash Burgers & Loaded Bites | SmartLink Business</title>
+  <meta name="description" content="Crispy-edge smash burgers, truffle loaded fries, Nashville hot wings, and boba shakes. High-speed digital menu powered by SmartLink Business NFC." />
+  
+  <!-- Fonts & Material Symbols -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'urban-bg': '#0B0E14',
+            'urban-surface': '#131822',
+            'urban-card': '#1B2230',
+            'urban-amber': '#F59E0B',
+            'urban-crimson': '#EF4444',
+            'urban-emerald': '#10B981',
+            'urban-muted': '#94A3B8'
+          },
+          fontFamily: {
+            outfit: ['Outfit', 'sans-serif'],
+            sans: ['Plus Jakarta Sans', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { background-color: #0B0E14; color: #F1F5F9; font-family: 'Plus Jakarta Sans', sans-serif; }
+    .font-outfit { font-family: 'Outfit', sans-serif; }
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-thumb { background: #2D3748; border-radius: 999px; }
+  </style>
+</head>
+<body class="selection:bg-urban-amber/25 selection:text-urban-amber pb-24">
+
+  <!-- Fictional Demo Banner -->
+  <div class="sticky top-0 z-50 bg-[#0F131C] text-[#CBD5E1] px-4 py-2.5 flex items-center justify-between text-xs border-b border-urban-amber/30 shadow-lg">
+    <div class="flex items-center gap-2">
+      <span class="w-2 h-2 rounded-full bg-urban-amber animate-pulse"></span>
+      <span><strong>FICTIONAL LIVE DEMO</strong> • Powered by <strong class="text-urban-amber">SmartLink Business</strong></span>
+    </div>
+    <div class="flex items-center gap-3">
+      <span class="hidden sm:inline text-urban-muted">Modern Fast-Casual Tier</span>
+      <a href="../index.html" class="bg-urban-amber/15 hover:bg-urban-amber/25 text-urban-amber px-3 py-1 rounded-full font-medium transition-all border border-urban-amber/30">← Back to Homepage</a>
+    </div>
+  </div>
+
+  <!-- Special Offer Promo Strip -->
+  <div class="bg-gradient-to-r from-amber-500 via-orange-500 to-red-500 text-black py-2 px-4 text-center text-xs font-bold tracking-wide flex items-center justify-center gap-2 shadow-md">
+    <span>🔥 LIMITED TIME DEAL: Use code</span>
+    <button onclick="applyPromoCode('URBAN10')" class="bg-black text-white px-2.5 py-0.5 rounded-full text-[11px] font-mono hover:bg-black/80 transition-all cursor-pointer">URBAN10</button>
+    <span>for 10% OFF your Table #04 order!</span>
+  </div>
+
+  <!-- Header -->
+  <header class="bg-urban-surface/90 backdrop-blur-md border-b border-slate-800 sticky top-[73px] z-40 transition-all">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3.5 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-2xl bg-gradient-to-br from-urban-amber to-amber-600 text-black flex items-center justify-center font-outfit font-black text-xl shadow-lg">
+          UB
+        </div>
+        <div>
+          <h1 class="font-outfit text-xl sm:text-2xl font-extrabold tracking-tight text-white leading-none">
+            URBAN <span class="text-urban-amber">BITES</span>
+          </h1>
+          <p class="text-[10px] sm:text-xs text-urban-muted tracking-wider uppercase mt-0.5 font-medium">Gourmet Smash Burgers • Truffle Fries</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2 sm:gap-3">
+        <!-- Table Badge -->
+        <div class="hidden xs:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-urban-card border border-urban-amber/30 text-xs shadow-xs text-slate-200">
+          <span class="w-2 h-2 rounded-full bg-urban-amber animate-ping"></span>
+          <span class="font-outfit font-bold">Table #04</span>
+          <span class="text-urban-muted text-[10px] hidden sm:inline">• WhatsApp Ready</span>
+        </div>
+
+        <!-- Ping Staff -->
+        <button onclick="pingStaff()" class="px-3 py-1.5 rounded-full bg-urban-card hover:bg-slate-800 text-slate-200 border border-slate-700 text-xs font-semibold flex items-center gap-1 transition-all" title="Call staff or ask for napkins">
+          <span class="material-symbols-outlined text-sm text-urban-amber">notifications_active</span>
+          <span class="hidden md:inline">Call Staff</span>
+        </button>
+
+        <!-- Tray / Bag Button -->
+        <button onclick="toggleTray(true)" class="relative flex items-center gap-2 px-4 py-1.5 rounded-full bg-urban-amber text-black text-xs font-bold hover:bg-amber-400 transition-all shadow-md font-outfit">
+          <span class="material-symbols-outlined text-base">shopping_cart</span>
+          <span>Tray (<span id="headerTrayCount">0</span>)</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="relative overflow-hidden pt-8 pb-10 px-4 sm:px-6">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+      <div class="lg:col-span-7 space-y-4">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-urban-amber/15 text-urban-amber text-xs font-bold tracking-wider uppercase border border-urban-amber/30">
+          <span>⚡</span>
+          <span>Smashed Fresh on 450°F Cast Iron</span>
+        </div>
+        <h2 class="font-outfit text-3xl sm:text-5xl text-white leading-[1.1] font-extrabold tracking-tight">
+          Crispy Edges, Juicy Centers & <br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-urban-amber via-orange-400 to-urban-crimson">Truffle-Loaded Fries.</span>
+        </h2>
+        <p class="text-urban-muted text-sm sm:text-base max-w-xl leading-relaxed">
+          100% prime custom-blend patties smashed thin for maximum crust, served on butter-toasted brioche buns with house sauces and hand-shaken boba thick shakes.
+        </p>
+
+        <!-- Quick Info Strip -->
+        <div class="flex flex-wrap items-center gap-3 pt-2 text-xs">
+          <div class="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-urban-card border border-slate-700 shadow-xs text-slate-300">
+            <span class="material-symbols-outlined text-urban-amber text-sm">wifi</span>
+            <span><strong>Guest Wi-Fi:</strong> UrbanBites_Fast (PW: <em>smashburger</em>)</span>
+            <button onclick="navigator.clipboard?.writeText('smashburger'); alert('Wi-Fi Password Copied!');" class="text-urban-amber hover:underline text-[10px]">Copy</button>
+          </div>
+          <div class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-urban-card border border-slate-700 shadow-xs text-slate-300">
+            <span class="material-symbols-outlined text-urban-emerald text-sm">verified</span>
+            <span>100% Halal Certified Meats</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature Image -->
+      <div class="lg:col-span-5 relative">
+        <div class="relative w-full aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl border-2 border-urban-amber/30">
+          <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=800&auto=format&fit=crop&q=80" alt="Truffle Double Smash Burger" class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700" />
+          <div class="absolute inset-0 bg-gradient-to-t from-urban-bg/85 via-transparent to-transparent"></div>
+          <div class="absolute bottom-4 left-4 right-4 text-white">
+            <span class="text-[10px] tracking-widest uppercase font-bold text-urban-amber font-outfit">Table 04 Active</span>
+            <p class="font-outfit font-extrabold text-base sm:text-lg">Truffle Double Smash with Black Truffle Aioli</p>
+          </div>
+        </div>
+        <div class="absolute -bottom-3 -right-2 bg-urban-amber text-black px-3.5 py-1.5 rounded-full shadow-lg text-xs font-extrabold flex items-center gap-1.5 rotate-2 font-outfit">
+          <span>⚡</span>
+          <span>Ready in ~7 mins</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Metric Strip -->
+  <section class="bg-urban-surface border-y border-slate-800 py-5 px-4">
+    <div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+      <div>
+        <span class="font-outfit text-2xl font-black text-urban-amber">100%</span>
+        <p class="text-xs text-urban-muted tracking-wider uppercase mt-0.5">Prime Angus Custom Blend</p>
+      </div>
+      <div>
+        <span class="font-outfit text-2xl font-black text-urban-amber">0.4 sec</span>
+        <p class="text-xs text-urban-muted tracking-wider uppercase mt-0.5">SmartLink Fast Scan</p>
+      </div>
+      <div>
+        <span class="font-outfit text-2xl font-black text-urban-amber">12+</span>
+        <p class="text-xs text-urban-muted tracking-wider uppercase mt-0.5">Signature House Sauces</p>
+      </div>
+      <div>
+        <span class="font-outfit text-2xl font-black text-urban-amber">4.8 ★</span>
+        <p class="text-xs text-urban-muted tracking-wider uppercase mt-0.5">2,400+ Foodie Reviews</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Menu Catalog -->
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 pt-10" id="menu">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6">
+      <div>
+        <div class="flex items-center gap-2 text-xs font-bold text-urban-amber uppercase tracking-widest mb-1">
+          <span class="material-symbols-outlined text-sm">lunch_dining</span>
+          <span>Street Food Lab Catalog</span>
+        </div>
+        <h3 class="font-outfit text-2xl sm:text-3xl text-white font-extrabold">Craving-Busting Menu</h3>
+      </div>
+      
+      <!-- Search Input -->
+      <div class="relative w-full md:w-72">
+        <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-urban-muted text-lg">search</span>
+        <input type="text" id="searchInput" placeholder="Search burgers, wings, loaded fries..." class="w-full pl-9 pr-4 py-2 rounded-full bg-urban-card border border-slate-700 text-xs text-white placeholder-urban-muted focus:outline-none focus:ring-2 focus:ring-urban-amber/40" />
+      </div>
+    </div>
+
+    <!-- Category Filters -->
+    <div class="flex items-center gap-2 overflow-x-auto pb-3 mb-6 scrollbar-none" id="categoryTabs">
+      <button onclick="setCategory('all')" class="cat-btn active px-4 py-2 rounded-full text-xs font-bold bg-urban-amber text-black font-outfit transition-all whitespace-nowrap shadow-md" data-cat="all">All Items (12)</button>
+      <button onclick="setCategory('burgers')" class="cat-btn px-4 py-2 rounded-full text-xs font-bold bg-urban-card hover:bg-slate-800 text-slate-200 border border-slate-700 font-outfit transition-all whitespace-nowrap" data-cat="burgers">Smash Burgers (4)</button>
+      <button onclick="setCategory('fries')" class="cat-btn px-4 py-2 rounded-full text-xs font-bold bg-urban-card hover:bg-slate-800 text-slate-200 border border-slate-700 font-outfit transition-all whitespace-nowrap" data-cat="fries">Loaded Fries (3)</button>
+      <button onclick="setCategory('wings')" class="cat-btn px-4 py-2 rounded-full text-xs font-bold bg-urban-card hover:bg-slate-800 text-slate-200 border border-slate-700 font-outfit transition-all whitespace-nowrap" data-cat="wings">Crispy Wings (2)</button>
+      <button onclick="setCategory('drinks')" class="cat-btn px-4 py-2 rounded-full text-xs font-bold bg-urban-card hover:bg-slate-800 text-slate-200 border border-slate-700 font-outfit transition-all whitespace-nowrap" data-cat="drinks">Boba & Shakes (3)</button>
+    </div>
+
+    <!-- Dietary Filters -->
+    <div class="flex items-center gap-2 mb-8 text-xs flex-wrap">
+      <span class="text-urban-muted font-medium mr-1">Filter Dietary:</span>
+      <button onclick="toggleDiet('halal', this)" class="diet-btn px-3 py-1 rounded-full bg-urban-card border border-slate-700 text-slate-300 text-[11px] font-medium transition-all">✨ 100% Halal</button>
+      <button onclick="toggleDiet('veg', this)" class="diet-btn px-3 py-1 rounded-full bg-urban-card border border-slate-700 text-slate-300 text-[11px] font-medium transition-all">🌱 Veg Options</button>
+      <button onclick="toggleDiet('spicy', this)" class="diet-btn px-3 py-1 rounded-full bg-urban-card border border-slate-700 text-slate-300 text-[11px] font-medium transition-all">🔥 Spicy Hot</button>
+      <button onclick="toggleDiet('bestseller', this)" class="diet-btn px-3 py-1 rounded-full bg-urban-card border border-slate-700 text-slate-300 text-[11px] font-medium transition-all">⭐ Bestseller</button>
+    </div>
+
+    <!-- Products Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="productGrid">
+
+      <!-- Item 1 -->
+      <article class="product-card group bg-urban-card rounded-2xl p-4 border border-slate-800 hover:border-urban-amber/60 hover:shadow-2xl transition-all duration-300 flex flex-col justify-between" data-cat="burgers" data-diet="halal,bestseller">
+        <div>
+          <div class="relative w-full h-48 rounded-xl overflow-hidden mb-3.5 bg-urban-surface">
+            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=500&auto=format&fit=crop&q=80" alt="Truffle Double Smash Burger" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            <span class="absolute top-2.5 left-2.5 bg-urban-surface/90 backdrop-blur-md px-2.5 py-0.5 rounded-full text-[10px] font-bold text-urban-amber border border-urban-amber/30">#1 Bestseller</span>
+            <span class="absolute bottom-2.5 right-2.5 bg-urban-surface text-slate-300 px-2 py-0.5 rounded-full text-[10px]">620 kcal</span>
+          </div>
+          <div class="flex items-baseline justify-between mb-1">
+            <h4 class="font-outfit text-lg font-bold text-white">Truffle Double Smash Burger</h4>
+            <span class="font-outfit text-lg font-black text-urban-amber">₹380</span>
+          </div>
+          <p class="text-xs text-urban-muted mb-3 line-clamp-2">Two smashed prime patties, melted aged cheddar, caramelized onion jam, and house black truffle aioli on toasted brioche.</p>
+          <div class="flex flex-wrap gap-1.5 mb-4">
+            <span class="px-2 py-0.5 rounded-full bg-urban-surface text-[10px] text-urban-amber font-semibold">Truffle Aioli</span>
+            <span class="px-2 py-0.5 rounded-full bg-urban-surface text-[10px] text-slate-300 font-medium">Double Patty</span>
+            <span class="px-2 py-0.5 rounded-full bg-emerald-950 text-emerald-300 text-[10px]">Halal</span>
+          </div>
+        </div>
+        <div class="pt-3 border-t border-slate-800 flex items-center justify-between gap-2">
+          <select class="item-option text-[11px] bg-urban-surface px-2.5 py-1.5 rounded-lg border border-slate-700 font-medium text-slate-200 focus:outline-none">
+            <option value="Double Smash">Double Patty</option>
+            <option value="Triple Beast Smash">Triple Beast Smash (+₹90)</option>
+            <option value="Combo with Fries & Shake">Make it a Combo (+₹160)</option>
+          </select>
+          <button onclick="addToTray('Truffle Double Smash Burger', 380, this)" class="px-3.5 py-1.5 rounded-full bg-urban-amber hover:bg-amber-400 text-black text-xs font-bold flex items-center gap-1 shadow-md transition-all font-outfit">
+            <span class="material-symbols-outlined text-sm">add</span>
+            <span>Add</span>
+          </button>
+        </div>
+      </article>
+
+      <!-- Item 2 -->
+      <article class="product-card group bg-urban-card rounded-2xl p-4 border border-slate-800 hover:border-urban-amber/60 hover:shadow-2xl transition-all duration-300 flex flex-col justify-between" data-cat="burgers" data-diet="halal,spicy">
+        <div>
+          <div class="relative w-full h-48 rounded-xl overflow-hidden mb-3.5 bg-urban-surface">
+            <img src="https://images.unsplash.com/photo-1625813506062-0aeb1d7a094b?w=500&auto=format&fit=crop&q=80" alt="Nashville Hot Crispy Chicken Burger" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            <span class="absolute top-2.5 left-2.5 bg-urban-surface/90 backdrop-blur-md px-2.5 py-0.5 rounded-full text-[10px] font-bold text-urban-crimson border border-urban-crimson/30">🔥 Nashville Hot</span>
+            <span class="absolute bottom-2.5 right-2.5 bg-urban-surface text-slate-300 px-2 py-0.5 rounded-full text-[10px]">580 kcal</span>
+          </div>
+          <div class="flex items-baseline justify-between mb-1">
+            <h4 class="font-outfit text-lg font-bold text-white">Nashville Hot Crispy Chicken</h4>
+            <span class="font-outfit text-lg font-black text-urban-amber">₹350</span>
+          </div>
+          <p class="text-xs text-urban-muted mb-3 line-clamp-2">Crispy buttermilk fried chicken breast dipped in spiced cayenne oil, house creamy coleslaw, and sour dill pickles.</p>
+          <div class="flex flex-wrap gap-1.5 mb-4">
+            <span class="px-2 py-0.5 rounded-full bg-red-950 text-[10px] text-red-300 font-semibold">Cayenne Glazed</span>
+            <span class="px-2 py-0.5 rounded-full bg-urban-surface text-[10px] text-slate-300 font-medium">Crunchy Slaw</span>
+            <span class="px-2 py-0.5 rounded-full bg-emerald-950 text-emerald-300 text-[10px]">Halal</span>
+          </div>
+        </div>
+        <div class="pt-3 border-t border-slate-800 flex items-center justify-between gap-2">
+          <select class="item-option text-[11px] bg-urban-surface px-2.5 py-1.5 rounded-lg border border-slate-700 font-medium text-slate-200 focus:outline-none">
+            <option value="Medium Heat">Medium Heat</option>
+            <option value="Extra Fire Heat">Extra Fire Heat 🔥</option>
+            <option value="Combo with Fries">Combo w/ Fries (+₹110)</option>
+          </select>
+          <button onclick="addToTray('Nashville Hot Crispy Chicken', 350, this)" class="px-3.5 py-1.5 rounded-full bg-urban-amber hover:bg-amber-400 text-black text-xs font-bold flex items-center gap-1 shadow-md transition-all font-outfit">
+            <span class="material-symbols-outlined text-sm">add</span>
+            <span>Add</span>
+          </button>
+        </div>
+      </article>
+
+      <!-- Item 3 -->
+      <article class="product-card group bg-urban-card rounded-2xl p-4 border border-slate-800 hover:border-urban-amber/60 hover:shadow-2xl transition-all duration-300 flex flex-col justify-between" data-cat="burgers" data-diet="veg">
+        <div>
+          <div class="relative w-full h-48 rounded-xl overflow-hidden mb-3.5 bg-urban-surface">
+            <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?w=500&auto=format&fit=crop&q=80" alt="Crispy Portobello Truffle Melt" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            <span class="absolute top-2.5 left-2.5 bg-urban-surface/90 backdrop-blur-md px-2.5 py-0.5 rounded-full text-[10px] font-bold text-emerald-400 border border-emerald-500/30">Veg Special</span>
+            <span class="absolute bottom-2.5 right-2.5 bg-urban-surface text-slate-300 px-2 py-0.5 rounded-full text-[10px]">510 kcal</span>
+          </div>
+          <div class="flex items-baseline justify-between mb-1">
+            <h4 class="font-outfit text-lg font-bold text-white">Crispy Portobello Melt (Veg)</h4>
+            <span class="font-outfit text-lg font-black text-urban-amber">₹340</span>
+          </div>
+          <p class="text-xs text-urban-muted mb-3 line-clamp-2">Panko-crusted whole portobello mushroom stuffed with molten gouda cheese, garlic herb aioli, arugula, and brioche bun.</p>
+          <div class="flex flex-wrap gap-1.5 mb-4">
+            <span class="px-2 py-0.5 rounded-full bg-emerald-950 text-emerald-300 text-[10px]">Pure Veg</span>
+            <span class="px-2 py-0.5 rounded-full bg-urban-surface text-[10px] text-urban-amber font-medium">Molten Gouda</span>
+          </div>
+        </div>
+        <div class="pt-3 border-t border-slate-800 flex items-center justify-between gap-2">
+          <select class="item-option text-[11px] bg-urban-surface px-2.5 py-1.5 rounded-lg border border-slate-700 font-medium text-slate-200 focus:outline-none">
+            <option value="Single Melt">Single Mushroom Melt</option>
+            <option value="Combo w/ Truffle Fries">Combo w/ Truffle Fries (+₹140)</option>
+          </select>
+          <button onclick="addToTray('Crispy Portobello Melt (Veg)', 340, this)" class="px-3.5 py-1.5 rounded-full bg-urban-amber hover:bg-amber-400 text-black text-xs font-bold flex items-center gap-1 shadow-md transition-all font-outfit">
+            <span class="material-symbols-outlined text-sm">add</span>
+            <span>Add</span>
+          </button>
+        </div>
+      </article>
+
+      <!-- Item 4 -->
+      <article class="product-card group bg-urban-card rounded-2xl p-4 border border-slate-800 hover:border-urban-amber/60 hover:shadow-2xl transition-all duration-300 flex flex-col justify-between" data-cat="burgers" data-diet="halal,bestseller">
+        <div>
+          <div class="relative w-full h-48 rounded-xl overflow-hidden mb-3.5 bg-urban-surface">
+            <img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?w=500&auto=format&fit=crop&q=80" alt="Smokey BBQ Bacon Jam Smash" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            <span class="absolute top-2.5 left-2.5 bg-urban-surface/90 backdrop-blur-md px-2.5 py-0.5 rounded-full text-[10px] font-bold text-urban-amber border border-urban-amber/30">Smokey BBQ</span>
+            <span class="absolute bottom-2.5 right-2.5 bg-urban-surface text-slate-300 px-2 py-0.5 rounded-full text-[10px]">690 kcal</span>
+          </div>
+          <div class="flex items-baseline justify-between mb-1">
+            <h4 class="font-outfit text-lg font-bold text-white">Smokey BBQ Bacon Jam Smash</h4>
+            <span class="font-outfit text-lg font-black text-urban-amber">₹390</span>
+          </div>
+          <p class="text-xs text-urban-muted mb-3 line-clamp-2">Double smashed beef patties, smoked halal beef bacon onion relish, sharp cheddar, crispy beer-battered onion rings.</p>
+          <div class="flex flex-wrap gap-1.5 mb-4">
+            <span class="px-2 py-0.5 rounded-full bg-urban-surface text-[10px] text-urban-amber font-semibold">Bacon Jam</span>
+            <span class="px-2 py-0.5 rounded-full bg-emerald-950 text-emerald-300 text-[10px]">Halal</span>
+          </div>
+        </div>
+        <div class="pt-3 border-t border-slate-800 flex items-center justify-between gap-2">
+          <select class="item-option text-[11px] bg-urban-surface px-2.5 py-1.5 rounded-lg border border-slate-700 font-medium text-slate-200 focus:outline-none">
+            <option value="Double Patty">Double Patty</option>
+            <option value="Triple Patty">Triple Patty (+₹100)</option>
+          </select>
+          <button onclick="addToTray('Smokey BBQ Bacon Jam Smash', 390, this)" class="px-3.5 py-1.5 rounded-full bg-urban-amber hover:bg-amber-400 text-black text-xs font-bold flex items-center gap-1 shadow-md transition-all font-outfit">
+            <span class="material-symbols-outlined text-sm">add</span>
+            <span>Add</span>
+          </button>
+        </div>
+      </article>
+
+      <!-- Item 5 -->
+      <article class="product-card group bg-urban-card rounded-2xl p-4 border border-slate-800 hover:border-urban-amber/60 hover:shadow-2xl transition-all duration-300 flex flex-col justify-between" data-cat="fries" data-diet="veg,bestseller">
+        <div>
+          <div class="relative w-full h-48 rounded-xl overflow-hidden mb-3.5 bg-urban-surface">
+            <img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=500&auto=format&fit=crop&q=80" alt="Truffle Parmesan Hand-Cut Fries" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            <span class="absolute top-2.5 left-2.5 bg-urban-surface/90 backdrop-blur-md px-2.5 py-0.5 rounded-full text-[10px] font-bold text-urban-amber border border-urban-amber/30">Fan Favorite</span>
+            <span class="absolute bottom-2.5 right-2.5 bg-urban-surface text-slate-300 px-2 py-0.5 rounded-full text-[10px]">440 kcal</span>
+          </div>
+          <div class="flex items-baseline justify-between mb-1">
+            <h4 class="font-outfit text-lg font-bold text-white">Truffle Parmesan Hand-Cut Fries</h4>
+            <span class="font-outfit text-lg font-black text-urban-amber">₹260</span>
+          </div>
+          <p class="text-xs text-urban-muted mb-3 line-clamp-2">Skin-on russet potato fries tossed in Italian white truffle oil, freshly grated 24-month parmesan, and rosemary flakes.</p>
+          <div class="flex flex-wrap gap-1.5 mb-4">
+            <span class="px-2 py-0.5 rounded-full bg-emerald-950 text-emerald-300 text-[10px]">Pure Veg</span>
+            <span class="px-2 py-0.5 rounded-full bg-urban-surface text-[10px] text-urban-amber font-semibold">Truffle Oil</span>
+          </div>
+        </div>
+        <div class="pt-3 border-t border-slate-800 flex items-center justify-between gap-2">
+          <select class="item-option text-[11px] bg-urban-surface px-2.5 py-1.5 rounded-lg border border-slate-700 font-medium text-slate-200 focus:outline-none">
+            <option value="Regular Bowl">Regular Basket</option>
+            <option value="Loaded Sharing Platter">Large Sharing (+₹110)</option>
+          </select>
+          <button onclick="addToTray('Truffle Parmesan Hand-Cut Fries', 260, this)" class="px-3.5 py-1.5 rounded-full bg-urban-amber hover:bg-amber-400 text-black text-xs font-bold flex items-center gap-1 shadow-md transition-all font-outfit">
+            <span class="material-symbols-outlined text-sm">add</span>
+            <span>Add</span>
+          </button>
+        </div>
+      </article>
+
+      <!-- Item 6 -->
+      <article class="product-card group bg-urban-card rounded-2xl p-4 border border-slate-800 hover:border-urban-amber/60 hover:shadow-2xl transition-all duration-300 flex flex-col justify-between" data-cat="fries" data-diet="halal,spicy">
+        <div>
+          <div class="relative w-full h-48 rounded-xl overflow-hidden mb-3.5 bg-urban-surface">
+            <img src="https://images.unsplash.com/photo-1585109649139-366815a0d713?w=500&auto=format&fit=crop&q=80" alt="Cheesy Jalapeño Fire Loaded Fries" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            <span class="absolute top-2.5 left-2.5 bg-urban-surface/90 backdrop-blur-md px-2.5 py-0.5 rounded-full text-[10px] font-bold text-urban-crimson border border-urban-crimson/30">Cheesy Fire</span>
+            <span class="absolute bottom-2.5 right-2.5 bg-urban-surface text-slate-300 px-2 py-0.5 rounded-full text-[10px]">520 kcal</span>
+          </div>
+          <div class="flex items-baseline justify-between mb-1">
+            <h4 class="font-outfit text-lg font-bold text-white">Cheesy Jalapeño Loaded Fries</h4>
+            <span class="font-outfit text-lg font-black text-urban-amber">₹290</span>
+          </div>
+          <p class="text-xs text-urban-muted mb-3 line-clamp-2">Crisp fries drenched in hot liquid cheddar cheese, pickled sliced jalapeños, crispy beef bacon bits, and chopped scallions.</p>
+          <div class="flex flex-wrap gap-1.5 mb-4">
+            <span class="px-2 py-0.5 rounded-full bg-urban-surface text-[10px] text-urban-amber font-semibold">Liquid Cheddar</span>
+            <span class="px-2 py-0.5 rounded-full bg-red-950 text-red-300 text-[10px]">Spicy</span>
+          </div>
+        </div>
+        <div class="pt-3 border-t border-slate-800 flex items-center justify-between gap-2">
+          <select class="item-option text-[11px] bg-urban-surface px-2.5 py-1.5 rounded-lg border border-slate-700 font-medium text-slate-200 focus:outline-none">
+            <option value="Regular Loaded">Regular Loaded</option>
+            <option value="Extra Cheddar Dip">Extra Cheese Dip (+₹50)</option>
+          </select>
+          <button onclick="addToTray('Cheesy Jalapeño Loaded Fries', 290, this)" class="px-3.5 py-1.5 rounded-full bg-urban-amber hover:bg-amber-400 text-black text-xs font-bold flex items-center gap-1 shadow-md transition-all font-outfit">
+            <span class="material-symbols-outlined text-sm">add</span>
+            <span>Add</span>
+          </button>
+        </div>
+      </article>
+
+      <!-- Item 7 -->
+      <article class="product-card group bg-urban-card rounded-2xl p-4 border border-slate-800 hover:border-urban-amber/60 hover:shadow-2xl transition-all duration-300 flex flex-col justify-between" data-cat="fries" data-diet="halal">
+        <div>
+          <div class="relative w-full h-48 rounded-xl overflow-hidden mb-3.5 bg-urban-surface">
+            <img src="https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?w=500&auto=format&fit=crop&q=80" alt="Buffalo Chicken Tenders & Fries" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            <span class="absolute top-2.5 left-2.5 bg-urban-surface/90 backdrop-blur-md px-2.5 py-0.5 rounded-full text-[10px] font-bold text-urban-amber border border-urban-amber/30">Tender Platter</span>
+            <span class="absolute bottom-2.5 right-2.5 bg-urban-surface text-slate-300 px-2 py-0.5 rounded-full text-[10px]">590 kcal</span>
+          </div>
+          <div class="flex items-baseline justify-between mb-1">
+            <h4 class="font-outfit text-lg font-bold text-white">Crispy Chicken Tenders & Fries</h4>
+            <span class="font-outfit text-lg font-black text-urban-amber">₹320</span>
+          </div>
+          <p class="text-xs text-urban-muted mb-3 line-clamp-2">4 jumbo crispy hand-breaded chicken tenders served over golden fries with house ranch and smoky BBQ dip cups.</p>
+          <div class="flex flex-wrap gap-1.5 mb-4">
+            <span class="px-2 py-0.5 rounded-full bg-emerald-950 text-emerald-300 text-[10px]">Halal</span>
+            <span class="px-2 py-0.5 rounded-full bg-urban-surface text-[10px] text-slate-300 font-medium">4 Tenders</span>
+          </div>
+        </div>
+        <div class="pt-3 border-t border-slate-800 flex items-center justify-between gap-2">
+          <select class="item-option text-[11px] bg-urban-surface px-2.5 py-1.5 rounded-lg border border-slate-700 font-medium text-slate-200 focus:outline-none">
+            <option value="House Ranch Dip">With House Ranch</option>
+            <option value="Honey Mustard Dip">With Honey Mustard</option>
+          </select>
+          <button onclick="addToTray('Crispy Chicken Tenders & Fries', 320, this)" class="px-3.5 py-1.5 rounded-full bg-urban-amber hover:bg-amber-400 text-black text-xs font-bold flex items-center gap-1 shadow-md transition-all font-outfit">
+            <span class="material-symbols-outlined text-sm">add</span>
+            <span>Add</span>
+          </button>
+        </div>
+      </article>
+
+      <!-- Item 8 -->
+      <article class="product-card group bg-urban-card rounded-2xl p-4 border border-slate-800 hover:border-urban-amber/60 hover:shadow-2xl transition-all duration-300 flex flex-col justify-between" data-cat="wings" data-diet="halal,spicy,bestseller">
+        <div>
+          <div class="relative w-full h-48 rounded-xl overflow-hidden mb-3.5 bg-urban-surface">
+            <img src="https://images.unsplash.com/photo-1567620832903-9fc6debc209f?w=500&auto=format&fit=crop&q=80" alt="Korean Gochujang Sticky Wings" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            <span class="absolute top-2.5 left-2.5 bg-urban-surface/90 backdrop-blur-md px-2.5 py-0.5 rounded-full text-[10px] font-bold text-urban-amber border border-urban-amber/30">Korean Glaze</span>
+            <span class="absolute bottom-2.5 right-2.5 bg-urban-surface text-slate-300 px-2 py-0.5 rounded-full text-[10px]">540 kcal</span>
+          </div>
+          <div class="flex items-baseline justify-between mb-1">
+            <h4 class="font-outfit text-lg font-bold text-white">Korean Sticky Gochujang Wings</h4>
+            <span class="font-outfit text-lg font-black text-urban-amber">₹360</span>
+          </div>
+          <p class="text-xs text-urban-muted mb-3 line-clamp-2">8 double-fried jumbo wings glazed in sweet-spicy fermented chili gochujang, toasted sesame seeds, and spring onion.</p>
+          <div class="flex flex-wrap gap-1.5 mb-4">
+            <span class="px-2 py-0.5 rounded-full bg-red-950 text-red-300 text-[10px]">Sweet Spicy</span>
+            <span class="px-2 py-0.5 rounded-full bg-emerald-950 text-emerald-300 text-[10px]">Halal</span>
+          </div>
+        </div>
+        <div class="pt-3 border-t border-slate-800 flex items-center justify-between gap-2">
+          <select class="item-option text-[11px] bg-urban-surface px-2.5 py-1.5 rounded-lg border border-slate-700 font-medium text-slate-200 focus:outline-none">
+            <option value="8 Wings Basket">8 Wings Basket</option>
+            <option value="12 Wings Party Basket">12 Wings Party (+₹140)</option>
+          </select>
+          <button onclick="addToTray('Korean Sticky Gochujang Wings', 360, this)" class="px-3.5 py-1.5 rounded-full bg-urban-amber hover:bg-amber-400 text-black text-xs font-bold flex items-center gap-1 shadow-md transition-all font-outfit">
+            <span class="material-symbols-outlined text-sm">add</span>
+            <span>Add</span>
+          </button>
+        </div>
+      </article>
+
+      <!-- Item 9 -->
+      <article class="product-card group bg-urban-card rounded-2xl p-4 border border-slate-800 hover:border-urban-amber/60 hover:shadow-2xl transition-all duration-300 flex flex-col justify-between" data-cat="wings" data-diet="halal">
+        <div>
+          <div class="relative w-full h-48 rounded-xl overflow-hidden mb-3.5 bg-urban-surface">
+            <img src="https://images.unsplash.com/photo-1527477321055-43615862e771?w=500&auto=format&fit=crop&q=80" alt="Smoky Honey Garlic BBQ Wings" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            <span class="absolute top-2.5 left-2.5 bg-urban-surface/90 backdrop-blur-md px-2.5 py-0.5 rounded-full text-[10px] font-bold text-urban-amber border border-urban-amber/30">Mild Smokey</span>
+            <span class="absolute bottom-2.5 right-2.5 bg-urban-surface text-slate-300 px-2 py-0.5 rounded-full text-[10px]">510 kcal</span>
+          </div>
+          <div class="flex items-baseline justify-between mb-1">
+            <h4 class="font-outfit text-lg font-bold text-white">Smoky Honey Garlic BBQ Wings</h4>
+            <span class="font-outfit text-lg font-black text-urban-amber">₹340</span>
+          </div>
+          <p class="text-xs text-urban-muted mb-3 line-clamp-2">Hickory-smoked chicken wings tossed in roasted garlic & wildflower honey reduction, served with crisp celery sticks.</p>
+          <div class="flex flex-wrap gap-1.5 mb-4">
+            <span class="px-2 py-0.5 rounded-full bg-urban-surface text-[10px] text-urban-amber font-semibold">Honey Garlic</span>
+            <span class="px-2 py-0.5 rounded-full bg-emerald-950 text-emerald-300 text-[10px]">Halal</span>
+          </div>
+        </div>
+        <div class="pt-3 border-t border-slate-800 flex items-center justify-between gap-2">
+          <select class="item-option text-[11px] bg-urban-surface px-2.5 py-1.5 rounded-lg border border-slate-700 font-medium text-slate-200 focus:outline-none">
+            <option value="8 Wings Basket">8 Wings Basket</option>
+            <option value="12 Wings Platter">12 Wings Platter (+₹130)</option>
+          </select>
+          <button onclick="addToTray('Smoky Honey Garlic BBQ Wings', 340, this)" class="px-3.5 py-1.5 rounded-full bg-urban-amber hover:bg-amber-400 text-black text-xs font-bold flex items-center gap-1 shadow-md transition-all font-outfit">
+            <span class="material-symbols-outlined text-sm">add</span>
+            <span>Add</span>
+          </button>
+        </div>
+      </article>
+
+      <!-- Item 10 -->
+      <article class="product-card group bg-urban-card rounded-2xl p-4 border border-slate-800 hover:border-urban-amber/60 hover:shadow-2xl transition-all duration-300 flex flex-col justify-between" data-cat="drinks" data-diet="veg,bestseller">
+        <div>
+          <div class="relative w-full h-48 rounded-xl overflow-hidden mb-3.5 bg-urban-surface">
+            <img src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=500&auto=format&fit=crop&q=80" alt="Salted Caramel Pretzel Thick Shake" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            <span class="absolute top-2.5 left-2.5 bg-urban-surface/90 backdrop-blur-md px-2.5 py-0.5 rounded-full text-[10px] font-bold text-urban-amber border border-urban-amber/30">Monster Shake</span>
+            <span class="absolute bottom-2.5 right-2.5 bg-urban-surface text-slate-300 px-2 py-0.5 rounded-full text-[10px]">480 kcal</span>
+          </div>
+          <div class="flex items-baseline justify-between mb-1">
+            <h4 class="font-outfit text-lg font-bold text-white">Salted Caramel Pretzel Shake</h4>
+            <span class="font-outfit text-lg font-black text-urban-amber">₹240</span>
+          </div>
+          <p class="text-xs text-urban-muted mb-3 line-clamp-2">Hand-churned vanilla bean ice cream, buttery salted caramel sauce, whipped cream peak, and crushed salted pretzel crunch.</p>
+          <div class="flex flex-wrap gap-1.5 mb-4">
+            <span class="px-2 py-0.5 rounded-full bg-emerald-950 text-emerald-300 text-[10px]">Pure Veg</span>
+            <span class="px-2 py-0.5 rounded-full bg-urban-surface text-[10px] text-urban-amber font-semibold">Salted Caramel</span>
+          </div>
+        </div>
+        <div class="pt-3 border-t border-slate-800 flex items-center justify-between gap-2">
+          <select class="item-option text-[11px] bg-urban-surface px-2.5 py-1.5 rounded-lg border border-slate-700 font-medium text-slate-200 focus:outline-none">
+            <option value="Regular 400ml">Regular (400ml)</option>
+            <option value="Jumbo 550ml">Jumbo Mason (+₹50)</option>
+          </select>
+          <button onclick="addToTray('Salted Caramel Pretzel Shake', 240, this)" class="px-3.5 py-1.5 rounded-full bg-urban-amber hover:bg-amber-400 text-black text-xs font-bold flex items-center gap-1 shadow-md transition-all font-outfit">
+            <span class="material-symbols-outlined text-sm">add</span>
+            <span>Add</span>
+          </button>
+        </div>
+      </article>
+
+      <!-- Item 11 -->
+      <article class="product-card group bg-urban-card rounded-2xl p-4 border border-slate-800 hover:border-urban-amber/60 hover:shadow-2xl transition-all duration-300 flex flex-col justify-between" data-cat="drinks" data-diet="veg">
+        <div>
+          <div class="relative w-full h-48 rounded-xl overflow-hidden mb-3.5 bg-urban-surface">
+            <img src="https://images.unsplash.com/photo-1558857563-b371033873b8?w=500&auto=format&fit=crop&q=80" alt="Brown Sugar Tiger Boba Milk" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            <span class="absolute top-2.5 left-2.5 bg-urban-surface/90 backdrop-blur-md px-2.5 py-0.5 rounded-full text-[10px] font-bold text-urban-amber border border-urban-amber/30">Fresh Boba</span>
+            <span class="absolute bottom-2.5 right-2.5 bg-urban-surface text-slate-300 px-2 py-0.5 rounded-full text-[10px]">380 kcal</span>
+          </div>
+          <div class="flex items-baseline justify-between mb-1">
+            <h4 class="font-outfit text-lg font-bold text-white">Brown Sugar Tiger Boba Milk</h4>
+            <span class="font-outfit text-lg font-black text-urban-amber">₹220</span>
+          </div>
+          <p class="text-xs text-urban-muted mb-3 line-clamp-2">Slow-simmered warm Okinawa brown sugar tapioca pearls, fresh creamy whole milk, caramelized tiger stripes on the cup.</p>
+          <div class="flex flex-wrap gap-1.5 mb-4">
+            <span class="px-2 py-0.5 rounded-full bg-emerald-950 text-emerald-300 text-[10px]">Pure Veg</span>
+            <span class="px-2 py-0.5 rounded-full bg-urban-surface text-[10px] text-urban-amber font-semibold">Warm Boba</span>
+          </div>
+        </div>
+        <div class="pt-3 border-t border-slate-800 flex items-center justify-between gap-2">
+          <select class="item-option text-[11px] bg-urban-surface px-2.5 py-1.5 rounded-lg border border-slate-700 font-medium text-slate-200 focus:outline-none">
+            <option value="Whole Milk">Whole Dairy Milk</option>
+            <option value="Oat Milk Sub">Oat Milk Sub (+₹30)</option>
+          </select>
+          <button onclick="addToTray('Brown Sugar Tiger Boba Milk', 220, this)" class="px-3.5 py-1.5 rounded-full bg-urban-amber hover:bg-amber-400 text-black text-xs font-bold flex items-center gap-1 shadow-md transition-all font-outfit">
+            <span class="material-symbols-outlined text-sm">add</span>
+            <span>Add</span>
+          </button>
+        </div>
+      </article>
+
+      <!-- Item 12 -->
+      <article class="product-card group bg-urban-card rounded-2xl p-4 border border-slate-800 hover:border-urban-amber/60 hover:shadow-2xl transition-all duration-300 flex flex-col justify-between" data-cat="drinks" data-diet="veg">
+        <div>
+          <div class="relative w-full h-48 rounded-xl overflow-hidden mb-3.5 bg-urban-surface">
+            <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=500&auto=format&fit=crop&q=80" alt="Wild Berry Yuzu Fizz Soda" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            <span class="absolute top-2.5 left-2.5 bg-urban-surface/90 backdrop-blur-md px-2.5 py-0.5 rounded-full text-[10px] font-bold text-urban-amber border border-urban-amber/30">Craft Soda</span>
+            <span class="absolute bottom-2.5 right-2.5 bg-urban-surface text-slate-300 px-2 py-0.5 rounded-full text-[10px]">110 kcal</span>
+          </div>
+          <div class="flex items-baseline justify-between mb-1">
+            <h4 class="font-outfit text-lg font-bold text-white">Wild Berry Yuzu Craft Fizz</h4>
+            <span class="font-outfit text-lg font-black text-urban-amber">₹190</span>
+          </div>
+          <p class="text-xs text-urban-muted mb-3 line-clamp-2">Muddled blackberries, raspberries, tart Japanese yuzu reduction, sparkling mineral water, and fresh garden mint leaves.</p>
+          <div class="flex flex-wrap gap-1.5 mb-4">
+            <span class="px-2 py-0.5 rounded-full bg-emerald-950 text-emerald-300 text-[10px]">Pure Veg</span>
+            <span class="px-2 py-0.5 rounded-full bg-urban-surface text-[10px] text-slate-300 font-medium">Sparkling</span>
+          </div>
+        </div>
+        <div class="pt-3 border-t border-slate-800 flex items-center justify-between gap-2">
+          <select class="item-option text-[11px] bg-urban-surface px-2.5 py-1.5 rounded-lg border border-slate-700 font-medium text-slate-200 focus:outline-none">
+            <option value="Over Crushed Ice">Over Crushed Ice</option>
+            <option value="Light Ice">Light Ice</option>
+          </select>
+          <button onclick="addToTray('Wild Berry Yuzu Craft Fizz', 190, this)" class="px-3.5 py-1.5 rounded-full bg-urban-amber hover:bg-amber-400 text-black text-xs font-bold flex items-center gap-1 shadow-md transition-all font-outfit">
+            <span class="material-symbols-outlined text-sm">add</span>
+            <span>Add</span>
+          </button>
+        </div>
+      </article>
+
+    </div>
+  </main>
+
+  <!-- Sticky Mobile Launcher -->
+  <div class="fixed bottom-6 right-6 z-40">
+    <button onclick="toggleTray(true)" class="flex items-center gap-2.5 px-5 py-3 rounded-full bg-urban-amber text-black font-outfit font-black text-xs uppercase tracking-wider shadow-2xl hover:bg-amber-400 transition-all transform hover:scale-105 border border-white/20">
+      <span class="material-symbols-outlined text-base">shopping_cart</span>
+      <span>View Tray (<span id="stickyTrayCount">0</span>)</span>
+    </button>
+  </div>
+
+  <!-- Slide-out Tray Drawer -->
+  <div id="trayOverlay" class="fixed inset-0 bg-black/75 backdrop-blur-xs z-50 opacity-0 pointer-events-none transition-opacity duration-300" onclick="toggleTray(false)"></div>
+  <aside id="trayDrawer" class="fixed top-0 right-0 h-full w-full sm:w-[440px] bg-urban-surface z-50 shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col justify-between border-l border-slate-800">
+    <!-- Header -->
+    <div class="p-5 bg-urban-card border-b border-slate-800 flex items-center justify-between">
+      <div class="flex items-center gap-2.5">
+        <div class="w-8 h-8 rounded-xl bg-urban-amber text-black flex items-center justify-center font-outfit font-black text-sm">
+          UB
+        </div>
+        <div>
+          <h4 class="font-outfit text-lg font-bold text-white">Table #04 Active Tray</h4>
+          <p class="text-[10px] text-urban-muted">Urban Bites • Direct Kitchen Order</p>
+        </div>
+      </div>
+      <button onclick="toggleTray(false)" class="w-8 h-8 rounded-full hover:bg-urban-surface flex items-center justify-center text-urban-muted">
+        <span class="material-symbols-outlined text-lg">close</span>
+      </button>
+    </div>
+
+    <!-- Items List -->
+    <div id="trayItemsList" class="flex-1 overflow-y-auto p-5 space-y-3">
+      <!-- Empty State -->
+      <div id="trayEmptyState" class="text-center py-16">
+        <span class="material-symbols-outlined text-5xl text-urban-amber/40 mb-2">fastfood</span>
+        <p class="font-outfit text-base font-bold text-white">Your tray is empty</p>
+        <p class="text-xs text-urban-muted mt-1">Add smash burgers, wings or loaded fries to kick off your order.</p>
+      </div>
+    </div>
+
+    <!-- Footer & Coupon & Checkout -->
+    <div class="p-5 bg-urban-card border-t border-slate-800 space-y-3">
+      <!-- Coupon Box -->
+      <div class="flex items-center gap-2">
+        <input type="text" id="couponCodeInput" placeholder="Promo code (e.g. URBAN10)" class="flex-1 px-3 py-1.5 rounded-lg bg-urban-surface border border-slate-700 text-xs text-white placeholder-slate-500 uppercase font-mono focus:outline-none focus:ring-1 focus:ring-urban-amber" />
+        <button onclick="applyCoupon()" class="px-3 py-1.5 bg-urban-amber text-black font-outfit font-bold text-xs rounded-lg hover:bg-amber-400 transition-all">Apply</button>
+      </div>
+      <div id="couponAppliedMsg" class="hidden text-[11px] text-emerald-400 font-semibold flex items-center gap-1">
+        <span class="material-symbols-outlined text-xs">check_circle</span>
+        <span>Coupon URBAN10 Applied! 10% Discount active.</span>
+      </div>
+
+      <div class="space-y-1.5 text-xs">
+        <div class="flex justify-between text-urban-muted">
+          <span>Subtotal</span>
+          <span id="traySubtotal" class="font-semibold text-white">₹0</span>
+        </div>
+        <div id="discountRow" class="hidden flex justify-between text-emerald-400 text-xs font-semibold">
+          <span>Coupon Discount (10%)</span>
+          <span id="trayDiscount">-₹0</span>
+        </div>
+        <div class="flex justify-between text-urban-muted text-[11px]">
+          <span>GST (5%)</span>
+          <span id="trayTax">₹0</span>
+        </div>
+        <div class="pt-2 flex justify-between font-outfit text-lg font-black text-white border-t border-slate-800">
+          <span>Total Payable</span>
+          <span id="trayTotal" class="text-urban-amber">₹0</span>
+        </div>
+      </div>
+
+      <div class="flex items-center justify-center gap-4 py-2 bg-urban-surface rounded-xl text-xs border border-slate-800">
+        <label class="inline-flex items-center gap-1.5 cursor-pointer font-medium text-slate-200">
+          <input type="radio" name="orderType" value="table" checked class="accent-urban-amber">
+          <span>Dine-In Table 04</span>
+        </label>
+        <label class="inline-flex items-center gap-1.5 cursor-pointer font-medium text-slate-200">
+          <input type="radio" name="orderType" value="takeaway" class="accent-urban-amber">
+          <span>Takeaway Counter</span>
+        </label>
+      </div>
+
+      <button id="btnDispatchTray" onclick="dispatchTray()" class="w-full py-3 rounded-full bg-urban-amber hover:bg-amber-400 text-black font-outfit font-black text-xs uppercase tracking-wider shadow-lg transition-all disabled:opacity-50 disabled:pointer-events-none" disabled>
+        Fire Order to Kitchen 🔥
+      </button>
+
+      <button onclick="orderViaWhatsApp()" class="w-full py-2.5 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs tracking-wide flex items-center justify-center gap-2 shadow-sm transition-all">
+        <span class="material-symbols-outlined text-sm">chat</span>
+        <span>Order via WhatsApp Direct</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- Notification Toast -->
+  <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 bg-urban-card text-white px-5 py-2.5 rounded-full text-xs font-bold shadow-2xl opacity-0 pointer-events-none transition-all duration-300 z-50 flex items-center gap-2 border border-urban-amber/40">
+    <span class="material-symbols-outlined text-sm text-urban-amber">check_circle</span>
+    <span id="toastMsg">Added to tray</span>
+  </div>
+
+  <script>
+    const tray = [];
+    let currentCategory = 'all';
+    let currentDietFilter = null;
+    let isCouponApplied = false;
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      const msgEl = document.getElementById('toastMsg');
+      if (!toast || !msgEl) return;
+      msgEl.innerText = msg;
+      toast.classList.remove('opacity-0', 'pointer-events-none');
+      toast.classList.add('opacity-100');
+      setTimeout(() => {
+        toast.classList.add('opacity-0', 'pointer-events-none');
+        toast.classList.remove('opacity-100');
+      }, 2500);
+    }
+
+    function pingStaff() {
+      showToast('🔔 Staff alerted for Table #04! Someone will be right over.');
+    }
+
+    function setCategory(cat) {
+      currentCategory = cat;
+      document.querySelectorAll('.cat-btn').forEach(btn => {
+        if (btn.getAttribute('data-cat') === cat) {
+          btn.classList.add('bg-urban-amber', 'text-black');
+          btn.classList.remove('bg-urban-card', 'text-slate-200');
+        } else {
+          btn.classList.remove('bg-urban-amber', 'text-black');
+          btn.classList.add('bg-urban-card', 'text-slate-200');
+        }
+      });
+      filterProducts();
+    }
+
+    function toggleDiet(diet, btn) {
+      if (currentDietFilter === diet) {
+        currentDietFilter = null;
+        btn.classList.remove('bg-urban-amber', 'text-black');
+        btn.classList.add('bg-urban-card', 'text-slate-300');
+      } else {
+        document.querySelectorAll('.diet-btn').forEach(b => {
+          b.classList.remove('bg-urban-amber', 'text-black');
+          b.classList.add('bg-urban-card', 'text-slate-300');
+        });
+        currentDietFilter = diet;
+        btn.classList.add('bg-urban-amber', 'text-black');
+        btn.classList.remove('bg-urban-card', 'text-slate-300');
+      }
+      filterProducts();
+    }
+
+    function filterProducts() {
+      const query = (document.getElementById('searchInput')?.value || '').toLowerCase().trim();
+      document.querySelectorAll('.product-card').forEach(card => {
+        const cat = card.getAttribute('data-cat');
+        const diet = card.getAttribute('data-diet') || '';
+        const text = card.textContent.toLowerCase();
+
+        const matchCat = (currentCategory === 'all' || cat === currentCategory);
+        const matchDiet = (!currentDietFilter || diet.includes(currentDietFilter));
+        const matchQuery = (!query || text.includes(query));
+
+        if (matchCat && matchDiet && matchQuery) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    document.getElementById('searchInput')?.addEventListener('input', filterProducts);
+
+    function toggleTray(open) {
+      const overlay = document.getElementById('trayOverlay');
+      const drawer = document.getElementById('trayDrawer');
+      if (open) {
+        overlay.classList.remove('opacity-0', 'pointer-events-none');
+        overlay.classList.add('opacity-100');
+        drawer.classList.remove('translate-x-full');
+      } else {
+        overlay.classList.add('opacity-0', 'pointer-events-none');
+        overlay.classList.remove('opacity-100');
+        drawer.classList.add('translate-x-full');
+      }
+    }
+
+    function addToTray(name, price, btn) {
+      const card = btn.closest('.product-card');
+      const select = card ? card.querySelector('.item-option') : null;
+      const option = select ? select.value : 'Standard Portion';
+
+      const existing = tray.find(i => i.name === name && i.option === option);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        tray.push({ name, price, option, qty: 1 });
+      }
+
+      showToast(`Added ${name} to Tray`);
+      renderTray();
+      toggleTray(true);
+    }
+
+    function modifyQty(idx, delta) {
+      if (!tray[idx]) return;
+      tray[idx].qty += delta;
+      if (tray[idx].qty <= 0) {
+        tray.splice(idx, 1);
+      }
+      renderTray();
+    }
+
+    function applyPromoCode(code) {
+      document.getElementById('couponCodeInput').value = code;
+      applyCoupon();
+      toggleTray(true);
+    }
+
+    function applyCoupon() {
+      const code = (document.getElementById('couponCodeInput')?.value || '').trim().toUpperCase();
+      if (code === 'URBAN10') {
+        isCouponApplied = true;
+        document.getElementById('couponAppliedMsg').classList.remove('hidden');
+        showToast('🎉 Promo URBAN10 Applied (-10%)');
+      } else {
+        alert("Invalid promo code! Try URBAN10");
+        isCouponApplied = false;
+        document.getElementById('couponAppliedMsg').classList.add('hidden');
+      }
+      renderTray();
+    }
+
+    function renderTray() {
+      const list = document.getElementById('trayItemsList');
+      const emptyState = document.getElementById('trayEmptyState');
+      const subtotalEl = document.getElementById('traySubtotal');
+      const discountRow = document.getElementById('discountRow');
+      const discountEl = document.getElementById('trayDiscount');
+      const taxEl = document.getElementById('trayTax');
+      const totalEl = document.getElementById('trayTotal');
+      const dispatchBtn = document.getElementById('btnDispatchTray');
+
+      const totalItems = tray.reduce((s, i) => s + i.qty, 0);
+      document.getElementById('headerTrayCount').innerText = totalItems;
+      document.getElementById('stickyTrayCount').innerText = totalItems;
+
+      if (tray.length === 0) {
+        list.innerHTML = '';
+        if (emptyState) list.appendChild(emptyState);
+        subtotalEl.innerText = '₹0';
+        taxEl.innerText = '₹0';
+        totalEl.innerText = '₹0';
+        discountRow.classList.add('hidden');
+        dispatchBtn.disabled = true;
+        return;
+      }
+
+      list.innerHTML = '';
+      let subtotal = 0;
+
+      tray.forEach((item, idx) => {
+        subtotal += item.price * item.qty;
+        const row = document.createElement('div');
+        row.className = 'p-3 rounded-xl bg-urban-surface flex items-center justify-between gap-3 border border-slate-800';
+        row.innerHTML = `
+          <div class="flex-1 min-w-0">
+            <h5 class="font-outfit text-sm font-bold text-white truncate">${item.name}</h5>
+            <p class="text-[10px] text-urban-muted uppercase">${item.option}</p>
+            <span class="text-xs font-bold text-urban-amber">₹${item.price * item.qty}</span>
+          </div>
+          <div class="flex items-center gap-2 bg-urban-card px-2 py-1 rounded-full border border-slate-700">
+            <button onclick="modifyQty(${idx}, -1)" class="w-5 h-5 flex items-center justify-center font-bold text-white text-xs hover:bg-slate-800 rounded-full">-</button>
+            <span class="text-xs font-bold text-urban-amber px-1">${item.qty}</span>
+            <button onclick="modifyQty(${idx}, 1)" class="w-5 h-5 flex items-center justify-center font-bold text-white text-xs hover:bg-slate-800 rounded-full">+</button>
+          </div>
+        `;
+        list.appendChild(row);
+      });
+
+      let discount = 0;
+      if (isCouponApplied) {
+        discount = Math.round(subtotal * 0.10);
+        discountRow.classList.remove('hidden');
+        discountEl.innerText = `-₹${discount}`;
+      } else {
+        discountRow.classList.add('hidden');
+      }
+
+      const taxableAmount = Math.max(0, subtotal - discount);
+      const tax = Math.round(taxableAmount * 0.05);
+      const total = taxableAmount + tax;
+
+      subtotalEl.innerText = `₹${subtotal}`;
+      taxEl.innerText = `₹${tax}`;
+      totalEl.innerText = `₹${total}`;
+      dispatchBtn.disabled = false;
+    }
+
+    function dispatchTray() {
+      alert("🍔 Boom! Your smash burger order is dispatched to the kitchen line for Table #04.");
+      tray.length = 0;
+      renderTray();
+      toggleTray(false);
+    }
+
+    function orderViaWhatsApp() {
+      if (tray.length === 0) {
+        alert("Please add items to your tray first!");
+        return;
+      }
+      let summary = "🍔 Urban Bites Table #04 Order:\n\n";
+      let subtotal = 0;
+      tray.forEach((i, idx) => {
+        summary += `${idx + 1}. ${i.name} (${i.option}) x${i.qty} - ₹${i.price * i.qty}\n`;
+        subtotal += i.price * i.qty;
+      });
+      let discount = isCouponApplied ? Math.round(subtotal * 0.10) : 0;
+      let finalAmt = subtotal - discount;
+      let tax = Math.round(finalAmt * 0.05);
+
+      summary += `\nSubtotal: ₹${subtotal}`;
+      if (isCouponApplied) summary += `\nPromo (URBAN10): -₹${discount}`;
+      summary += `\nGST (5%): ₹${tax}\nTotal Payable: ₹${finalAmt + tax}\nTable: #04 (NFC Order)`;
+
+      const phone = (window.SMARTLINK_CONFIG && window.SMARTLINK_CONFIG.whatsappNumber) ? window.SMARTLINK_CONFIG.whatsappNumber : '917697912636';
+      const url = `https://wa.me/${phone}?text=${encodeURIComponent(summary)}`;
+      window.open(url, '_blank');
+    }
+  </script>
+</body>
+</html>

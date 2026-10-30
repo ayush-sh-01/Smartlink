@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Saffron Table | Imperial Haute Indian Cuisine | SmartLink Business</title>
+  <meta name="description" content="Heritage recipes of the Nizams and Mughal court, charcoal dum curries & master sommelier pairings. Tabletop digital menu powered by SmartLink Business NFC." />
+  
+  <!-- Fonts & Material Symbols -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'royal-bg': '#090807',
+            'royal-surface': '#151310',
+            'royal-card': '#1C1916',
+            'royal-gold': '#D4AF37',
+            'royal-gold-light': '#F5E6B3',
+            'royal-gold-dark': '#8E731F',
+            'royal-crimson': '#8B1E28',
+            'royal-muted': '#A3998E'
+          },
+          fontFamily: {
+            cinzel: ['Cinzel', 'serif'],
+            serif: ['Playfair Display', 'serif'],
+            sans: ['Plus Jakarta Sans', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { background-color: #090807; color: #F5E6B3; font-family: 'Plus Jakarta Sans', sans-serif; }
+    .font-cinzel { font-family: 'Cinzel', serif; }
+    .font-serif { font-family: 'Playfair Display', serif; }
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-thumb { background: #3D3528; border-radius: 999px; }
+  </style>
+</head>
+<body class="selection:bg-royal-gold/25 selection:text-royal-gold-light pb-24">
+
+  <!-- Fictional Demo Banner -->
+  <div class="sticky top-0 z-50 bg-[#0F0D0A] text-[#E8DCC2] px-4 py-2.5 flex items-center justify-between text-xs border-b border-royal-gold/25 shadow-lg">
+    <div class="flex items-center gap-2">
+      <span class="w-2 h-2 rounded-full bg-royal-gold animate-pulse"></span>
+      <span><strong>FICTIONAL LIVE DEMO</strong> • Powered by <strong class="text-royal-gold">SmartLink Business</strong></span>
+    </div>
+    <div class="flex items-center gap-3">
+      <span class="hidden sm:inline text-royal-muted">Imperial Haute Cuisine Tier</span>
+      <a href="../index.html" class="bg-royal-gold/15 hover:bg-royal-gold/25 text-royal-gold-light px-3 py-1 rounded-full font-medium transition-all border border-royal-gold/30">← Back to Homepage</a>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="bg-royal-surface/90 backdrop-blur-md border-b border-royal-gold/20 sticky top-[41px] z-40 transition-all">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3.5 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-royal-gold to-royal-gold-dark text-black flex items-center justify-center font-cinzel font-bold text-lg shadow-md border border-royal-gold-light/40">
+          ST
+        </div>
+        <div>
+          <h1 class="font-cinzel text-lg sm:text-2xl font-bold tracking-widest text-royal-gold leading-none">SAFFRON TABLE</h1>
+          <p class="text-[9px] sm:text-[11px] text-royal-muted tracking-[0.2em] uppercase mt-0.5 font-medium">Imperial Nizami Dining & Sommelier Cellar</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2 sm:gap-3">
+        <!-- Table Badge -->
+        <div class="hidden xs:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-royal-card border border-royal-gold/30 text-xs shadow-xs text-royal-gold-light">
+          <span class="w-2 h-2 rounded-full bg-royal-gold animate-ping"></span>
+          <span class="font-cinzel font-semibold">Table #14</span>
+          <span class="text-royal-muted text-[10px] hidden sm:inline">• NFC Active</span>
+        </div>
+
+        <!-- Sommelier Service Ping -->
+        <button onclick="pingSommelier()" class="px-3 py-1.5 rounded-full bg-royal-card hover:bg-royal-gold/15 text-royal-gold-light border border-royal-gold/30 text-xs font-semibold flex items-center gap-1 transition-all" title="Request Sommelier or Royal Attendant">
+          <span class="material-symbols-outlined text-sm text-royal-gold">wine_bar</span>
+          <span class="hidden md:inline">Sommelier</span>
+        </button>
+
+        <!-- Bag / Feast Tray Button -->
+        <button onclick="toggleFeastTray(true)" class="relative flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-royal-gold to-royal-gold-dark text-black text-xs font-bold hover:brightness-110 transition-all shadow-md">
+          <span class="material-symbols-outlined text-base">restaurant</span>
+          <span class="font-cinzel">Feast (<span id="headerFeastCount">0</span>)</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="relative overflow-hidden pt-10 pb-12 px-4 sm:px-6 bg-gradient-to-b from-royal-surface to-royal-bg">
+    <!-- Royal Filigree Background Motif -->
+    <div class="pointer-events-none absolute inset-0 opacity-10">
+      <svg class="w-full h-full text-royal-gold" viewBox="0 0 800 800" fill="none">
+        <circle cx="400" cy="400" r="300" stroke="currentColor" stroke-dasharray="10 15" stroke-width="1.5"></circle>
+        <circle cx="400" cy="400" r="240" stroke="currentColor" stroke-width="0.8"></circle>
+        <path d="M400,100 L410,390 L700,400 L410,410 L400,700 L390,410 L100,400 L390,390 Z" fill="currentColor" opacity="0.4"></path>
+      </svg>
+    </div>
+
+    <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+      <div class="lg:col-span-7 space-y-4">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-royal-gold/10 text-royal-gold text-xs font-semibold tracking-widest uppercase border border-royal-gold/30">
+          <span>⚜️</span>
+          <span>Michelin Guide Selected • Awadhi Heritage</span>
+        </div>
+        <h2 class="font-cinzel text-3xl sm:text-5xl text-royal-gold-light leading-[1.15] font-normal tracking-wide">
+          Royal Haute Cuisine of the <br/><span class="italic font-serif text-royal-gold font-normal">Nizam’s Court.</span>
+        </h2>
+        <p class="text-royal-muted text-sm sm:text-base max-w-xl leading-relaxed">
+          Slow-simmered earthen pot curries, 24-hour dal Bukhara over charcoal embers, and vintage French & Indian terroir pairings curated by Chief Sommelier.
+        </p>
+
+        <!-- Sommelier Details & Table Info -->
+        <div class="flex flex-wrap items-center gap-3 pt-2 text-xs">
+          <div class="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-royal-card border border-royal-gold/20 shadow-xs text-royal-gold-light">
+            <span class="material-symbols-outlined text-royal-gold text-sm">wifi</span>
+            <span><strong>Private Wi-Fi:</strong> Saffron-Lounge (PW: <em>imperialguest</em>)</span>
+            <button onclick="navigator.clipboard?.writeText('imperialguest'); alert('Wi-Fi Password Copied!');" class="text-royal-gold hover:underline text-[10px]">Copy</button>
+          </div>
+          <div class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-royal-card border border-royal-gold/20 shadow-xs text-royal-gold-light">
+            <span class="material-symbols-outlined text-royal-gold text-sm">star</span>
+            <span>Master Chef: Ustad Farooq Qureshi</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature Image -->
+      <div class="lg:col-span-5 relative">
+        <div class="relative w-full aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl border-2 border-royal-gold/40">
+          <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&auto=format&fit=crop&q=80" alt="Saffron Table Fine Dining Room" class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700" />
+          <div class="absolute inset-0 bg-gradient-to-t from-royal-bg/85 via-transparent to-transparent"></div>
+          <div class="absolute bottom-4 left-4 right-4 text-white">
+            <span class="text-[10px] tracking-widest uppercase font-semibold text-royal-gold font-cinzel">Table #14 Banquette</span>
+            <p class="font-serif text-base sm:text-lg text-royal-gold-light">Live Charcoal Sigri & Saffron Attar Infusion</p>
+          </div>
+        </div>
+        <div class="absolute -bottom-3 -right-2 bg-royal-card border border-royal-gold/40 px-3 py-1.5 rounded-full shadow-lg text-xs font-semibold text-royal-gold flex items-center gap-1.5 rotate-2">
+          <span>👑</span>
+          <span class="font-cinzel text-[11px]">24K Edible Gold Accents</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Metric Strip -->
+  <section class="bg-royal-surface border-y border-royal-gold/20 py-5 px-4">
+    <div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+      <div>
+        <span class="font-cinzel text-2xl font-bold text-royal-gold">24 hr</span>
+        <p class="text-xs text-royal-muted tracking-widest uppercase mt-0.5">Charcoal Dum Simmer</p>
+      </div>
+      <div>
+        <span class="font-cinzel text-2xl font-bold text-royal-gold">100%</span>
+        <p class="text-xs text-royal-muted tracking-widest uppercase mt-0.5">D.O.P. Kashmiri Saffron</p>
+      </div>
+      <div>
+        <span class="font-cinzel text-2xl font-bold text-royal-gold">48+</span>
+        <p class="text-xs text-royal-muted tracking-widest uppercase mt-0.5">Sommelier Cellar Labels</p>
+      </div>
+      <div>
+        <span class="font-cinzel text-2xl font-bold text-royal-gold">160</span>
+        <p class="text-xs text-royal-muted tracking-widest uppercase mt-0.5">Secret Shahi Spices</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Menu Catalog -->
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 pt-10" id="menu">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6">
+      <div>
+        <div class="flex items-center gap-2 text-xs font-semibold text-royal-gold uppercase tracking-widest mb-1">
+          <span class="material-symbols-outlined text-sm">auto_stories</span>
+          <span>Dastarkhwan • The Imperial Banquet</span>
+        </div>
+        <h3 class="font-cinzel text-2xl sm:text-3xl text-royal-gold-light font-bold">Royal Culinary Offerings</h3>
+      </div>
+      
+      <!-- Search Input -->
+      <div class="relative w-full md:w-72">
+        <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-royal-muted text-lg">search</span>
+        <input type="text" id="searchInput" placeholder="Search biryani, tandoor, curries..." class="w-full pl-9 pr-4 py-2 rounded-full bg-royal-card border border-royal-gold/30 text-xs text-royal-gold-light placeholder-royal-muted focus:outline-none focus:ring-2 focus:ring-royal-gold/40" />
+      </div>
+    </div>
+
+    <!-- Category Filters -->
+    <div class="flex items-center gap-2 overflow-x-auto pb-3 mb-6 scrollbar-none" id="categoryTabs">
+      <button onclick="setCategory('all')" class="cat-btn active px-4 py-2 rounded-full text-xs font-semibold bg-royal-gold text-black font-cinzel transition-all whitespace-nowrap shadow-md" data-cat="all">All Offerings (12)</button>
+      <button onclick="setCategory('starters')" class="cat-btn px-4 py-2 rounded-full text-xs font-semibold bg-royal-card hover:bg-royal-gold/15 text-royal-gold-light border border-royal-gold/30 font-cinzel transition-all whitespace-nowrap" data-cat="starters">Royal Starters (3)</button>
+      <button onclick="setCategory('tandoor')" class="cat-btn px-4 py-2 rounded-full text-xs font-semibold bg-royal-card hover:bg-royal-gold/15 text-royal-gold-light border border-royal-gold/30 font-cinzel transition-all whitespace-nowrap" data-cat="tandoor">Clay Oven Tandoor (3)</button>
+      <button onclick="setCategory('curries')" class="cat-btn px-4 py-2 rounded-full text-xs font-semibold bg-royal-card hover:bg-royal-gold/15 text-royal-gold-light border border-royal-gold/30 font-cinzel transition-all whitespace-nowrap" data-cat="curries">Curries of the Nizam (3)</button>
+      <button onclick="setCategory('biryani')" class="cat-btn px-4 py-2 rounded-full text-xs font-semibold bg-royal-card hover:bg-royal-gold/15 text-royal-gold-light border border-royal-gold/30 font-cinzel transition-all whitespace-nowrap" data-cat="biryani">Biryani & Breads (3)</button>
+    </div>
+
+    <!-- Dietary & Spice Filter -->
+    <div class="flex items-center gap-2 mb-8 text-xs flex-wrap">
+      <span class="text-royal-muted font-medium mr-1">Filter Dietary:</span>
+      <button onclick="toggleDiet('veg', this)" class="diet-btn px-3 py-1 rounded-full bg-royal-card border border-royal-gold/30 text-royal-gold-light text-[11px] font-medium transition-all">🟢 Vegetarian</button>
+      <button onclick="toggleDiet('nonveg', this)" class="diet-btn px-3 py-1 rounded-full bg-royal-card border border-royal-gold/30 text-royal-gold-light text-[11px] font-medium transition-all">🔴 Non-Veg</button>
+      <button onclick="toggleDiet('mild', this)" class="diet-btn px-3 py-1 rounded-full bg-royal-card border border-royal-gold/30 text-royal-gold-light text-[11px] font-medium transition-all">🌶️ Mild Heat</button>
+      <button onclick="toggleDiet('sommelier', this)" class="diet-btn px-3 py-1 rounded-full bg-royal-card border border-royal-gold/30 text-royal-gold-light text-[11px] font-medium transition-all">🍷 Sommelier Pairing</button>
+    </div>
+
+    <!-- Dish Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="productGrid">
+
+      <!-- Dish 1 -->
+      <article class="product-card group bg-royal-card rounded-2xl p-4 border border-royal-gold/25 hover:border-royal-gold/60 hover:shadow-2xl transition-all duration-300 flex flex-col justify-between" data-cat="starters" data-diet="nonveg,sommelier">
+        <div>
+          <div class="relative w-full h-48 rounded-xl overflow-hidden mb-3.5 bg-royal-surface">
+            <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=500&auto=format&fit=crop&q=80" alt="Awadhi Galouti Kebab" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            <span class="absolute top-2.5 left-2.5 bg-royal-surface/90 backdrop-blur-md px-2.5 py-0.5 rounded-full text-[10px] font-cinzel font-semibold text-royal-gold border border-royal-gold/30">Royal Heritage</span>
+            <span class="absolute bottom-2.5 right-2.5 bg-royal-surface text-royal-gold-light px-2 py-0.5 rounded-full text-[10px] border border-royal-gold/20">360 kcal</span>
+          </div>
+          <div class="flex items-baseline justify-between mb-1">
+            <h4 class="font-serif text-lg font-bold text-royal-gold-light">Awadhi Shahi Galouti Kebab</h4>
+            <span class="font-cinzel text-lg font-bold text-royal-gold">₹690</span>
+          </div>
+          <p class="text-xs text-royal-muted mb-3 line-clamp-2">Finely ground smoked prime lamb infused with 160 botanicals, served on miniature saffron sheermal bread with mint foam.</p>
+          <div class="flex flex-wrap gap-1.5 mb-4">
+            <span class="px-2 py-0.5 rounded-full bg-royal-surface text-[10px] text-royal-gold font-medium border border-royal-gold/20">🍷 Syrah 2018</span>
+            <span class="px-2 py-0.5 rounded-full bg-royal-surface text-[10px] text-royal-muted font-medium">Smoked Clove</span>
+            <span class="px-2 py-0.5 rounded-full bg-red-950 text-red-200 text-[10px]">Non-Veg</span>
+          </div>
+        </div>
+        <div class="pt-3 border-t border-royal-surface flex items-center justify-between gap-2">
+          <select class="item-option text-[11px] bg-royal-surface px-2.5 py-1.5 rounded-lg border border-royal-gold/30 font-medium text-royal-gold-light focus:outline-none">
+            <option value="4 Pieces Sheermal">4 Pieces w/ Sheermal</option>
+            <option value="6 Pieces Banquet">6 Pieces (+₹280)</option>
+          </select>
+          <button onclick="addToFeast('Awadhi Shahi Galouti Kebab', 690, this)" class="px-3.5 py-1.5 rounded-full bg-gradient-to-r from-royal-gold to-royal-gold-dark hover:brightness-110 text-black text-xs font-bold flex items-center gap-1 shadow-md transition-all font-cinzel">
+            <span class="material-symbols-outlined text-sm">add</span>
+            <span>Add</span>
+          </button>
+        </div>
+      </article>
+
+      <!-- Dish 2 -->
+      <article class="product-card group bg-royal-card rounded-2xl p-4 border border-royal-gold/25 hover:border-royal-gold/60 hover:shadow-2xl transition-all duration-300 flex flex-col justify-between" data-cat="starters" data-diet="nonveg,sommelier">
+        <div>
+          <div class="relative w-full h-48 rounded-xl overflow-hidden mb-3.5 bg-royal-surface">
+            <img src="https://images.unsplash.com/photo-1599488615731-7e5c2823ff28?w=500&auto=format&fit=crop&q=80" alt="Truffle Malai Chicken Tikka" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            <span class="absolute top-2.5 left-2.5 bg-royal-surface/90 backdrop-blur-md px-2.5 py-0.5 rounded-full text-[10px] font-cinzel font-semibold text-royal-gold border border-royal-gold/30">Sigri Grilled</span>
+            <span class="absolute bottom-2.5 right-2.5 bg-royal-surface text-royal-gold-light px-2 py-0.5 rounded-full text-[10px] border border-royal-gold/20">420 kcal</span>
+          </div>
+          <div class="flex items-baseline justify-between mb-1">
+            <h4 class="font-serif text-lg font-bold text-royal-gold-light">Truffle Malai Murgh Tikka</h4>
+            <span class="font-cinzel text-lg font-bold text-royal-gold">₹620</span>
+          </div>
+          <p class="text-xs text-royal-muted mb-3 line-clamp-2">Charcoal charred tender chicken supreme steeped in clotted cream, green cardamom, white cheddar, and black winter truffle butter.</p>
+          <div class="flex flex-wrap gap-1.5 mb-4">
+            <span class="px-2 py-0.5 rounded-full bg-royal-surface text-[10px] text-royal-gold font-medium border border-royal-gold/20">🍷 Oaked Chardonnay</span>
+            <span class="px-2 py-0.5 rounded-full bg-royal-surface text-[10px] text-royal-muted font-medium">Mild Cream</span>
+            <span class="px-2 py-0.5 rounded-full bg-red-950 text-red-200 text-[10px]">Non-Veg</span>
+          </div>
+        </div>
+        <div class="pt-3 border-t border-royal-surface flex items-center justify-between gap-2">
+          <select class="item-option text-[11px] bg-royal-surface px-2.5 py-1.5 rounded-lg border border-royal-gold/30 font-medium text-royal-gold-light focus:outline-none">
+            <option value="Sigri Skewer (5 pcs)">Sigri Skewer (5 pcs)</option>
+            <option value="Large Platter (8 pcs)">Large Platter (+₹290)</option>
+          </select>
+          <button onclick="addToFeast('Truffle Malai Murgh Tikka', 620, this)" class="px-3.5 py-1.5 rounded-full bg-gradient-to-r from-royal-gold to-royal-gold-dark hover:brightness-110 text-black text-xs font-bold flex items-center gap-1 shadow-md transition-all font-cinzel">
+            <span class="material-symbols-outlined text-sm">add</span>
+            <span>Add</span>
+          </button>
+        </div>
+      </article>
+
+      <!-- Dish 3 -->
+      <article class="product-card group bg-royal-card rounded-2xl p-4 border border-royal-gold/25 hover:border-royal-gold/60 hover:shadow-2xl transition-all duration-300 flex flex-col justify-between" data-cat="starters" data-diet="veg,mild">
+        <div>
+          <div class="relative w-full h-48 rounded-xl overflow-hidden mb-3.5 bg-royal-surface">
+            <img src="https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?w=500&auto=format&fit=crop&q=80" alt="Nadru Goolar Lotus Kebab" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            <span class="absolute top-2.5 left-2.5 bg-royal-surface/90 backdrop-blur-md px-2.5 py-0.5 rounded-full text-[10px] font-cinzel font-semibold text-royal-gold border border-royal-gold/30">Kashmiri Regal</span>
+            <span class="absolute bottom-2.5 right-2.5 bg-royal-surface text-royal-gold-light px-2 py-0.5 rounded-full text-[10px] border border-royal-gold/20">280 kcal</span>
+          </div>
+          <div class="flex items-baseline justify-between mb-1">
+            <h4 class="font-serif text-lg font-bold text-royal-gold-light">Kashmiri Nadru Goolar Kebab</h4>
+            <span class="font-cinzel text-lg font-bold text-royal-gold">₹540</span>
+          </div>
+          <p class="text-xs text-royal-muted mb-3 line-clamp-2">Tender Dal Lake lotus stem croquettes stuffed with dried plums, pine nuts, and saffron cream, pan-seared in copper lagan.</p>
+          <div class="flex flex-wrap gap-1.5 mb-4">
+            <span class="px-2 py-0.5 rounded-full bg-emerald-950 text-emerald-200 text-[10px]">Pure Veg</span>
+            <span class="px-2 py-0.5 rounded-full bg-royal-surface text-[10px] text-royal-gold font-medium border border-royal-gold/20">Pine Nuts & Plum</span>
+          </div>
+        </div>
+        <div class="pt-3 border-t border-royal-surface flex items-center justify-between gap-2">
+          <select class="item-option text-[11px] bg-royal-surface px-2.5 py-1.5 rounded-lg border border-royal-gold/30 font-medium text-royal-gold-light focus:outline-none">
+            <option value="Portion of 4">Portion of 4</option>
+            <option value="Portion of 6">Portion of 6 (+₹220)</option>
+          </select>
+          <button onclick="addToFeast('Kashmiri Nadru Goolar Kebab', 540, this)" class="px-3.5 py-1.5 rounded-full bg-gradient-to-r from-royal-gold to-royal-gold-dark hover:brightness-110 text-black text-xs font-bold flex items-center gap-1 shadow-md transition-all font-cinzel">
+            <span class="material-symbols-outlined text-sm">add</span>
+            <span>Add</span>
+          </button>
+        </div>
+      </article>
+
+      <!-- Dish 4 -->
+      <article class="product-card group bg-royal-card rounded-2xl p-4 border border-royal-gold/25 hover:border-royal-gold/60 hover:shadow-2xl transition-all duration-300 flex flex-col justify-between" data-cat="tandoor" data-diet="nonveg,sommelier">
+        <div>
+          <div class="relative w-full h-48 rounded-xl overflow-hidden mb-3.5 bg-royal-surface">
+            <img src="https://images.unsplash.com/photo-1559847844-5315695dadae?w=500&auto=format&fit=crop&q=80" alt="Tandoori Jumbo Tiger Prawns" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            <span class="absolute top-2.5 left-2.5 bg-royal-surface/90 backdrop-blur-md px-2.5 py-0.5 rounded-full text-[10px] font-cinzel font-semibold text-royal-gold border border-royal-gold/30">Coastal Royal</span>
+            <span class="absolute bottom-2.5 right-2.5 bg-royal-surface text-royal-gold-light px-2 py-0.5 rounded-full text-[10px] border border-royal-gold/20">310 kcal</span>
+          </div>
+          <div class="flex items-baseline justify-between mb-1">
+            <h4 class="font-serif text-lg font-bold text-royal-gold-light">Tandoori Zafrani Jumbo Prawns</h4>
+            <span class="font-cinzel text-lg font-bold text-royal-gold">₹890</span>
+          </div>
+          <p class="text-xs text-royal-muted mb-3 line-clamp-2">Giant bay prawns marinated in Bengali kasundi mustard, crushed royal cumin, and saffron threads, roasted in clay oven.</p>
+          <div class="flex flex-wrap gap-1.5 mb-4">
+            <span class="px-2 py-0.5 rounded-full bg-royal-surface text-[10px] text-royal-gold font-medium border border-royal-gold/20">🍷 Sauvignon Blanc</span>
+            <span class="px-2 py-0.5 rounded-full bg-red-950 text-red-200 text-[10px]">Non-Veg</span>
+          </div>
+        </div>
+        <div class="pt-3 border-t border-royal-surface flex items-center justify-between gap-2">
+          <select class="item-option text-[11px] bg-royal-surface px-2.5 py-1.5 rounded-lg border border-royal-gold/30 font-medium text-royal-gold-light focus:outline-none">
+            <option value="3 King Prawns">3 King Prawns</option>
+            <option value="5 King Prawns">5 King Prawns (+₹480)</option>
+          </select>
+          <button onclick="addToFeast('Tandoori Zafrani Jumbo Prawns', 890, this)" class="px-3.5 py-1.5 rounded-full bg-gradient-to-r from-royal-gold to-royal-gold-dark hover:brightness-110 text-black text-xs font-bold flex items-center gap-1 shadow-md transition-all font-cinzel">
+            <span class="material-symbols-outlined text-sm">add</span>
+            <span>Add</span>
+          </button>
+        </div>
+      </article>
+
+      <!-- Dish 5 -->
+      <article class="product-card group bg-royal-card rounded-2xl p-4 border border-royal-gold/25 hover:border-royal-gold/60 hover:shadow-2xl transition-all duration-300 flex flex-col justify-between" data-cat="tandoor" data-diet="nonveg,sommelier">
+        <div>
+          <div class="relative w-full h-48 rounded-xl overflow-hidden mb-3.5 bg-royal-surface">
+            <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=500&auto=format&fit=crop&q=80" alt="Sikandari Raan Slow Roasted" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            <span class="absolute top-2.5 left-2.5 bg-royal-surface/90 backdrop-blur-md px-2.5 py-0.5 rounded-full text-[10px] font-cinzel font-semibold text-royal-gold border border-royal-gold/30">12hr Braise</span>
+            <span class="absolute bottom-2.5 right-2.5 bg-royal-surface text-royal-gold-light px-2 py-0.5 rounded-full text-[10px] border border-royal-gold/20">680 kcal</span>
+          </div>
+          <div class="flex items-baseline justify-between mb-1">
+            <h4 class="font-serif text-lg font-bold text-royal-gold-light">Sikandari Dum Raan-e-Khaas</h4>
+            <span class="font-cinzel text-lg font-bold text-royal-gold">₹1,450</span>
+          </div>
+          <p class="text-xs text-royal-muted mb-3 line-clamp-2">Whole leg of spring lamb macerated in malt vinegar, dark rum, and cinnamon, slow-roasted in sealed tandoor over sal wood.</p>
+          <div class="flex flex-wrap gap-1.5 mb-4">
+            <span class="px-2 py-0.5 rounded-full bg-royal-surface text-[10px] text-royal-gold font-medium border border-royal-gold/20">🍷 Cabernet Sauvignon</span>
+            <span class="px-2 py-0.5 rounded-full bg-red-950 text-red-200 text-[10px]">Non-Veg</span>
+          </div>
+        </div>
+        <div class="pt-3 border-t border-royal-surface flex items-center justify-between gap-2">
+          <select class="item-option text-[11px] bg-royal-surface px-2.5 py-1.5 rounded-lg border border-royal-gold/30 font-medium text-royal-gold-light focus:outline-none">
+            <option value="Half Raan (Serves 2)">Half Raan (Serves 2)</option>
+            <option value="Full Raan Feast">Full Imperial Raan (+₹1,100)</option>
+          </select>
+          <button onclick="addToFeast('Sikandari Dum Raan-e-Khaas', 1450, this)" class="px-3.5 py-1.5 rounded-full bg-gradient-to-r from-royal-gold to-royal-gold-dark hover:brightness-110 text-black text-xs font-bold flex items-center gap-1 shadow-md transition-all font-cinzel">
+            <span class="material-symbols-outlined text-sm">add</span>
+            <span>Add</span>
+          </button>
+        </div>
+      </article>
+
+      <!-- Dish 6 -->
+      <article class="product-card group bg-royal-card rounded-2xl p-4 border border-royal-gold/25 hover:border-royal-gold/60 hover:shadow-2xl transition-all duration-300 flex flex-col justify-between" data-cat="tandoor" data-diet="veg,mild">
+        <div>
+          <div class="relative w-full h-48 rounded-xl overflow-hidden mb-3.5 bg-royal-surface">
+            <img src="https://images.unsplash.com/photo-1599488615731-7e5c2823ff28?w=500&auto=format&fit=crop&q=80" alt="Paneer Pesto Bharwan Tikka" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            <span class="absolute top-2.5 left-2.5 bg-royal-surface/90 backdrop-blur-md px-2.5 py-0.5 rounded-full text-[10px] font-cinzel font-semibold text-royal-gold border border-royal-gold/30">Artisan Paneer</span>
+            <span class="absolute bottom-2.5 right-2.5 bg-royal-surface text-royal-gold-light px-2 py-0.5 rounded-full text-[10px] border border-royal-gold/20">390 kcal</span>
+          </div>
+          <div class="flex items-baseline justify-between mb-1">
+            <h4 class="font-serif text-lg font-bold text-royal-gold-light">Paneer Badshahi Bharwan Tikka</h4>
+            <span class="font-cinzel text-lg font-bold text-royal-gold">₹560</span>
+          </div>
+          <p class="text-xs text-royal-muted mb-3 line-clamp-2">Layered organic buffalo cottage cheese sandwiches stuffed with crushed walnuts, dried apricots, and mint chutney glaze.</p>
+          <div class="flex flex-wrap gap-1.5 mb-4">
+            <span class="px-2 py-0.5 rounded-full bg-emerald-950 text-emerald-200 text-[10px]">Pure Veg</span>
+            <span class="px-2 py-0.5 rounded-full bg-royal-surface text-[10px] text-royal-gold font-medium border border-royal-gold/20">Walnut & Apricot</span>
+          </div>
+        </div>
+        <div class="pt-3 border-t border-royal-surface flex items-center justify-between gap-2">
+          <select class="item-option text-[11px] bg-royal-surface px-2.5 py-1.5 rounded-lg border border-royal-gold/30 font-medium text-royal-gold-light focus:outline-none">
+            <option value="Classic Tikka (4 pcs)">Classic Tikka (4 pcs)</option>
+            <option value="Platter (6 pcs)">Platter (6 pcs) (+₹210)</option>
+          </select>
+          <button onclick="addToFeast('Paneer Badshahi Bharwan Tikka', 560, this)" class="px-3.5 py-1.5 rounded-full bg-gradient-to-r from-royal-gold to-royal-gold-dark hover:brightness-110 text-black text-xs font-bold flex items-center gap-1 shadow-md transition-all font-cinzel">
+            <span class="material-symbols-outlined text-sm">add</span>
+            <span>Add</span>
+          </button>
+        </div>
+      </article>
+
+      <!-- Dish 7 -->
+      <article class="product-card group bg-royal-card rounded-2xl p-4 border border-royal-gold/25 hover:border-royal-gold/60 hover:shadow-2xl transition-all duration-300 flex flex-col justify-between" data-cat="curries" data-diet="veg,sommelier">
+        <div>
+          <div class="relative w-full h-48 rounded-xl overflow-hidden mb-3.5 bg-royal-surface">
+            <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=500&auto=format&fit=crop&q=80" alt="Dal Bukhara 24hr Black Lentils" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            <span class="absolute top-2.5 left-2.5 bg-royal-surface/90 backdrop-blur-md px-2.5 py-0.5 rounded-full text-[10px] font-cinzel font-semibold text-royal-gold border border-royal-gold/30">24hr Ember Simmer</span>
+            <span class="absolute bottom-2.5 right-2.5 bg-royal-surface text-royal-gold-light px-2 py-0.5 rounded-full text-[10px] border border-royal-gold/20">460 kcal</span>
+          </div>
+          <div class="flex items-baseline justify-between mb-1">
+            <h4 class="font-serif text-lg font-bold text-royal-gold-light">Dal Bukhara 24-Hour Handi</h4>
+            <span class="font-cinzel text-lg font-bold text-royal-gold">₹520</span>
+          </div>
+          <p class="text-xs text-royal-muted mb-3 line-clamp-2">Whole black urad lentils slow-cooked uninterrupted for 24 hours over charcoal with churned butter and San Marzano tomatoes.</p>
+          <div class="flex flex-wrap gap-1.5 mb-4">
+            <span class="px-2 py-0.5 rounded-full bg-emerald-950 text-emerald-200 text-[10px]">Pure Veg</span>
+            <span class="px-2 py-0.5 rounded-full bg-royal-surface text-[10px] text-royal-gold font-medium border border-royal-gold/20">Smoked Butter</span>
+          </div>
+        </div>
+        <div class="pt-3 border-t border-royal-surface flex items-center justify-between gap-2">
+          <select class="item-option text-[11px] bg-royal-surface px-2.5 py-1.5 rounded-lg border border-royal-gold/30 font-medium text-royal-gold-light focus:outline-none">
+            <option value="Single Handi">Single Copper Handi</option>
+            <option value="Handi w/ Garlic Naan">With Garlic Naan (+₹110)</option>
+          </select>
+          <button onclick="addToFeast('Dal Bukhara 24-Hour Handi', 520, this)" class="px-3.5 py-1.5 rounded-full bg-gradient-to-r from-royal-gold to-royal-gold-dark hover:brightness-110 text-black text-xs font-bold flex items-center gap-1 shadow-md transition-all font-cinzel">
+            <span class="material-symbols-outlined text-sm">add</span>
+            <span>Add</span>
+          </button>
+        </div>
+      </article>
+
+      <!-- Dish 8 -->
+      <article class="product-card group bg-royal-card rounded-2xl p-4 border border-royal-gold/25 hover:border-royal-gold/60 hover:shadow-2xl transition-all duration-300 flex flex-col justify-between" data-cat="curries" data-diet="nonveg,sommelier">
+        <div>
+          <div class="relative w-full h-48 rounded-xl overflow-hidden mb-3.5 bg-royal-surface">
+            <img src="https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=500&auto=format&fit=crop&q=80" alt="Nalli Nihari Khas Shahi" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            <span class="absolute top-2.5 left-2.5 bg-royal-surface/90 backdrop-blur-md px-2.5 py-0.5 rounded-full text-[10px] font-cinzel font-semibold text-royal-gold border border-royal-gold/30">Chef's Signature</span>
+            <span class="absolute bottom-2.5 right-2.5 bg-royal-surface text-royal-gold-light px-2 py-0.5 rounded-full text-[10px] border border-royal-gold/20">640 kcal</span>
+          </div>
+          <div class="flex items-baseline justify-between mb-1">
+            <h4 class="font-serif text-lg font-bold text-royal-gold-light">Nalli Nihari Khas Awadh</h4>
+            <span class="font-cinzel text-lg font-bold text-royal-gold">₹780</span>
+          </div>
+          <p class="text-xs text-royal-muted mb-3 line-clamp-2">Slow-stewed tender baby lamb shanks in rich marrow broth infused with rose petals, sandalwood essence, and vetiver attar.</p>
+          <div class="flex flex-wrap gap-1.5 mb-4">
+            <span class="px-2 py-0.5 rounded-full bg-royal-surface text-[10px] text-royal-gold font-medium border border-royal-gold/20">🍷 Pinot Noir</span>
+            <span class="px-2 py-0.5 rounded-full bg-red-950 text-red-200 text-[10px]">Non-Veg</span>
+          </div>
+        </div>
+        <div class="pt-3 border-t border-royal-surface flex items-center justify-between gap-2">
+          <select class="item-option text-[11px] bg-royal-surface px-2.5 py-1.5 rounded-lg border border-royal-gold/30 font-medium text-royal-gold-light focus:outline-none">
+            <option value="Single Shank Pot">Single Shank Pot</option>
+            <option value="Double Shank Feast">Double Shank Feast (+₹490)</option>
+          </select>
+          <button onclick="addToFeast('Nalli Nihari Khas Awadh', 780, this)" class="px-3.5 py-1.5 rounded-full bg-gradient-to-r from-royal-gold to-royal-gold-dark hover:brightness-110 text-black text-xs font-bold flex items-center gap-1 shadow-md transition-all font-cinzel">
+            <span class="material-symbols-outlined text-sm">add</span>
+            <span>Add</span>
+          </button>
+        </div>
+      </article>
+
+      <!-- Dish 9 -->
+      <article class="product-card group bg-royal-card rounded-2xl p-4 border border-royal-gold/25 hover:border-royal-gold/60 hover:shadow-2xl transition-all duration-300 flex flex-col justify-between" data-cat="curries" data-diet="veg,mild">
+        <div>
+          <div class="relative w-full h-48 rounded-xl overflow-hidden mb-3.5 bg-royal-surface">
+            <img src="https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=500&auto=format&fit=crop&q=80" alt="Shahi Zafrani Paneer Lababdar" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            <span class="absolute top-2.5 left-2.5 bg-royal-surface/90 backdrop-blur-md px-2.5 py-0.5 rounded-full text-[10px] font-cinzel font-semibold text-royal-gold border border-royal-gold/30">Creamy Saffron</span>
+            <span class="absolute bottom-2.5 right-2.5 bg-royal-surface text-royal-gold-light px-2 py-0.5 rounded-full text-[10px] border border-royal-gold/20">480 kcal</span>
+          </div>
+          <div class="flex items-baseline justify-between mb-1">
+            <h4 class="font-serif text-lg font-bold text-royal-gold-light">Shahi Zafrani Paneer Lababdar</h4>
+            <span class="font-cinzel text-lg font-bold text-royal-gold">₹580</span>
+          </div>
+          <p class="text-xs text-royal-muted mb-3 line-clamp-2">Cottage cheese medallions poached in satin gravy of roasted melon seeds, charmagaz, Kashmiri saffron, and sun-dried fenugreek.</p>
+          <div class="flex flex-wrap gap-1.5 mb-4">
+            <span class="px-2 py-0.5 rounded-full bg-emerald-950 text-emerald-200 text-[10px]">Pure Veg</span>
+            <span class="px-2 py-0.5 rounded-full bg-royal-surface text-[10px] text-royal-gold font-medium border border-royal-gold/20">Kashmiri Saffron</span>
+          </div>
+        </div>
+        <div class="pt-3 border-t border-royal-surface flex items-center justify-between gap-2">
+          <select class="item-option text-[11px] bg-royal-surface px-2.5 py-1.5 rounded-lg border border-royal-gold/30 font-medium text-royal-gold-light focus:outline-none">
+            <option value="Single Handi">Single Handi</option>
+            <option value="With Laccha Paratha">With Laccha Paratha (+₹90)</option>
+          </select>
+          <button onclick="addToFeast('Shahi Zafrani Paneer Lababdar', 580, this)" class="px-3.5 py-1.5 rounded-full bg-gradient-to-r from-royal-gold to-royal-gold-dark hover:brightness-110 text-black text-xs font-bold flex items-center gap-1 shadow-md transition-all font-cinzel">
+            <span class="material-symbols-outlined text-sm">add</span>
+            <span>Add</span>
+          </button>
+        </div>
+      </article>
+
+      <!-- Dish 10 -->
+      <article class="product-card group bg-royal-card rounded-2xl p-4 border border-royal-gold/25 hover:border-royal-gold/60 hover:shadow-2xl transition-all duration-300 flex flex-col justify-between" data-cat="biryani" data-diet="nonveg,sommelier">
+        <div>
+          <div class="relative w-full h-48 rounded-xl overflow-hidden mb-3.5 bg-royal-surface">
+            <img src="https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=500&auto=format&fit=crop&q=80" alt="Awadhi Dum Gosht Biryani" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            <span class="absolute top-2.5 left-2.5 bg-royal-surface/90 backdrop-blur-md px-2.5 py-0.5 rounded-full text-[10px] font-cinzel font-semibold text-royal-gold border border-royal-gold/30">Dough Sealed Dum</span>
+            <span class="absolute bottom-2.5 right-2.5 bg-royal-surface text-royal-gold-light px-2 py-0.5 rounded-full text-[10px] border border-royal-gold/20">610 kcal</span>
+          </div>
+          <div class="flex items-baseline justify-between mb-1">
+            <h4 class="font-serif text-lg font-bold text-royal-gold-light">Awadhi Dum Gosht Biryani</h4>
+            <span class="font-cinzel text-lg font-bold text-royal-gold">₹750</span>
+          </div>
+          <p class="text-xs text-royal-muted mb-3 line-clamp-2">Slow-cooked spring lamb and 2-year aged Dehradun basmati rice sealed in earthen pot with kewra water, mace, and pure ghee.</p>
+          <div class="flex flex-wrap gap-1.5 mb-4">
+            <span class="px-2 py-0.5 rounded-full bg-royal-surface text-[10px] text-royal-gold font-medium border border-royal-gold/20">🍷 Indian Sula Dindori</span>
+            <span class="px-2 py-0.5 rounded-full bg-red-950 text-red-200 text-[10px]">Non-Veg</span>
+          </div>
+        </div>
+        <div class="pt-3 border-t border-royal-surface flex items-center justify-between gap-2">
+          <select class="item-option text-[11px] bg-royal-surface px-2.5 py-1.5 rounded-lg border border-royal-gold/30 font-medium text-royal-gold-light focus:outline-none">
+            <option value="Single Handi w/ Raita">Handi w/ Burani Raita</option>
+            <option value="Dastarkhwan Feast Pot">Imperial Pot (+₹520)</option>
+          </select>
+          <button onclick="addToFeast('Awadhi Dum Gosht Biryani', 750, this)" class="px-3.5 py-1.5 rounded-full bg-gradient-to-r from-royal-gold to-royal-gold-dark hover:brightness-110 text-black text-xs font-bold flex items-center gap-1 shadow-md transition-all font-cinzel">
+            <span class="material-symbols-outlined text-sm">add</span>
+            <span>Add</span>
+          </button>
+        </div>
+      </article>
+
+      <!-- Dish 11 -->
+      <article class="product-card group bg-royal-card rounded-2xl p-4 border border-royal-gold/25 hover:border-royal-gold/60 hover:shadow-2xl transition-all duration-300 flex flex-col justify-between" data-cat="biryani" data-diet="veg,mild">
+        <div>
+          <div class="relative w-full h-48 rounded-xl overflow-hidden mb-3.5 bg-royal-surface">
+            <img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=500&auto=format&fit=crop&q=80" alt="Subz Parda Saffron Biryani" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            <span class="absolute top-2.5 left-2.5 bg-royal-surface/90 backdrop-blur-md px-2.5 py-0.5 rounded-full text-[10px] font-cinzel font-semibold text-royal-gold border border-royal-gold/30">Parda Crust</span>
+            <span class="absolute bottom-2.5 right-2.5 bg-royal-surface text-royal-gold-light px-2 py-0.5 rounded-full text-[10px] border border-royal-gold/20">450 kcal</span>
+          </div>
+          <div class="flex items-baseline justify-between mb-1">
+            <h4 class="font-serif text-lg font-bold text-royal-gold-light">Subz Parda Saffron Biryani</h4>
+            <span class="font-cinzel text-lg font-bold text-royal-gold">₹590</span>
+          </div>
+          <p class="text-xs text-royal-muted mb-3 line-clamp-2">Seasonal vegetables, baby morels, and mint-scented basmati rice baked beneath a golden flaky saffron puff pastry lid.</p>
+          <div class="flex flex-wrap gap-1.5 mb-4">
+            <span class="px-2 py-0.5 rounded-full bg-emerald-950 text-emerald-200 text-[10px]">Pure Veg</span>
+            <span class="px-2 py-0.5 rounded-full bg-royal-surface text-[10px] text-royal-gold font-medium border border-royal-gold/20">Flaky Crust</span>
+          </div>
+        </div>
+        <div class="pt-3 border-t border-royal-surface flex items-center justify-between gap-2">
+          <select class="item-option text-[11px] bg-royal-surface px-2.5 py-1.5 rounded-lg border border-royal-gold/30 font-medium text-royal-gold-light focus:outline-none">
+            <option value="Single Pot w/ Salan">Single Pot w/ Mirch Salan</option>
+            <option value="Sharing Handi">Sharing Handi (+₹380)</option>
+          </select>
+          <button onclick="addToFeast('Subz Parda Saffron Biryani', 590, this)" class="px-3.5 py-1.5 rounded-full bg-gradient-to-r from-royal-gold to-royal-gold-dark hover:brightness-110 text-black text-xs font-bold flex items-center gap-1 shadow-md transition-all font-cinzel">
+            <span class="material-symbols-outlined text-sm">add</span>
+            <span>Add</span>
+          </button>
+        </div>
+      </article>
+
+      <!-- Dish 12 -->
+      <article class="product-card group bg-royal-card rounded-2xl p-4 border border-royal-gold/25 hover:border-royal-gold/60 hover:shadow-2xl transition-all duration-300 flex flex-col justify-between" data-cat="biryani" data-diet="veg">
+        <div>
+          <div class="relative w-full h-48 rounded-xl overflow-hidden mb-3.5 bg-royal-surface">
+            <img src="https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?w=500&auto=format&fit=crop&q=80" alt="Shahi Tukda with 24K Gold Leaf" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            <span class="absolute top-2.5 left-2.5 bg-royal-surface/90 backdrop-blur-md px-2.5 py-0.5 rounded-full text-[10px] font-cinzel font-semibold text-royal-gold border border-royal-gold/30">24K Gold Varq</span>
+            <span class="absolute bottom-2.5 right-2.5 bg-royal-surface text-royal-gold-light px-2 py-0.5 rounded-full text-[10px] border border-royal-gold/20">390 kcal</span>
+          </div>
+          <div class="flex items-baseline justify-between mb-1">
+            <h4 class="font-serif text-lg font-bold text-royal-gold-light">Shahi Tukda with 24K Gold Leaf</h4>
+            <span class="font-cinzel text-lg font-bold text-royal-gold">₹380</span>
+          </div>
+          <p class="text-xs text-royal-muted mb-3 line-clamp-2">Crispy ghee-fried brioche steeped in condensed saffron rabri, garnished with Iranian pistachios, silver leaf, and 24K edible gold.</p>
+          <div class="flex flex-wrap gap-1.5 mb-4">
+            <span class="px-2 py-0.5 rounded-full bg-emerald-950 text-emerald-200 text-[10px]">Pure Veg</span>
+            <span class="px-2 py-0.5 rounded-full bg-royal-surface text-[10px] text-royal-gold font-medium border border-royal-gold/20">Edible Gold</span>
+          </div>
+        </div>
+        <div class="pt-3 border-t border-royal-surface flex items-center justify-between gap-2">
+          <select class="item-option text-[11px] bg-royal-surface px-2.5 py-1.5 rounded-lg border border-royal-gold/30 font-medium text-royal-gold-light focus:outline-none">
+            <option value="Dessert Coupe">Coupe Serving</option>
+            <option value="With Kulfi Scoop">With Malai Kulfi (+₹120)</option>
+          </select>
+          <button onclick="addToFeast('Shahi Tukda with 24K Gold Leaf', 380, this)" class="px-3.5 py-1.5 rounded-full bg-gradient-to-r from-royal-gold to-royal-gold-dark hover:brightness-110 text-black text-xs font-bold flex items-center gap-1 shadow-md transition-all font-cinzel">
+            <span class="material-symbols-outlined text-sm">add</span>
+            <span>Add</span>
+          </button>
+        </div>
+      </article>
+
+    </div>
+  </main>
+
+  <!-- Sticky Mobile Launcher -->
+  <div class="fixed bottom-6 right-6 z-40">
+    <button onclick="toggleFeastTray(true)" class="flex items-center gap-2.5 px-5 py-3 rounded-full bg-gradient-to-r from-royal-gold to-royal-gold-dark text-black font-cinzel font-bold text-xs uppercase tracking-wider shadow-2xl hover:brightness-110 transition-all transform hover:scale-105 border border-royal-gold-light/40">
+      <span class="material-symbols-outlined text-base">restaurant</span>
+      <span>Royal Feast (<span id="stickyFeastCount">0</span>)</span>
+    </button>
+  </div>
+
+  <!-- Slide-out Feast Tray Drawer -->
+  <div id="feastOverlay" class="fixed inset-0 bg-black/70 backdrop-blur-xs z-50 opacity-0 pointer-events-none transition-opacity duration-300" onclick="toggleFeastTray(false)"></div>
+  <aside id="feastDrawer" class="fixed top-0 right-0 h-full w-full sm:w-[440px] bg-royal-surface z-50 shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col justify-between border-l border-royal-gold/30">
+    <!-- Header -->
+    <div class="p-5 bg-royal-card border-b border-royal-gold/25 flex items-center justify-between">
+      <div class="flex items-center gap-2.5">
+        <div class="w-8 h-8 rounded-full bg-royal-gold text-black flex items-center justify-center font-cinzel font-bold text-sm">
+          ⚜️
+        </div>
+        <div>
+          <h4 class="font-cinzel text-lg font-bold text-royal-gold-light">Table #14 Royal Feast</h4>
+          <p class="text-[10px] text-royal-muted">Saffron Table • Imperial Banquet</p>
+        </div>
+      </div>
+      <button onclick="toggleFeastTray(false)" class="w-8 h-8 rounded-full hover:bg-royal-surface flex items-center justify-center text-royal-muted">
+        <span class="material-symbols-outlined text-lg">close</span>
+      </button>
+    </div>
+
+    <!-- Items List -->
+    <div id="feastItemsList" class="flex-1 overflow-y-auto p-5 space-y-3">
+      <!-- Empty State -->
+      <div id="feastEmptyState" class="text-center py-16">
+        <span class="material-symbols-outlined text-5xl text-royal-gold/40 mb-2">dinner_dining</span>
+        <p class="font-cinzel text-base font-semibold text-royal-gold-light">Your banquet tray is empty</p>
+        <p class="text-xs text-royal-muted mt-1">Select royal dishes from the dastarkhwan to commence dining.</p>
+      </div>
+    </div>
+
+    <!-- Footer & Checkout -->
+    <div class="p-5 bg-royal-card border-t border-royal-gold/25 space-y-3">
+      <div class="space-y-1.5 text-xs">
+        <div class="flex justify-between text-royal-muted">
+          <span>Banquet Subtotal</span>
+          <span id="feastSubtotal" class="font-cinzel font-semibold text-royal-gold-light">₹0</span>
+        </div>
+        <div class="flex justify-between text-royal-muted text-[11px]">
+          <span>GST (5%)</span>
+          <span id="feastTax">₹0</span>
+        </div>
+        <div class="pt-2 flex justify-between font-cinzel text-base font-bold text-royal-gold border-t border-royal-gold/15">
+          <span>Total Estimation</span>
+          <span id="feastTotal" class="text-royal-gold-light">₹0</span>
+        </div>
+      </div>
+
+      <div class="flex items-center justify-center gap-4 py-2 bg-royal-surface rounded-xl text-xs border border-royal-gold/20">
+        <label class="inline-flex items-center gap-1.5 cursor-pointer font-medium text-royal-gold-light">
+          <input type="radio" name="orderType" value="table" checked class="accent-royal-gold">
+          <span>Dine-In Table 14</span>
+        </label>
+        <label class="inline-flex items-center gap-1.5 cursor-pointer font-medium text-royal-gold-light">
+          <input type="radio" name="orderType" value="private" class="accent-royal-gold">
+          <span>Private Salon Suite</span>
+        </label>
+      </div>
+
+      <button id="btnDispatchFeast" onclick="dispatchFeast()" class="w-full py-3 rounded-full bg-gradient-to-r from-royal-gold to-royal-gold-dark hover:brightness-110 text-black font-cinzel font-bold text-xs uppercase tracking-wider shadow-lg transition-all disabled:opacity-50 disabled:pointer-events-none" disabled>
+        Dispatch Feast to Royal Kitchen ⚜️
+      </button>
+
+      <button onclick="orderViaWhatsApp()" class="w-full py-2.5 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs tracking-wide flex items-center justify-center gap-2 shadow-sm transition-all">
+        <span class="material-symbols-outlined text-sm">chat</span>
+        <span>Order via WhatsApp Direct</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- Notification Toast -->
+  <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 bg-royal-card text-royal-gold-light px-5 py-2.5 rounded-full text-xs font-semibold shadow-2xl opacity-0 pointer-events-none transition-all duration-300 z-50 flex items-center gap-2 border border-royal-gold/40">
+    <span class="material-symbols-outlined text-sm text-royal-gold">check_circle</span>
+    <span id="toastMsg">Feast item added</span>
+  </div>
+
+  <script>
+    const feast = [];
+    let currentCategory = 'all';
+    let currentDietFilter = null;
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      const msgEl = document.getElementById('toastMsg');
+      if (!toast || !msgEl) return;
+      msgEl.innerText = msg;
+      toast.classList.remove('opacity-0', 'pointer-events-none');
+      toast.classList.add('opacity-100');
+      setTimeout(() => {
+        toast.classList.add('opacity-0', 'pointer-events-none');
+        toast.classList.remove('opacity-100');
+      }, 2500);
+    }
+
+    function pingSommelier() {
+      showToast('🍷 Chief Sommelier has been requested for Table #14.');
+    }
+
+    function setCategory(cat) {
+      currentCategory = cat;
+      document.querySelectorAll('.cat-btn').forEach(btn => {
+        if (btn.getAttribute('data-cat') === cat) {
+          btn.classList.add('bg-royal-gold', 'text-black');
+          btn.classList.remove('bg-royal-card', 'text-royal-gold-light');
+        } else {
+          btn.classList.remove('bg-royal-gold', 'text-black');
+          btn.classList.add('bg-royal-card', 'text-royal-gold-light');
+        }
+      });
+      filterProducts();
+    }
+
+    function toggleDiet(diet, btn) {
+      if (currentDietFilter === diet) {
+        currentDietFilter = null;
+        btn.classList.remove('bg-royal-gold', 'text-black');
+        btn.classList.add('bg-royal-card', 'text-royal-gold-light');
+      } else {
+        document.querySelectorAll('.diet-btn').forEach(b => {
+          b.classList.remove('bg-royal-gold', 'text-black');
+          b.classList.add('bg-royal-card', 'text-royal-gold-light');
+        });
+        currentDietFilter = diet;
+        btn.classList.add('bg-royal-gold', 'text-black');
+        btn.classList.remove('bg-royal-card', 'text-royal-gold-light');
+      }
+      filterProducts();
+    }
+
+    function filterProducts() {
+      const query = (document.getElementById('searchInput')?.value || '').toLowerCase().trim();
+      document.querySelectorAll('.product-card').forEach(card => {
+        const cat = card.getAttribute('data-cat');
+        const diet = card.getAttribute('data-diet') || '';
+        const text = card.textContent.toLowerCase();
+
+        const matchCat = (currentCategory === 'all' || cat === currentCategory);
+        const matchDiet = (!currentDietFilter || diet.includes(currentDietFilter));
+        const matchQuery = (!query || text.includes(query));
+
+        if (matchCat && matchDiet && matchQuery) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    document.getElementById('searchInput')?.addEventListener('input', filterProducts);
+
+    function toggleFeastTray(open) {
+      const overlay = document.getElementById('feastOverlay');
+      const drawer = document.getElementById('feastDrawer');
+      if (open) {
+        overlay.classList.remove('opacity-0', 'pointer-events-none');
+        overlay.classList.add('opacity-100');
+        drawer.classList.remove('translate-x-full');
+      } else {
+        overlay.classList.add('opacity-0', 'pointer-events-none');
+        overlay.classList.remove('opacity-100');
+        drawer.classList.add('translate-x-full');
+      }
+    }
+
+    function addToFeast(name, price, btn) {
+      const card = btn.closest('.product-card');
+      const select = card ? card.querySelector('.item-option') : null;
+      const option = select ? select.value : 'Standard Portion';
+
+      const existing = feast.find(i => i.name === name && i.option === option);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        feast.push({ name, price, option, qty: 1 });
+      }
+
+      showToast(`Added ${name} to Royal Feast`);
+      renderFeast();
+      toggleFeastTray(true);
+    }
+
+    function modifyQty(idx, delta) {
+      if (!feast[idx]) return;
+      feast[idx].qty += delta;
+      if (feast[idx].qty <= 0) {
+        feast.splice(idx, 1);
+      }
+      renderFeast();
+    }
+
+    function renderFeast() {
+      const list = document.getElementById('feastItemsList');
+      const emptyState = document.getElementById('feastEmptyState');
+      const subtotalEl = document.getElementById('feastSubtotal');
+      const taxEl = document.getElementById('feastTax');
+      const totalEl = document.getElementById('feastTotal');
+      const dispatchBtn = document.getElementById('btnDispatchFeast');
+
+      const totalItems = feast.reduce((s, i) => s + i.qty, 0);
+      document.getElementById('headerFeastCount').innerText = totalItems;
+      document.getElementById('stickyFeastCount').innerText = totalItems;
+
+      if (feast.length === 0) {
+        list.innerHTML = '';
+        if (emptyState) list.appendChild(emptyState);
+        subtotalEl.innerText = '₹0';
+        taxEl.innerText = '₹0';
+        totalEl.innerText = '₹0';
+        dispatchBtn.disabled = true;
+        return;
+      }
+
+      list.innerHTML = '';
+      let subtotal = 0;
+
+      feast.forEach((item, idx) => {
+        subtotal += item.price * item.qty;
+        const row = document.createElement('div');
+        row.className = 'p-3 rounded-xl bg-royal-card flex items-center justify-between gap-3 border border-royal-gold/20';
+        row.innerHTML = `
+          <div class="flex-1 min-w-0">
+            <h5 class="font-serif text-sm font-bold text-royal-gold-light truncate">${item.name}</h5>
+            <p class="text-[10px] text-royal-muted uppercase font-cinzel">${item.option}</p>
+            <span class="text-xs font-semibold text-royal-gold">₹${item.price * item.qty}</span>
+          </div>
+          <div class="flex items-center gap-2 bg-royal-surface px-2 py-1 rounded-full border border-royal-gold/25">
+            <button onclick="modifyQty(${idx}, -1)" class="w-5 h-5 flex items-center justify-center font-bold text-royal-gold-light text-xs hover:bg-royal-card rounded-full">-</button>
+            <span class="text-xs font-bold text-royal-gold px-1">${item.qty}</span>
+            <button onclick="modifyQty(${idx}, 1)" class="w-5 h-5 flex items-center justify-center font-bold text-royal-gold-light text-xs hover:bg-royal-card rounded-full">+</button>
+          </div>
+        `;
+        list.appendChild(row);
+      });
+
+      const tax = Math.round(subtotal * 0.05);
+      const total = subtotal + tax;
+
+      subtotalEl.innerText = `₹${subtotal}`;
+      taxEl.innerText = `₹${tax}`;
+      totalEl.innerText = `₹${total}`;
+      dispatchBtn.disabled = false;
+    }
+
+    function dispatchFeast() {
+      alert("⚜️ Imperial Feast confirmed! Chef Qureshi and the tandoor masters are preparing your feast for Table #14.");
+      feast.length = 0;
+      renderFeast();
+      toggleFeastTray(false);
+    }
+
+    function orderViaWhatsApp() {
+      if (feast.length === 0) {
+        alert("Please select dishes for your royal feast first!");
+        return;
+      }
+      let summary = "⚜️ Saffron Table Royal Order (Table #14):\n\n";
+      let subtotal = 0;
+      feast.forEach((i, idx) => {
+        summary += `${idx + 1}. ${i.name} (${i.option}) x${i.qty} - ₹${i.price * i.qty}\n`;
+        subtotal += i.price * i.qty;
+      });
+      const tax = Math.round(subtotal * 0.05);
+      summary += `\nSubtotal: ₹${subtotal}\nGST (5%): ₹${tax}\nTotal: ₹${subtotal + tax}\nTable: #14 (SmartLink NFC)`;
+
+      const phone = (window.SMARTLINK_CONFIG && window.SMARTLINK_CONFIG.whatsappNumber) ? window.SMARTLINK_CONFIG.whatsappNumber : '917697912636';
+      const url = `https://wa.me/${phone}?text=${encodeURIComponent(summary)}`;
+      window.open(url, '_blank');
+    }
+  </script>
+</body>
+</html>

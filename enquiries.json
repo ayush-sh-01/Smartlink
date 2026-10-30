@@ -1,0 +1,48 @@
+[
+  {
+    "id": "LEAD-1793298450.70507",
+    "fullName": "Aarav Sharma",
+    "businessName": "Sharma Caf� & Roastery",
+    "email": "aarav@sharmacafe.in",
+    "phone": "+91 98765 43210",
+    "service": "Smart Digital QR Menu",
+    "message": "Looking for 20 custom NFC wooden stands with digital menu",
+    "timestamp": "2026-10-29T18:27:30.6319270+05:30"
+  },
+  {
+    "id": "LEAD-1793298474.31869",
+    "fullName": "Priya Patel",
+    "businessName": "Patel Jewels",
+    "email": "priya@pateljewels.in",
+    "phone": "+91 91234 56789",
+    "service": "Google Review NFC Tap Card",
+    "message": "Require 5 NFC review cards",
+    "timestamp": "2026-10-29T18:27:54.3186912+05:30"
+  },
+  {
+    "id": "LEAD-1793298549.91854",
+    "fullName": "Vikram Mehta",
+    "businessName": "Mehta Sweets",
+    "email": "vikram@mehtasweets.in",
+    "phone": "+91 98260 12345",
+    "service": "Google Review NFC Tap Card",
+    "message": "Need 10 cards for my 2 sweet shops in Indore",
+    "timestamp": "2026-10-29T18:29:09.9185398+05:30"
+  },
+  {
+    "id": "LEAD-1793347280769",
+    "fullName": "SmartLink Test Enquiry",
+    "businessName": "SmartLink HQ Indore",
+    "email": "ayuayu7697@gmail.com",
+    "phone": "+91 76979 12636",
+    "service": "Smart Digital QR Menu & NFC Card",
+    "message": "Testing Gmail App Password integration. Congratulations, your email system is active!",
+    "timestamp": "2026-10-30T08:01:20.591Z"
+  },
+  {
+    "id": "LEAD-1793377133479",
+    "fullName": "Test User",
+    "email": "test@smartlink.local",
+    "timestamp": "2026-10-30T16:18:53.479Z"
+  }
+]

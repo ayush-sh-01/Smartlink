@@ -1,0 +1,1414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SmartLink Business | Premium NFC Tap Cards, QR Stands & Custom Digital Menus</title>
+  <meta name="description" content="One Tap. One Scan. Everything Connected. Elevate your tables and counters with luxury NFC smart cards, walnut QR stands, Google Review cards, and lightning-fast digital menus." />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Scroll Progress Indicator (Top) -->
+  <div class="scroll-progress-bar" id="scrollProgressBar"></div>
+
+  <!-- ===================================================================
+       HEADER & NAVIGATION
+       =================================================================== -->
+  <header class="site-header" id="siteHeader">
+    <div class="container nav-inner">
+      <a href="#hero" class="brand-logo" id="brandLogo">
+        <div class="brand-logo-mark">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2a10 10 0 0 1 10 10M12 6a6 6 0 0 1 6 6M12 10a2 2 0 0 1 2 2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+        </div>
+        <div class="brand-logo-text">
+          <span class="brand-name">SmartLink</span>
+          <span class="brand-badge">BUSINESS</span>
+        </div>
+      </a>
+
+      <!-- Central Navigation Capsule -->
+      <nav class="nav-menu" id="navMenu">
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#demos" id="navDemos" data-i18n="nav_demos">Live Demos</a></li>
+          <li><a href="#products" id="navProducts" data-i18n="nav_products">Products</a></li>
+          <li><a href="#solutions" id="navSolutions" data-i18n="nav_solutions">Solutions</a></li>
+          <li><a href="#how-it-works" id="navHowItWorks" data-i18n="nav_how">How It Works</a></li>
+          <li><a href="#analytics" id="navAnalytics" data-i18n="nav_analytics">Analytics</a></li>
+          <li><a href="#pricing" id="navPricing" data-i18n="nav_pricing">Pricing</a></li>
+          <li><a href="#faqs" id="navFaqs" data-i18n="nav_faqs">FAQs</a></li>
+        </ul>
+      </nav>
+
+      <!-- Action Items: Language Selector + Primary CTA + Mobile Toggle -->
+      <div class="nav-actions">
+        <div class="lang-switcher-pill" aria-label="Language Selector">
+          <button class="lang-toggle-btn active" data-lang="en">EN</button>
+          <button class="lang-toggle-btn" data-lang="hi">हिंदी</button>
+        </div>
+
+        <a href="#contact" class="btn btn-primary btn-sm nav-cta" id="btnHeaderDemoKit" data-i18n="btn_header_demokit">
+          <span>Get Free Demo</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </a>
+
+        <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div class="mobile-drawer" id="mobileDrawer">
+      <div class="container mobile-drawer-inner">
+        <ul class="mobile-nav-links">
+          <li><a href="#demos" data-i18n="nav_demos"><span class="nav-icon">✨</span> Live Demos</a></li>
+          <li><a href="#products" data-i18n="nav_products"><span class="nav-icon">🏷️</span> Products</a></li>
+          <li><a href="#solutions" data-i18n="nav_solutions"><span class="nav-icon">⚡</span> Solutions</a></li>
+          <li><a href="#how-it-works" data-i18n="nav_how"><span class="nav-icon">🔄</span> How It Works</a></li>
+          <li><a href="#analytics" data-i18n="nav_analytics"><span class="nav-icon">📊</span> Analytics</a></li>
+          <li><a href="#pricing" data-i18n="nav_pricing"><span class="nav-icon">💎</span> Pricing</a></li>
+          <li><a href="#faqs" data-i18n="nav_faqs"><span class="nav-icon">❓</span> FAQs</a></li>
+        </ul>
+        <div class="mobile-drawer-footer">
+          <div class="mobile-lang-row">
+            <span class="mobile-lang-title">Language:</span>
+            <div class="lang-switcher-pill" aria-label="Mobile Language Selector">
+              <button class="lang-toggle-btn active" data-lang="en">EN</button>
+              <button class="lang-toggle-btn" data-lang="hi">हिंदी</button>
+            </div>
+          </div>
+          <a href="#contact" class="btn btn-primary mobile-cta-btn" data-i18n="btn_header_demokit">
+            <span>Get Free Demo</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===================================================================
+       HERO SECTION
+       =================================================================== -->
+  <section class="hero-section" id="hero">
+    <div class="hero-glow-1"></div>
+    <div class="hero-glow-2"></div>
+
+    <div class="container hero-grid">
+      <div class="hero-content reveal-left">
+        <div class="badge badge-amber">
+          <span class="badge-pulse"></span> <span data-i18n="hero_badge">Next-Gen Hospitality & Retail Hardware</span>
+        </div>
+
+        <h1 class="hero-title">
+          <span data-i18n="hero_title_1">One Tap. One Scan.</span> <br />
+          <span class="tagline-highlight" data-i18n="hero_title_2">Everything Connected.</span>
+        </h1>
+
+        <p class="hero-subtitle" data-i18n="hero_sub">
+          Transform your tables, counters, and customer interactions with custom-crafted NFC smart cards, luxury walnut QR stands, 1-tap Google Review cards, and ultra-fast digital menus. Zero app download required.
+        </p>
+
+        <div class="hero-cta-group">
+          <a href="#demos" class="btn btn-primary btn-lg" id="btnHeroExploreDemos">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            <span data-i18n="hero_cta_explore">Explore Live Demos</span>
+          </a>
+          <a href="#contact" class="btn btn-secondary btn-lg" id="btnHeroFreeDemo">
+            <span data-i18n="hero_cta_sample">Request Sample Kit</span>
+          </a>
+        </div>
+
+        <div class="hero-proof-bar">
+          <div class="proof-item">
+            <div class="proof-value">500k+</div>
+            <div class="proof-label" data-i18n="hero_proof_taps">Monthly Guest Taps</div>
+          </div>
+          <div class="proof-item">
+            <div class="proof-value">0.4s</div>
+            <div class="proof-label" data-i18n="hero_proof_speed">NFC Launch Speed</div>
+          </div>
+          <div class="proof-item">
+            <div class="proof-value">4.9 <span class="star">★</span></div>
+            <div class="proof-label" data-i18n="hero_proof_lift">Average Review Lift</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero 3D Stage with Interactive NFC Smartphone & Cards -->
+      <div class="hero-stage reveal-right">
+        <!-- Tap Beacon CTA Trigger -->
+        <div class="tap-beacon-trigger" id="heroTapTrigger" title="Click to simulate NFC card tap">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          Tap Here to Test NFC
+        </div>
+
+        <!-- Floating NFC Smart Card (Matte Black with Gold Chip) -->
+        <div class="floating-nfc-card" id="floatingNfcCard" title="Click to simulate tapping your card">
+          <div class="card-brand">
+            <span>SMARTLINK</span>
+            <div class="card-waves">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2a10 10 0 0 1 10 10M12 6a6 6 0 0 1 6 6M12 10a2 2 0 0 1 2 2"/></svg>
+            </div>
+          </div>
+          <div class="card-chip"></div>
+          <div style="font-size: 0.65rem; color: #FAF7F2; letter-spacing: 0.1em;">BUSINESS VIP PASS • NTAG216</div>
+        </div>
+
+        <!-- Smartphone Mockup with Live Dynamic Screen -->
+        <div class="mockup-phone" id="heroMockupPhone">
+          <div class="phone-dynamic-island"></div>
+          <div class="phone-screen" id="phoneScreenContent">
+            <div class="phone-screen-header">
+              <span class="phone-brand-title">Brew & Bloom Café</span>
+              <span class="phone-status-pill">
+                <span class="badge-pulse"></span> NFC Connected
+              </span>
+            </div>
+            <div class="phone-content-area">
+              <div style="background: rgba(100, 139, 119, 0.15); border: 1px solid var(--border-sage); border-radius: 12px; padding: 10px; font-size: 0.72rem; color: #FAF7F2; display: flex; align-items: center; gap: 8px;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#648B77" stroke-width="2"><path d="M5 12.55a11 11 0 0 1 14.08 0M1.42 9a16 16 0 0 1 21.16 0M8.53 16.11a6 6 0 0 1 6.95 0M12 20h.01"/></svg>
+                <span>Instant SmartLink Menu Connected: <strong>Table #07</strong></span>
+              </div>
+
+              <div class="screen-card-demo">
+                <img src="https://images.unsplash.com/photo-1517256064527-09c73fc73e38?w=300&auto=format&fit=crop&q=80" alt="Iced Vanilla Oat Latte" />
+                <div class="info">
+                  <h5>Artisan Vanilla Oat Latte</h5>
+                  <p>₹240</p>
+                </div>
+              </div>
+
+              <div class="screen-card-demo">
+                <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=300&auto=format&fit=crop&q=80" alt="Almond Croissant" />
+                <div class="info">
+                  <h5>Almond Frangipane Croissant</h5>
+                  <p>₹190</p>
+                </div>
+              </div>
+
+              <div class="screen-tap-instruction">
+                <p>⚡ Tap the beacon or card above to switch live micro-apps!</p>
+                <button onclick="openSimulatorModal('brew')" style="background: var(--amber-500); border: none; color: #0A0B0D; font-size: 0.75rem; font-weight: 700; padding: 6px 14px; border-radius: 20px; cursor: pointer; width: 100%;">Test Full Interactive Demo</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Floating Tabletop Stand Mockup (Walnut & Acrylic) -->
+        <div class="floating-qr-stand" id="floatingQrStand">
+          <div class="stand-acrylic-header">SMARTLINK STAND</div>
+          <div class="stand-qr-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><path d="M7 7h.01M17 7h.01M7 17h.01M17 17h.01"/></svg>
+          </div>
+          <div style="font-size: 0.65rem; color: #EDE4D6;">SCAN OR TAP HERE</div>
+          <div class="stand-wooden-base"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       LIVE DEMO SHOWROOM (3 SEPARATE FUNCTIONAL DEMOS)
+       =================================================================== -->
+  <section class="showroom-section" id="demos">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="badge badge-sage">
+          <span class="badge-pulse"></span> <span data-i18n="demos_badge">Functional Micro-Apps</span>
+        </div>
+        <h2 data-i18n="demos_title">Experience Our 4 Live Demos & Bespoke Atelier</h2>
+        <p data-i18n="demos_sub">
+          Every business has a unique soul. Explore four fully working, mobile-first demo menus crafted specifically for different dining atmospheres — from ultra-luxury dessert ateliers to cozy roasteries and street-style smash burgers.
+        </p>
+      </div>
+
+      <!-- ===================================================================
+           FEATURED DEMO #1 (ULTRA-PREMIUM ATELIER): CRÈME & CONE
+           =================================================================== -->
+      <div class="featured-demo-card reveal">
+        <div class="featured-preview-media">
+          <img src="https://creme-and-cone.vercel.app/assets/images/travertine_centerpiece.jpg" alt="Crème & Cone Cosmic Latte & Travertine Plinth" />
+          <div class="demo-card-tag badge badge-amber" style="background: rgba(74, 16, 42, 0.92); color: #FFB0CA; border-color: rgba(255, 176, 202, 0.4);">
+            ⭐ Ultra-Premium Atelier • Specific Bespoke Tier
+          </div>
+          <div class="demo-live-badge"><span class="badge-pulse" style="background: #FFB0CA;"></span> Live Ultra-Demo</div>
+        </div>
+        <div class="featured-demo-body">
+          <div>
+            <div class="demo-business-title">
+              <div>
+                <h3 style="color: #FAF5EB; font-family: 'Playfair Display', serif; font-size: 1.85rem; font-weight: 700;">Crème & Cone</h3>
+                <p style="font-size: 0.82rem; color: #EFBC98; text-transform: uppercase; letter-spacing: 0.12em; margin-top: 3px; font-weight: 600;">Artisanal Gelateria & Espresso • Firenze, Italy</p>
+              </div>
+              <span class="badge badge-sage" style="background: rgba(255, 176, 202, 0.15); color: #FFB0CA; border-color: rgba(255, 176, 202, 0.3);">
+                Flagship Showcase
+              </span>
+            </div>
+            <p class="demo-desc" style="margin-top: 0.75rem; color: #DECDB8;">
+              Slow-churned botanical gelati, cosmic single-origin lattes, and starlight midnight affogatos. Built with editorial celestial typography, astronomical orbits, multi-view route navigation, and an interactive slide-over table bag.
+            </p>
+            <div class="demo-features-list" style="margin-top: 1rem;">
+              <span class="feature-pill" style="border-color: rgba(255, 176, 202, 0.25); color: #FAF5EB;">🍨 100% D.O.P. Bronte Pistachio</span>
+              <span class="feature-pill" style="border-color: rgba(255, 176, 202, 0.25); color: #FAF5EB;">☕ Cosmic Latte Travertine</span>
+              <span class="feature-pill" style="border-color: rgba(255, 176, 202, 0.25); color: #FAF5EB;">🛍️ Slide-Out Bag Tray</span>
+              <span class="feature-pill" style="border-color: rgba(255, 176, 202, 0.25); color: #FAF5EB;">⭐ Table #04 Active</span>
+              <span class="feature-pill" style="border-color: rgba(255, 176, 202, 0.25); color: #FAF5EB;">🌐 Multi-View App</span>
+            </div>
+          </div>
+          <div class="demo-actions" style="margin-top: 1.25rem; display: flex; flex-wrap: wrap; gap: 0.75rem;">
+            <button onclick="openSimulatorModal('creme')" class="btn btn-secondary btn-sm" id="btnPreviewCreme">
+              <span>Test in Simulator</span>
+            </button>
+            <a href="demos/creme-and-cone.html" target="_blank" class="btn btn-primary btn-sm" id="btnOpenCreme" style="background: #4A102A; border-color: #FFB0CA; color: #FAF5EB;">
+              <span>Open Local Demo ↗</span>
+            </a>
+            <a href="https://creme-and-cone.vercel.app" target="_blank" class="btn btn-secondary btn-sm" id="btnLiveVercelCreme" style="border-color: rgba(255, 176, 202, 0.4); color: #EFBC98;">
+              <span>Original Vercel App ↗</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="showroom-grid">
+        <!-- Demo 2: Brew & Bloom -->
+        <div class="demo-card demo-card-brew reveal delay-1">
+          <div class="demo-preview-media">
+            <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=600&auto=format&fit=crop&q=80" alt="Brew & Bloom Cafe Interior" />
+            <div class="demo-card-tag badge badge-beige">Minimalist Beige</div>
+            <div class="demo-live-badge"><span class="badge-pulse"></span> Live Demo</div>
+          </div>
+          <div class="demo-body">
+            <div class="demo-business-title">
+              <h3 data-i18n="demo_brew_title">Brew & Bloom</h3>
+              <span class="demo-theme-chip" data-i18n="demo_brew_type">Specialty Café</span>
+            </div>
+            <p class="demo-desc" data-i18n="demo_brew_desc">
+              Calming linen-toned minimalist layout designed for specialty coffee roasters, bakeries, and brunch spots. Features single-origin taste profiles, milk alternatives, and 1-tap waiter calling.
+            </p>
+            <div class="demo-features-list">
+              <span class="feature-pill">☕ Coffee Notes</span>
+              <span class="feature-pill">🌱 Oat & Vegan Badges</span>
+              <span class="feature-pill">🛎️ Call Waiter Ping</span>
+              <span class="feature-pill">⭐ Google Review</span>
+            </div>
+            <div class="demo-actions">
+              <button onclick="openSimulatorModal('brew')" class="btn btn-secondary btn-sm" id="btnPreviewBrew">
+                <span data-i18n="btn_test_simulator">Test in Simulator</span>
+              </button>
+              <a href="demos/brew-and-bloom.html" target="_blank" class="btn btn-primary btn-sm" id="btnOpenBrew">
+                <span data-i18n="btn_open_fullscreen">Open Fullscreen ↗</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Demo 2: Saffron Table -->
+        <div class="demo-card demo-card-saffron reveal delay-2">
+          <div class="demo-preview-media">
+            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&auto=format&fit=crop&q=80" alt="Saffron Table Fine Dining" />
+            <div class="demo-card-tag badge badge-amber">Royal Black & Gold</div>
+            <div class="demo-live-badge"><span class="badge-pulse"></span> Live Demo</div>
+          </div>
+          <div class="demo-body">
+            <div class="demo-business-title">
+              <h3 data-i18n="demo_saffron_title">Saffron Table</h3>
+              <span class="demo-theme-chip" data-i18n="demo_saffron_type">Fine Dining</span>
+            </div>
+            <p class="demo-desc" data-i18n="demo_saffron_desc">
+              Opulent dark ambiance with antique gold accents for royal Indian cuisine and fine dining destinations. Features sommelier wine pairings, spice level indicators, and an interactive table booking modal.
+            </p>
+            <div class="demo-features-list">
+              <span class="feature-pill">⚜️ Royal Gold Theme</span>
+              <span class="feature-pill">🍷 Sommelier Pairings</span>
+              <span class="feature-pill">📅 Table Reservation Modal</span>
+              <span class="feature-pill">🌶️ Heat Levels</span>
+            </div>
+            <div class="demo-actions">
+              <button onclick="openSimulatorModal('saffron')" class="btn btn-secondary btn-sm" id="btnPreviewSaffron">
+                <span data-i18n="btn_test_simulator">Test in Simulator</span>
+              </button>
+              <a href="demos/saffron-table.html" target="_blank" class="btn btn-primary btn-sm" id="btnOpenSaffron">
+                <span data-i18n="btn_open_fullscreen">Open Fullscreen ↗</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Demo 3: Urban Bites -->
+        <div class="demo-card demo-card-urban reveal delay-3">
+          <div class="demo-preview-media">
+            <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?w=600&auto=format&fit=crop&q=80" alt="Urban Bites Smash Burgers" />
+            <div class="demo-card-tag badge badge-sage">Modern Street Food</div>
+            <div class="demo-live-badge"><span class="badge-pulse"></span> Live Demo</div>
+          </div>
+          <div class="demo-body">
+            <div class="demo-business-title">
+              <h3 data-i18n="demo_urban_title">Urban Bites</h3>
+              <span class="demo-theme-chip" data-i18n="demo_urban_type">Quick-Service</span>
+            </div>
+            <p class="demo-desc" data-i18n="demo_urban_desc">
+              High-energy, fast-casual layout for burger joints, pizzerias, and takeaway counters. Includes a fully functioning cart drawer, coupon codes (URBAN10), and direct 1-click WhatsApp order generation.
+            </p>
+            <div class="demo-features-list">
+              <span class="feature-pill">🛒 Active Shopping Cart</span>
+              <span class="feature-pill">💬 WhatsApp Order Format</span>
+              <span class="feature-pill">🏷️ Coupon Code Support</span>
+              <span class="feature-pill">⚡ 0.4s Fast Load</span>
+            </div>
+            <div class="demo-actions">
+              <button onclick="openSimulatorModal('urban')" class="btn btn-secondary btn-sm" id="btnPreviewUrban">
+                <span data-i18n="btn_test_simulator">Test in Simulator</span>
+              </button>
+              <a href="demos/urban-bites.html" target="_blank" class="btn btn-primary btn-sm" id="btnOpenUrban">
+                <span data-i18n="btn_open_fullscreen">Open Fullscreen ↗</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fictional Demo Banner -->
+      <div class="disclaimer-strip reveal">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <div>
+          <strong data-i18n="demos_disclaimer_title">Fictional Demonstration Notice:</strong> <span data-i18n="demos_disclaimer_desc">Crème & Cone, Brew & Bloom, Saffron Table, and Urban Bites are interactive showcase brands created to demonstrate SmartLink Business's hardware and cloud micro-app capabilities.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       PRODUCT SHOWCASE (NFC CARDS, QR STANDS, GOOGLE REVIEW CARDS)
+       =================================================================== -->
+  <section class="products-section" id="products">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="badge badge-amber" data-i18n="prod_badge">Hardware Craftsmanship</div>
+        <h2 data-i18n="prod_title">Engineered for High-Traffic Excellence</h2>
+        <p data-i18n="prod_sub">
+          Heavyweight walnut wood, brushed matte obsidian PVC, aircraft-grade aluminum, and industrial NTAG216 microchips guaranteed for 100,000+ taps.
+        </p>
+      </div>
+
+      <div class="products-grid">
+        <!-- Product 1: Matte Black NFC Card -->
+        <div class="product-card reveal delay-1">
+          <div class="product-visual-box">
+            <div class="nfc-preview-black">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 0.75rem; font-weight: 800; color: #FAF7F2; letter-spacing: 0.1em;">SMARTLINK</span>
+                <span style="color: #F59E0B;">✦</span>
+              </div>
+              <div class="card-chip"></div>
+              <div style="font-size: 0.7rem; color: #A6C2B2; letter-spacing: 0.05em;">MATTE OBSIDIAN • NFC CHIP</div>
+            </div>
+          </div>
+          <h3 data-i18n="prod_card_title">Matte Black NFC Cards</h3>
+          <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 0.5rem;" data-i18n="prod_card_desc">
+            Silky anti-scratch matte finish with metallic gold foil stamping. Perfect for staff, VIP members, and table hosts.
+          </p>
+          <div class="product-specs">
+            <div class="spec-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>NTAG216 High-Capacity NFC Chip (888 Bytes)</span>
+            </div>
+            <div class="spec-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>100% Waterproof, oil-resistant & bend-proof</span>
+            </div>
+            <div class="spec-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Instant contactless tap up to 4cm distance</span>
+            </div>
+          </div>
+          <a href="#contact" class="btn btn-secondary btn-sm" style="margin-top: auto;" data-i18n="btn_enquire_cards">Enquire About Cards</a>
+        </div>
+
+        <!-- Product 2: QR Tabletop Stand -->
+        <div class="product-card reveal delay-2">
+          <div class="product-visual-box">
+            <div style="display: flex; flex-direction: column; align-items: center;">
+              <div class="stand-preview-box">
+                <span style="font-size: 0.62rem; color: #FAF7F2; font-weight: 700; letter-spacing: 0.08em;">SMARTLINK</span>
+                <div style="width: 65px; height: 65px; background: #fff; padding: 4px; border-radius: 6px;">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                </div>
+                <span style="font-size: 0.58rem; color: #C2AEA3;">TAP OR SCAN</span>
+              </div>
+              <div class="stand-preview-wood-base"></div>
+            </div>
+          </div>
+          <h3 data-i18n="prod_stand_title">Walnut & Acrylic Tabletop Stands</h3>
+          <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 0.5rem;" data-i18n="prod_stand_desc">
+            Solid American walnut base holding dual-sided crystal acrylic with embedded NFC antenna and laser-etched dynamic QR.
+          </p>
+          <div class="product-specs">
+            <div class="spec-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Real sustainably harvested Walnut hardwood</span>
+            </div>
+            <div class="spec-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Dual-action: Tap with NFC or Scan with Camera</span>
+            </div>
+            <div class="spec-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Heavy weighted base won't blow away outdoors</span>
+            </div>
+          </div>
+          <a href="#contact" class="btn btn-secondary btn-sm" style="margin-top: auto;" data-i18n="btn_enquire_stands">Enquire About Stands</a>
+        </div>
+
+        <!-- Product 3: Google Review Tap Card -->
+        <div class="product-card reveal delay-3">
+          <div class="product-visual-box">
+            <div class="nfc-preview-review">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span style="font-size: 0.72rem; font-weight: 800; color: #FFF;">GOOGLE REVIEWS</span>
+                <span style="color: #4285F4; font-size: 0.8rem;">★★★★★</span>
+              </div>
+              <div style="text-align: center;">
+                <div style="font-size: 1.1rem; font-weight: 800; color: #FFF;">TAP TO RATE</div>
+                <div style="font-size: 0.65rem; color: #93C5FD;">Direct 5-Star Dialogue Link</div>
+              </div>
+              <div style="font-size: 0.62rem; color: #64748B;">SMARTLINK DIRECT DEEP-LINK</div>
+            </div>
+          </div>
+          <h3 data-i18n="prod_review_title">Google Review Tap Cards & Plaques</h3>
+          <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 0.5rem;" data-i18n="prod_review_desc">
+            Customers simply tap their phone, and their native Google Maps app pops up directly to the 5-star rating window.
+          </p>
+          <div class="product-specs">
+            <div class="spec-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Bypasses search engine typing friction</span>
+            </div>
+            <div class="spec-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Proven 300% to 500% monthly review surge</span>
+            </div>
+            <div class="spec-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Available as pocket cards or counter plaques</span>
+            </div>
+          </div>
+          <a href="#contact" class="btn btn-secondary btn-sm" style="margin-top: auto;" data-i18n="btn_enquire_reviews">Enquire About Review Cards</a>
+        </div>
+      </div>
+
+      <!-- Interactive 3D Card Finisher & Customizer -->
+      <div class="card-customizer-banner reveal">
+        <div class="customizer-preview-container">
+          <div class="customizer-live-card" id="customizerLiveCard" style="background: linear-gradient(135deg, #1C1E23 0%, #0A0B0D 100%); border: 1px solid rgba(245, 158, 11, 0.45); color: #FAF7F2;">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span id="customizerBrandName" style="font-size: 0.85rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase;">YOUR BRAND NAME</span>
+              <div class="card-waves" style="color: #F59E0B;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2a10 10 0 0 1 10 10M12 6a6 6 0 0 1 6 6M12 10a2 2 0 0 1 2 2"/></svg>
+              </div>
+            </div>
+            <div class="card-chip" style="width: 38px; height: 30px;"></div>
+            <div style="display: flex; justify-content: space-between; font-size: 0.72rem; opacity: 0.8;">
+              <span>SMARTLINK TAP CARD</span>
+              <span>NTAG216 CHIP</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="customizer-controls">
+          <div>
+            <div class="badge badge-amber" style="margin-bottom: 0.5rem;" data-i18n="customizer_badge">Interactive Studio</div>
+            <h3 data-i18n="customizer_title">Live Card Finisher Preview</h3>
+            <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 0.25rem;" data-i18n="customizer_sub">
+              See how your business identity looks on our premium card finishes.
+            </p>
+          </div>
+
+          <div class="control-group">
+            <label data-i18n="customizer_label_swatch">Select Finish & Colorway</label>
+            <div class="theme-palette-swatches">
+              <button class="swatch-btn active" data-theme="obsidian" style="background: #111215; border-color: #F59E0B;" title="Matte Obsidian Black"></button>
+              <button class="swatch-btn" data-theme="walnut" style="background: #4A2E24;" title="Warm Walnut Wood Grain"></button>
+              <button class="swatch-btn" data-theme="beige" style="background: #EDE4D6;" title="Minimalist Beige Eco-Touch"></button>
+              <button class="swatch-btn" data-theme="sage" style="background: #375245;" title="Organic Sage Green"></button>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label data-i18n="customizer_label_name">Your Venue / Business Name</label>
+            <input type="text" class="custom-input" id="customizerNameInput" placeholder="Enter your business name (e.g. The Grand Lounge)" data-i18n-ph="customizer_input_placeholder" maxlength="24" />
+          </div>
+
+          <a href="#contact" class="btn btn-primary btn-sm" data-i18n="customizer_btn">Order This Custom Finish →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       SOLUTIONS ECOSYSTEM (ONE LINK, UNLIMITED CONNECTIONS)
+       =================================================================== -->
+  <section class="solutions-section" id="solutions">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="badge badge-sage" data-i18n="sol_badge">The Connected Architecture</div>
+        <h2 data-i18n="sol_title">One Smart Link. Infinite Possibilities.</h2>
+        <p data-i18n="sol_sub">
+          Never reprint paper menus or QR stickers again. One dynamic SmartLink connects your tables to your entire digital hospitality stack with instant cloud syncing.
+        </p>
+      </div>
+
+      <div class="solutions-hub-container reveal-scale">
+        <div class="hub-center-graphic">
+          <div class="hub-center-badge">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+            <span data-i18n="sol_hub_title">SmartLink Dynamic Cloud Engine</span>
+          </div>
+          <p style="font-size: 0.95rem; color: var(--text-body);" data-i18n="sol_hub_desc">
+            Update your menu items, drink specials, and links anytime from your phone without touching your physical stands.
+          </p>
+        </div>
+
+        <div class="solutions-matrix">
+          <!-- Node 1 -->
+          <div class="solution-node reveal delay-1">
+            <div class="node-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+            </div>
+            <h4 data-i18n="sol_1_title">Digital Menus</h4>
+            <p data-i18n="sol_1_desc">High-resolution photos, dietary filters, daily specials, and 82-language instant translation.</p>
+          </div>
+
+          <!-- Node 2 -->
+          <div class="solution-node reveal delay-2">
+            <div class="node-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <h4 data-i18n="sol_2_title">Google Reviews</h4>
+            <p data-i18n="sol_2_desc">1-tap deep links directly to the 5-star review dialogue, skyrocketing your local SEO ranking.</p>
+          </div>
+
+          <!-- Node 3 -->
+          <div class="solution-node reveal delay-3">
+            <div class="node-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </div>
+            <h4 data-i18n="sol_3_title">Private Feedback</h4>
+            <p data-i18n="sol_3_desc">Catch unhappy guests before they post publicly. Negative feedback routes directly to manager SMS.</p>
+          </div>
+
+          <!-- Node 4 -->
+          <div class="solution-node reveal delay-4">
+            <div class="node-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <h4 data-i18n="sol_4_title">WhatsApp Ordering</h4>
+            <p data-i18n="sol_4_desc">Guests build orders from tables and send formatted WhatsApp carts directly to your prep station.</p>
+          </div>
+
+          <!-- Node 5 -->
+          <div class="solution-node reveal delay-1">
+            <div class="node-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </div>
+            <h4 data-i18n="sol_5_title">1-Tap vCard Save</h4>
+            <p data-i18n="sol_5_desc">Customers save venue phone, Wi-Fi password, manager info, and email directly to contacts.</p>
+          </div>
+
+          <!-- Node 6 -->
+          <div class="solution-node reveal delay-2">
+            <div class="node-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <h4 data-i18n="sol_6_title">Google Maps Directions</h4>
+            <p data-i18n="sol_6_desc">Share your exact storefront location, parking instructions, and multi-location branches.</p>
+          </div>
+
+          <!-- Node 7 -->
+          <div class="solution-node reveal delay-3">
+            <div class="node-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            </div>
+            <h4 data-i18n="sol_7_title">Flash Deals & Offers</h4>
+            <p data-i18n="sol_7_desc">Trigger happy hour specials, flash discounts, or promo banners during low-traffic periods.</p>
+          </div>
+
+          <!-- Node 8 -->
+          <div class="solution-node reveal delay-4">
+            <div class="node-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            </div>
+            <h4 data-i18n="sol_8_title">Table Reservations</h4>
+            <p data-i18n="sol_8_desc">Deep-link seamlessly into OpenTable, Resy, SevenRooms, or your custom booking portal.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       HOW IT WORKS (4-STEP PROGRESSION)
+       =================================================================== -->
+  <section class="workflow-section" id="how-it-works">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="badge badge-amber" data-i18n="how_badge">Frictionless Experience</div>
+        <h2 data-i18n="how_title">How SmartLink Works</h2>
+        <p data-i18n="how_sub">From unboxing your hardware to your first 1,000 taps in under 48 hours.</p>
+      </div>
+
+      <div class="timeline-steps">
+        <div class="step-card reveal delay-1">
+          <div class="step-number-bubble">01</div>
+          <h4 data-i18n="how_step_1_title">Craft & Encode</h4>
+          <p data-i18n="how_step_1_desc">We laser-engrave your branding, assemble your hardwood stands, and pre-encode your dynamic cloud links.</p>
+        </div>
+
+        <div class="step-card reveal delay-2">
+          <div class="step-number-bubble">02</div>
+          <h4 data-i18n="how_step_2_title">Place & Present</h4>
+          <p data-i18n="how_step_2_desc">Place stands on tables, bars, gym lockers, or hotel suites. Hand staff cards to managers and waitstaff.</p>
+        </div>
+
+        <div class="step-card reveal delay-3">
+          <div class="step-number-bubble">03</div>
+          <h4 data-i18n="how_step_3_title">1-Tap Launch</h4>
+          <p data-i18n="how_step_3_desc">Guests tap their iPhone or Android or point their camera. Your branded micro-app launches instantly in 0.4s.</p>
+        </div>
+
+        <div class="step-card reveal delay-4">
+          <div class="step-number-bubble">04</div>
+          <h4 data-i18n="how_step_4_title">Convert & Scale</h4>
+          <p data-i18n="how_step_4_desc">Watch orders flow in, collect 5-star Google reviews on autopilot, and track performance in your live portal.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===================================================================
+       SAMPLE ANALYTICS DASHBOARD PREVIEW
+       =================================================================== -->
+  <section class="analytics-section" id="analytics">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="badge badge-sage" data-i18n="analytics_badge">Business Intelligence</div>
+        <h2 data-i18n="analytics_title">Real-Time Engagement Insights</h2>
+        <p data-i18n="analytics_sub">Know exactly which dishes are driving revenue, which tables are most active, and how your review ratings grow.</p>
+        <div style="margin-top: 0.75rem;">
+          <span style="display: inline-flex; align-items: center; gap: 6px; font-size: 0.75rem; background: rgba(245, 158, 11, 0.12); border: 1px solid rgba(245, 158, 11, 0.3); color: #FCD34D; padding: 4px 12px; border-radius: 20px;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            <strong>Simulated Demonstration Data</strong> • Connects directly to SmartLink Cloud POS & Google Analytics in production
+          </span>
+        </div>
+      </div>
+
+      <div class="analytics-dashboard-frame reveal-scale">
+        <div class="dash-topbar">
+          <div class="dash-venue-info">
+            <div class="venue-avatar">SL</div>
+            <div>
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <h4 style="font-size: 1.1rem; color: #FFF; margin: 0;">The Grand Bistro & Lounge</h4>
+                <span style="font-size: 0.65rem; background: rgba(255,255,255,0.1); color: #D1D5DB; padding: 2px 6px; border-radius: 4px; text-transform: uppercase;">Sample Venue</span>
+              </div>
+              <p style="font-size: 0.8rem; color: var(--text-muted); margin: 2px 0 0 0;">Active Hardware: 24 Stands • 8 VIP Cards</p>
+            </div>
+          </div>
+
+          <div class="dash-time-selector">
+            <button class="time-btn" data-period="7d">7 Days</button>
+            <button class="time-btn active" data-period="30d">30 Days</button>
+            <button class="time-btn" data-period="90d">90 Days</button>
+          </div>
+        </div>
+
+        <div class="dash-metrics-grid">
+          <div class="metric-stat-card">
+            <span class="metric-label" data-i18n="analytics_taps">Total Taps & Scans</span>
+            <span class="metric-number" id="metricScansCount">76,890</span>
+            <span class="metric-trend up">↑ +21.4% vs last period</span>
+          </div>
+
+          <div class="metric-stat-card">
+            <span class="metric-label" data-i18n="analytics_reviews">New 5-Star Reviews</span>
+            <span class="metric-number" id="metricReviewsCount">1,420</span>
+            <span class="metric-trend up">↑ +38.2% review growth</span>
+          </div>
+
+          <div class="metric-stat-card">
+            <span class="metric-label" data-i18n="analytics_split">Tap vs Scan Split</span>
+            <span class="metric-number">72% NFC</span>
+            <span style="font-size: 0.75rem; color: var(--amber-300);">28% QR Camera Scan</span>
+          </div>
+
+          <div class="metric-stat-card">
+            <span class="metric-label" data-i18n="analytics_rev">Est. Revenue Lift</span>
+            <span class="metric-number" id="metricRevLift">+38.2%</span>
+            <span class="metric-trend up">Higher table turns</span>
+          </div>
+        </div>
+
+        <div class="dash-visuals-grid">
+          <div class="chart-box">
+            <div class="chart-title-row">
+              <h4 data-i18n="analytics_chart_title">Daily Tap Activity Trends</h4>
+              <span style="font-size: 0.78rem; color: var(--amber-500); font-weight: 600;">● <span data-i18n="analytics_live_feed">Live Real-Time Feed</span></span>
+            </div>
+
+            <!-- Simulated SVG Line Chart -->
+            <div class="simulated-chart-container">
+              <svg width="100%" height="100%" viewBox="0 0 800 200" preserveAspectRatio="none">
+                <defs>
+                  <linearGradient id="chartGradient" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#F59E0B" stop-opacity="0.35" />
+                    <stop offset="100%" stop-color="#F59E0B" stop-opacity="0.0" />
+                  </linearGradient>
+                </defs>
+                <path id="analyticsSvgFill" d="M 0 170 Q 120 140 240 120 T 450 70 T 650 40 T 800 20 L 800 200 L 0 200 Z" fill="url(#chartGradient)" />
+                <path id="analyticsSvgPath" d="M 0 170 Q 120 140 240 120 T 450 70 T 650 40 T 800 20" fill="none" stroke="#F59E0B" stroke-width="3" />
+              </svg>
+            </div>
+          </div>
+
+          <div class="chart-box">
+            <div class="chart-title-row">
+              <h4 data-i18n="analytics_top_items">Top Viewed Menu Items</h4>
+            </div>
+
+            <div class="top-items-list">
+              <div>
+                <div class="top-item-row">
+                  <span>Truffle Smash Burger</span>
+                  <strong>3,892 taps</strong>
+                </div>
+                <div class="top-item-bar-bg">
+                  <div class="top-item-bar-fill" style="width: 88%;"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="top-item-row">
+                  <span>Awadhi Dum Biryani</span>
+                  <strong>2,910 taps</strong>
+                </div>
+                <div class="top-item-bar-bg">
+                  <div class="top-item-bar-fill" style="width: 72%;"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="top-item-row">
+                  <span>Iced Vanilla Oat Latte</span>
+                  <strong>2,440 taps</strong>
+                </div>
+                <div class="top-item-bar-bg">
+                  <div class="top-item-bar-fill" style="width: 61%;"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="top-item-row">
+                  <span>Parmesan Truffle Fries</span>
+                  <strong>1,980 taps</strong>
+                </div>
+                <div class="top-item-bar-bg">
+                  <div class="top-item-bar-fill" style="width: 48%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       INDUSTRY SOLUTIONS (TABBED SHOWCASE)
+       =================================================================== -->
+  <section class="industry-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="badge badge-amber" data-i18n="ind_badge">Tailored Verticals</div>
+        <h2 data-i18n="ind_title">Engineered for Your Specific Industry</h2>
+        <p data-i18n="ind_sub">Whether you manage a Michelin-starred dining room or a boutique fitness studio, SmartLink elevates customer touchpoints.</p>
+      </div>
+
+      <div class="industry-nav-tabs reveal">
+        <button class="industry-tab-btn active" data-target="ind-dining">🍽️ <span data-i18n="ind_tab_dining">Restaurants & Cafés</span></button>
+        <button class="industry-tab-btn" data-target="ind-gyms">🏋️ <span data-i18n="ind_tab_gyms">Gyms & Fitness</span></button>
+        <button class="industry-tab-btn" data-target="ind-salons">💇 <span data-i18n="ind_tab_salons">Salons & Spas</span></button>
+        <button class="industry-tab-btn" data-target="ind-retail">🛍️ <span data-i18n="ind_tab_retail">Retail & Boutiques</span></button>
+        <button class="industry-tab-btn" data-target="ind-hotels">🏨 <span data-i18n="ind_tab_hotels">Hotels & Hospitality</span></button>
+      </div>
+
+      <!-- Panel 1: Restaurants -->
+      <div class="industry-content-panel active" id="ind-dining">
+        <div class="industry-detail-grid">
+          <div>
+            <div class="badge badge-sage" style="margin-bottom: 0.75rem;">Hospitality Powerhouse</div>
+            <h3 style="font-size: 2rem; margin-bottom: 1rem;">Turn Tables 18 Minutes Faster</h3>
+            <p style="color: var(--text-body); margin-bottom: 1.5rem;">
+              Eliminate the frustration of waving for menus, water, or bills. Guests browse photo-rich digital menus the second they sit down, call staff with one tap, and leave glowing Google reviews as they finish dessert.
+            </p>
+            <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1.5rem;">
+              <li style="display: flex; gap: 8px;">✓ <span>Real-time 86'ing of sold-out dishes from your phone</span></li>
+              <li style="display: flex; gap: 8px;">✓ <span>Direct WhatsApp kitchen ticket routing for fast-casual</span></li>
+              <li style="display: flex; gap: 8px;">✓ <span>Spike dessert & cocktail sales by 22% with vivid visuals</span></li>
+            </ul>
+            <a href="#demos" class="btn btn-primary btn-sm">Explore Restaurant Demos →</a>
+          </div>
+          <div class="industry-image-mock">
+            <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=700&auto=format&fit=crop&q=80" alt="Restaurant Diners" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Panel 2: Gyms -->
+      <div class="industry-content-panel" id="ind-gyms">
+        <div class="industry-detail-grid">
+          <div>
+            <div class="badge badge-amber" style="margin-bottom: 0.75rem;">Health & Wellness</div>
+            <h3 style="font-size: 2rem; margin-bottom: 1rem;">Seamless Gym Check-Ins & Trainer Links</h3>
+            <p style="color: var(--text-body); margin-bottom: 1.5rem;">
+              Place SmartLink stands on machine racks for exercise tutorial videos, on the front desk for instant member check-ins, or hand NFC cards to personal trainers for 1-tap client vCard saving.
+            </p>
+            <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1.5rem;">
+              <li style="display: flex; gap: 8px;">✓ <span>Machine workout guides and form demonstration videos</span></li>
+              <li style="display: flex; gap: 8px;">✓ <span>Class schedule bookings & personal training packages</span></li>
+              <li style="display: flex; gap: 8px;">✓ <span>5-star Google review collection right after great workouts</span></li>
+            </ul>
+            <a href="#contact" class="btn btn-primary btn-sm">Get Gym Starter Kit →</a>
+          </div>
+          <div class="industry-image-mock">
+            <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=700&auto=format&fit=crop&q=80" alt="Gym Workout" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Panel 3: Salons -->
+      <div class="industry-content-panel" id="ind-salons">
+        <div class="industry-detail-grid">
+          <div>
+            <div class="badge badge-beige" style="margin-bottom: 0.75rem;">Beauty & Aesthetics</div>
+            <h3 style="font-size: 2rem; margin-bottom: 1rem;">Showcase Lookbooks & Stylist Portfolios</h3>
+            <p style="color: var(--text-body); margin-bottom: 1.5rem;">
+              Each salon chair or treatment station gets an elegant beige stand. Clients tap to view hair lookbooks, aesthetic treatment menus, stylist Instagram profiles, and rebook their next appointment before leaving the chair.
+            </p>
+            <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1.5rem;">
+              <li style="display: flex; gap: 8px;">✓ <span>Direct Instagram tag incentives & before/after lookbooks</span></li>
+              <li style="display: flex; gap: 8px;">✓ <span>Instant booking calendar links (Fresha, Vagaro, etc.)</span></li>
+              <li style="display: flex; gap: 8px;">✓ <span>Effortless Google Reviews when clients feel most confident</span></li>
+            </ul>
+            <a href="#contact" class="btn btn-primary btn-sm">Get Salon Demo Kit →</a>
+          </div>
+          <div class="industry-image-mock">
+            <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=700&auto=format&fit=crop&q=80" alt="Salon Styling" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Panel 4: Retail -->
+      <div class="industry-content-panel" id="ind-retail">
+        <div class="industry-detail-grid">
+          <div>
+            <div class="badge badge-sage" style="margin-bottom: 0.75rem;">Retail & Boutiques</div>
+            <h3 style="font-size: 2rem; margin-bottom: 1rem;">Interactive Storefronts & VIP Loyalty</h3>
+            <p style="color: var(--text-body); margin-bottom: 1.5rem;">
+              Place SmartLink stands next to flagship apparel lines for instant size charts, fabric sustainability stories, stock availability, and exclusive VIP discount club sign-ups.
+            </p>
+            <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1.5rem;">
+              <li style="display: flex; gap: 8px;">✓ <span>Out-of-stock home shipping order routing via WhatsApp</span></li>
+              <li style="display: flex; gap: 8px;">✓ <span>VIP customer club tap registration</span></li>
+              <li style="display: flex; gap: 8px;">✓ <span>Interactive size guides and outfit styling lookbooks</span></li>
+            </ul>
+            <a href="#contact" class="btn btn-primary btn-sm">Explore Retail Solutions →</a>
+          </div>
+          <div class="industry-image-mock">
+            <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=700&auto=format&fit=crop&q=80" alt="Boutique Shop" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Panel 5: Hotels -->
+      <div class="industry-content-panel" id="ind-hotels">
+        <div class="industry-detail-grid">
+          <div>
+            <div class="badge badge-amber" style="margin-bottom: 0.75rem;">Luxury Hospitality</div>
+            <h3 style="font-size: 2rem; margin-bottom: 1rem;">Digital Concierge in Every Guest Suite</h3>
+            <p style="color: var(--text-body); margin-bottom: 1.5rem;">
+              Replace bulky paper hotel compendiums with a single walnut nightstand stand. Guests tap to order room service, request fresh towels, explore local city guides, or message the concierge desk.
+            </p>
+            <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1.5rem;">
+              <li style="display: flex; gap: 8px;">✓ <span>24/7 in-room dining menu with allergen notifications</span></li>
+              <li style="display: flex; gap: 8px;">✓ <span>Spa appointments, pool towel requests, and checkout</span></li>
+              <li style="display: flex; gap: 8px;">✓ <span>TripAdvisor & Google Review capture at check-out</span></li>
+            </ul>
+            <a href="#contact" class="btn btn-primary btn-sm">Request Hotel Proposal →</a>
+          </div>
+          <div class="industry-image-mock">
+            <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=700&auto=format&fit=crop&q=80" alt="Luxury Hotel Suite" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       PACKAGES & INTERACTIVE QUOTE BUILDER
+       =================================================================== -->
+  <section class="pricing-section" id="pricing">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="badge badge-amber" data-i18n="pricing_badge">Transparent Investment</div>
+        <h2 data-i18n="pricing_title">Hardware Packages & ROI Calculator</h2>
+        <p data-i18n="pricing_sub">No hidden recurring fees. Own your hardware outright with lifetime cloud portal access included.</p>
+      </div>
+
+      <div class="pricing-grid">
+        <!-- Tier 1 -->
+        <div class="pricing-card reveal delay-1">
+          <div class="pricing-header">
+            <h3 data-i18n="plan_starter_title">Starter Stand Kit</h3>
+            <p style="font-size: 0.88rem; color: var(--text-muted);" data-i18n="plan_starter_sub">Ideal for intimate cafés, food trucks, and boutiques.</p>
+            <div class="pricing-price">
+              <span class="price-currency">₹</span>
+              <span class="price-amount">4,999</span>
+              <span class="price-period">one-time</span>
+            </div>
+          </div>
+          <ul class="pricing-features-list">
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> 5x Walnut & Acrylic QR Table Stands</li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> 2x Matte Black Staff NFC Cards</li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Digital Menu Portal with unlimited updates</li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Google Review deep-link setup</li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Standard Analytics Dashboard</li>
+          </ul>
+          <a href="#contact" class="btn btn-secondary">Get Starter Kit</a>
+        </div>
+
+        <!-- Tier 2 (Most Popular) -->
+        <div class="pricing-card popular reveal delay-2">
+          <div class="popular-badge">Most Popular Choice</div>
+          <div class="pricing-header">
+            <h3 data-i18n="plan_pro_title">Pro NFC Business Suite</h3>
+            <p style="font-size: 0.88rem; color: var(--amber-300);" data-i18n="plan_pro_sub">Turnkey suite for full-service dining, lounges, and busy venues.</p>
+            <div class="pricing-price">
+              <span class="price-currency">₹</span>
+              <span class="price-amount">11,999</span>
+              <span class="price-period">one-time</span>
+            </div>
+          </div>
+          <ul class="pricing-features-list">
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> <strong>15x Walnut & Acrylic Dual NFC/QR Stands</strong></li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> <strong>6x Custom Laser-Engraved NFC Cards</strong></li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> 2x Dedicated Google Review Counter Plaques</li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Active WhatsApp Ordering Cart Engine</li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Priority VIP Support & Free Setup Session</li>
+          </ul>
+          <a href="#contact" class="btn btn-primary">Order Pro Suite Now</a>
+        </div>
+
+        <!-- Tier 3 -->
+        <div class="pricing-card reveal delay-3">
+          <div class="pricing-header">
+            <h3 data-i18n="plan_ent_title">Enterprise Bespoke</h3>
+            <p style="font-size: 0.88rem; color: var(--text-muted);" data-i18n="plan_ent_sub">Multi-unit franchises, hotel chains, and resort groups.</p>
+            <div class="pricing-price">
+              <span class="price-currency">₹</span>
+              <span class="price-amount">24,999</span>
+              <span class="price-period">custom tiered</span>
+            </div>
+          </div>
+          <ul class="pricing-features-list">
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> 50+ Custom Hardware units (Solid Brass/Wood/Metal)</li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Custom POS Integration (Toast, Square, Micros)</li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Multi-location centralized cloud dashboard</li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Dedicated account director & SLA guarantee</li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Custom domain & whitelabel micro-app branding</li>
+          </ul>
+          <a href="#contact" class="btn btn-secondary">Request Enterprise Quote</a>
+        </div>
+      </div>
+
+      <!-- Interactive Investment & ROI Estimator -->
+      <div class="quote-estimator-card reveal">
+        <div class="estimator-controls">
+          <div>
+            <div class="badge badge-sage" style="margin-bottom: 0.5rem;" data-i18n="calc_badge">Interactive ROI Builder</div>
+            <h3 style="font-size: 1.8rem;" data-i18n="calc_title">Calculate Your Custom Package</h3>
+            <p style="font-size: 0.9rem; color: var(--text-muted);" data-i18n="calc_sub">
+              Adjust your table count and card quantities to get instant hardware pricing and guest tap projections.
+            </p>
+          </div>
+
+          <div class="range-slider-group">
+            <div class="range-header">
+              <span data-i18n="calc_stands_label">Tabletop Stands Needed:</span>
+              <span id="calcStandsValue" style="color: var(--amber-300); font-weight: 700;">12</span>
+            </div>
+            <input type="range" min="3" max="60" value="12" class="range-slider" id="calcStandsSlider" />
+          </div>
+
+          <div class="range-slider-group">
+            <div class="range-header">
+              <span data-i18n="calc_cards_label">Staff / VIP NFC Cards:</span>
+              <span id="calcCardsValue" style="color: var(--amber-300); font-weight: 700;">6</span>
+            </div>
+            <input type="range" min="1" max="30" value="6" class="range-slider" id="calcCardsSlider" />
+          </div>
+        </div>
+
+        <div class="estimator-summary-box">
+          <span style="font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase;" data-i18n="calc_total_label">Estimated Hardware Investment</span>
+          <div class="est-total-num" id="calcTotalPrice">₹8,990</div>
+          <span style="font-size: 0.82rem; color: var(--sage-300); font-weight: 600;" id="calcEstScans">9,000 scans/mo estimated</span>
+          <p style="font-size: 0.78rem; color: var(--text-muted); margin-top: 0.25rem;">
+            Average venue repays total hardware investment within 14 days through increased dessert, wine & Google review conversion.
+          </p>
+          <a href="#contact" class="btn btn-primary btn-sm" style="margin-top: 0.5rem;" data-i18n="calc_btn">Lock In This Price →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       FAQS ACCORDION
+       =================================================================== -->
+  <section class="faqs-section" id="faqs">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="badge badge-beige" data-i18n="faqs_badge">Answers & Clarity</div>
+        <h2 data-i18n="faqs_title">Frequently Asked Questions</h2>
+        <p data-i18n="faqs_sub">Everything you need to know about our NFC hardware, QR stands, and digital menu platform.</p>
+      </div>
+
+      <div class="faq-accordion-list reveal">
+        <div class="faq-item active">
+          <button class="faq-question-btn">
+            <span>Do customers need to download an app to view the menu or tap?</span>
+            <span class="faq-icon-chevron">▼</span>
+          </button>
+          <div class="faq-answer">
+            <p><strong>Absolutely not.</strong> SmartLink works completely natively with zero app downloads. On modern iPhones and Android devices, tapping the NFC card instantly triggers an iOS App Clip or native browser sheet in under 0.4 seconds. If a customer prefers camera scanning, the QR code loads the exact same instant micro-app.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question-btn">
+            <span>Can I update my prices, items, and links without reprinting stands?</span>
+            <span class="faq-icon-chevron">▼</span>
+          </button>
+          <div class="faq-answer">
+            <p><strong>Yes, 100%!</strong> All SmartLink stands and cards point to dynamic cloud links. You can edit dish names, upload new photos, change prices, hide sold-out specials, or swap destination URLs anytime from your phone dashboard. Changes take effect on all customer tables immediately in real time.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question-btn">
+            <span>How does the Google Review card get customers to rate 5 stars?</span>
+            <span class="faq-icon-chevron">▼</span>
+          </button>
+          <div class="faq-answer">
+            <p>Normally, getting a Google Review requires searching for your venue name, scrolling past competitors, clicking the reviews tab, and hitting write review. SmartLink uses verified direct deep-links that automatically launch the Google Maps app directly with the 5-star rating window pre-opened, cutting review friction down to a single second.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question-btn">
+            <span>How durable are the tabletop stands and NFC cards in restaurants?</span>
+            <span class="faq-icon-chevron">▼</span>
+          </button>
+          <div class="faq-answer">
+            <p>Our tabletop stands feature real solid American walnut bases and shatter-resistant, anti-scratch crystal acrylic. The NFC cards are constructed from medical-grade waterproof, bend-proof PVC. They easily withstand hot dish spills, alcohol, sanitizing wipes, and harsh UV outdoor patio conditions.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question-btn">
+            <span>What phones are compatible with SmartLink NFC tap?</span>
+            <span class="faq-icon-chevron">▼</span>
+          </button>
+          <div class="faq-answer">
+            <p>Over 98% of active smartphones today are NFC equipped. All iPhones from iPhone XS (2018) through iPhone 16 have background NFC reading permanently enabled. Virtually all Android smartphones released in the last 7 years have instant NFC tap built in.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       CONTACT & FREE DEMO KIT FORM (VALIDATED & CONFIGURABLE PLACEHOLDERS)
+       =================================================================== -->
+  <section class="contact-section" id="contact">
+    <div class="container">
+      <div class="contact-card-wrapper reveal">
+        <div class="contact-info-col">
+          <div class="badge badge-amber" style="align-self: flex-start;" data-i18n="contact_badge">Risk-Free Experience</div>
+          <h2 style="font-size: 2.4rem;" data-i18n="contact_title">Get Your Free SmartLink Sample Kit</h2>
+          <p style="color: var(--text-body);" data-i18n="contact_sub">
+            We will ship you a complimentary demo pack containing our genuine Matte Black NFC card, a sample Walnut QR tabletop block, and test links to experience the speed on your own phone.
+          </p>
+
+          <!-- Direct WhatsApp Action CTA Button -->
+          <div style="margin-top: 0.5rem;">
+            <a href="https://wa.me/YOUR_PHONE_NUMBER?text=Hello%20SmartLink%20Business!%20I%20am%20interested%20in%20your%20NFC%20cards%20and%20smart%20stands." target="_blank" class="btn-whatsapp-cta" id="btnWhatsappDirectCta">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+              <span data-i18n="contact_btn_whatsapp">Message Directly on WhatsApp</span>
+            </a>
+          </div>
+
+          <!-- Configurable Contact Channels (No Fake Credentials) -->
+          <div class="contact-channels">
+            <div class="channel-item">
+              <div class="channel-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+              <div>
+                <span style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;" data-i18n="contact_inquiries">Direct Inquiries</span>
+                <div style="font-weight: 700; color: #FFF;">contact@[yourdomain].com</div>
+                <span class="configurable-notice">⚙️ Configurable Email Placeholder</span>
+              </div>
+            </div>
+
+            <div class="channel-item">
+              <div class="channel-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              </div>
+              <div>
+                <span style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;" data-i18n="contact_whatsapp_title">WhatsApp Support Line</span>
+                <div style="font-weight: 700; color: #FFF;">+[COUNTRY_CODE] [PHONE_NUMBER]</div>
+                <span class="configurable-notice">⚙️ Configurable Phone Placeholder</span>
+              </div>
+            </div>
+
+            <div class="channel-item">
+              <div class="channel-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 14 14"/></svg>
+              </div>
+              <div>
+                <span style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;" data-i18n="contact_dispatch">Dispatch Time</span>
+                <div style="font-weight: 700; color: #FFF;" data-i18n="contact_dispatch_val">Same-Day Express Dispatch</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Validated Lead & Enquiry Form -->
+        <form class="contact-form" id="freeDemoForm" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fullName" data-i18n="contact_name_label">Your Full Name</label>
+              <input type="text" id="fullName" name="fullName" placeholder="e.g. Rahul Sharma" data-i18n-ph="contact_name_ph" required minlength="2" />
+              <span class="field-error-msg">Please enter your full name (minimum 2 characters).</span>
+            </div>
+            <div class="form-group">
+              <label for="businessName" data-i18n="contact_business_label">Business / Venue Name</label>
+              <input type="text" id="businessName" name="businessName" placeholder="e.g. Saffron Table Indore" data-i18n-ph="contact_business_ph" required minlength="2" />
+              <span class="field-error-msg">Please enter your venue or business name.</span>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email" data-i18n="contact_email_label">Business Email Address</label>
+              <input type="email" id="email" name="email" placeholder="name@yourbusiness.com" data-i18n-ph="contact_email_ph" required />
+              <span class="field-error-msg">Please enter a valid email address.</span>
+            </div>
+            <div class="form-group">
+              <label for="phone" data-i18n="contact_phone_label">Phone / WhatsApp Number</label>
+              <input type="tel" id="phone" name="phone" placeholder="+91 98765 43210" data-i18n-ph="contact_phone_ph" required />
+              <span class="field-error-msg">Please enter a valid phone number with STD/country code.</span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="serviceSelect" data-i18n="contact_service_label">Service Interested In</label>
+            <select id="serviceSelect" name="service" required>
+              <option value="Complete SmartLink Suite">Complete SmartLink Suite (NFC Stands + Cards + Menu)</option>
+              <option value="Walnut QR Tabletop Stands">Walnut QR & Dual NFC Tabletop Stands</option>
+              <option value="Staff NFC Tap Cards">Staff NFC Tap Cards & VIP Member Badges</option>
+              <option value="Google Review Tap Plaques">Google 5-Star Review Tap Plaques & Counter Cards</option>
+              <option value="Custom Digital Menu Micro-App">Custom Digital Restaurant Menu & WhatsApp Ordering</option>
+              <option value="Enterprise Multi-Location">Enterprise Multi-Outlet Setup (Franchise / Hotel)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="formMessage" data-i18n="contact_message_label">Your Message / Requirements</label>
+            <textarea id="formMessage" name="message" rows="3" placeholder="Tell us about your venue, number of tables, or specific requirements..." data-i18n-ph="contact_message_ph" required minlength="5"></textarea>
+            <span class="field-error-msg">Please share a brief message or table count (min 5 characters).</span>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-lg" style="width: 100%; margin-top: 0.5rem;" id="btnSubmitSampleKit">
+            <span data-i18n="contact_btn_submit">Send Enquiry & Request Free Demo Kit →</span>
+          </button>
+          <span style="font-size: 0.75rem; color: var(--text-muted); text-align: center;" data-i18n="contact_note">Direct dispatch to Indore venues • Verified enquiry delivery via email & WhatsApp</span>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       FOOTER (CONFIGURABLE SOCIAL PLACEHOLDERS & CLEAR DISCLAIMER)
+       =================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        <div class="footer-brand">
+          <div class="brand-logo">
+            <div class="brand-logo-mark">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2a10 10 0 0 1 10 10M12 6a6 6 0 0 1 6 6M12 10a2 2 0 0 1 2 2"/><rect x="2" y="14" width="20" height="8" rx="2"/></svg>
+            </div>
+            <span>SmartLink <span class="highlight">Business</span></span>
+          </div>
+          <p>
+            “One Tap. One Scan. Everything Connected.” Premium contactless smart hardware and digital micro-apps for modern hospitality, wellness, and retail.
+          </p>
+
+          <!-- Configurable Social Placeholders -->
+          <div style="display: flex; gap: 12px; margin-top: 1.25rem;">
+            <a href="https://instagram.com/[your_handle]" target="_blank" style="color: var(--text-muted); font-size: 0.85rem;" title="Configurable Instagram Handle">📸 Instagram</a>
+            <a href="https://linkedin.com/company/[your_company]" target="_blank" style="color: var(--text-muted); font-size: 0.85rem;" title="Configurable LinkedIn Page">💼 LinkedIn</a>
+            <a href="https://twitter.com/[your_handle]" target="_blank" style="color: var(--text-muted); font-size: 0.85rem;" title="Configurable X / Twitter">🐦 X / Twitter</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h5>Live Demos</h5>
+          <ul>
+            <li><a href="demos/brew-and-bloom.html" target="_blank">Brew & Bloom Café</a></li>
+            <li><a href="demos/saffron-table.html" target="_blank">Saffron Table Fine Dining</a></li>
+            <li><a href="demos/urban-bites.html" target="_blank">Urban Bites Quick-Service</a></li>
+            <li><a href="javascript:void(0)" onclick="openSimulatorModal('brew')">Mobile Device Simulator</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Products</h5>
+          <ul>
+            <li><a href="#products">Matte Black NFC Cards</a></li>
+            <li><a href="#products">Walnut & Acrylic QR Stands</a></li>
+            <li><a href="#products">Google Review Tap Cards</a></li>
+            <li><a href="#pricing">Custom Quote Estimator</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Solutions</h5>
+          <ul>
+            <li><a href="#solutions">Digital Menus & Translation</a></li>
+            <li><a href="#solutions">5-Star Google Review Lift</a></li>
+            <li><a href="#solutions">WhatsApp Direct Ordering</a></li>
+            <li><a href="#analytics">Live Engagement Analytics</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          © 2026 SmartLink Business Technologies Inc. All rights reserved.
+        </div>
+        <div>
+          Integrity Notice: All demo businesses (Brew & Bloom, Saffron Table, Urban Bites) are fictional showcases. No fake testimonials are used. Contact details are configurable templates.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===================================================================
+       BACK TO TOP SCROLL BUTTON
+       =================================================================== -->
+  <button class="back-to-top" id="backToTopBtn" aria-label="Back to Top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <!-- ===================================================================
+       BILINGUAL AI CHATBOT GUIDE (ENGLISH & HINDI)
+       =================================================================== -->
+  <div class="ai-chat-launcher">
+    <div class="ai-launcher-tooltip">Ask AI Assistant</div>
+    <button class="ai-launcher-btn" id="aiChatToggle" aria-label="Open AI Assistant">
+      <span class="ai-launcher-badge">AI</span>
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><circle cx="9" cy="10" r="1"/><circle cx="15" cy="10" r="1"/></svg>
+    </button>
+  </div>
+
+  <div class="ai-chat-container" id="aiChatContainer">
+    <div class="ai-chat-header">
+      <div class="ai-chat-header-info">
+        <div class="ai-avatar">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        </div>
+        <div>
+          <div class="ai-header-title" data-i18n="chat_header_title">SmartLink AI Assistant</div>
+          <div class="ai-header-status">
+            <span class="badge-pulse"></span> <span data-i18n="chat_header_status">Online • Ready to Guide</span>
+            <span style="font-size: 0.65rem; background: rgba(255,255,255,0.12); padding: 1px 5px; border-radius: 4px; margin-left: 4px;">Zero-API-Leak • Offline Engine</span>
+          </div>
+        </div>
+      </div>
+      <button class="ai-chat-close-btn" id="aiChatClose" aria-label="Close Chat">✕</button>
+    </div>
+
+    <!-- Message History -->
+    <div class="ai-chat-messages" id="aiChatMessages">
+      <div class="chat-msg chat-msg-bot">
+        <div class="msg-bubble" id="chatInitialGreeting" data-i18n="chat_welcome">
+          Hello! I am your SmartLink AI guide. How can I assist you with our NFC tap cards, QR stands, or live restaurant menus today?
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Prompt Chips -->
+    <div class="ai-chat-chips" id="aiChatChips">
+      <button class="chat-chip" data-query="How does NFC tap work?">How does NFC tap work?</button>
+      <button class="chat-chip" data-query="Explore live restaurant demos">Explore live restaurant demos</button>
+      <button class="chat-chip" data-query="Package pricing & ROI">Package pricing & ROI</button>
+      <button class="chat-chip" data-query="Request a free sample kit">Request a free sample kit</button>
+      <button class="chat-chip" data-query="Google Review card benefits">Google Review card benefits</button>
+    </div>
+
+    <!-- Input Toolbar -->
+    <div class="ai-chat-input-bar">
+      <input type="text" id="aiChatInput" placeholder="Ask any question in English or Hindi..." data-i18n-ph="chat_input_ph" autocomplete="off" />
+      <button class="ai-chat-send-btn" id="aiChatSend" aria-label="Send Message">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- ===================================================================
+       MOBILE DEVICE SIMULATOR MODAL (PREVIEW DEMOS ON DESKTOP)
+       =================================================================== -->
+  <div class="simulator-modal-overlay" id="simulatorModal">
+    <div class="simulator-modal-card">
+      <button class="sim-close-btn" id="simCloseBtn" aria-label="Close device simulator">✕</button>
+
+      <div style="text-align: center; margin-bottom: 4px;">
+        <h4 style="font-size: 1rem; color: #FFF;">Live Smartphone Simulator</h4>
+        <p style="font-size: 0.75rem; color: var(--text-muted);">Test the interactive demo micro-apps inside a simulated iPhone screen</p>
+      </div>
+
+      <div class="sim-switcher-tabs">
+        <button class="sim-tab active" data-demo="creme">⭐ Crème & Cone</button>
+        <button class="sim-tab" data-demo="brew">Brew & Bloom</button>
+        <button class="sim-tab" data-demo="saffron">Saffron Table</button>
+        <button class="sim-tab" data-demo="urban">Urban Bites</button>
+      </div>
+
+      <div class="sim-device-screen-wrapper">
+        <iframe id="simIframe" src="demos/creme-and-cone.html" title="SmartLink Demo Frame"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/config.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/chatbot.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
