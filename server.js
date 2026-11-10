@@ -13,7 +13,22 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
-app.use(express.static(__dirname));
+app.use('/css', express.static(path.join(__dirname, 'css')));
+app.use('/js', express.static(path.join(__dirname, 'js')));
+app.use(express.static(path.join(__dirname)));
+
+// Fallback explicit static file routes
+app.get('/css/style.css', (req, res) => {
+  res.sendFile(path.join(__dirname, 'css', 'style.css'));
+});
+app.get('/js/main.js', (req, res) => {
+  res.sendFile(path.join(__dirname, 'js', 'main.js'));
+});
+
+// Explicit root route for index.html
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'index.html'));
+});
 
 // Mount send-enquiry endpoint
 app.all('/api/send-enquiry', (req, res) => {
@@ -23,11 +38,6 @@ app.all('/api/send-enquiry', (req, res) => {
 // Mount proxy endpoint for Render demo iframe
 app.get('/api/proxy-render', (req, res) => {
   return proxyRenderHandler(req, res);
-});
-
-// Explicit root route for index.html
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 // Start local server if run directly
