@@ -44,5 +44,79 @@
     "fullName": "Test User",
     "email": "test@smartlink.local",
     "timestamp": "2026-10-30T16:18:53.479Z"
+  },
+  {
+    "id": "LEAD-1793379520526",
+    "fullName": "Vercel Test",
+    "email": "test@smartlink.local",
+    "timestamp": "2026-10-30T16:58:40.526Z"
+  },
+  {
+    "id": "LEAD-1794310419668",
+    "fullName": "Ayush Sharma",
+    "businessName": "cafe",
+    "email": "0\\7697912636@client.smartlink",
+    "phone": "0\\7697912636",
+    "service": "QR Digital Menu",
+    "message": "I want a QR digital menu for my cafe.",
+    "timestamp": "2026-11-10T11:33:39.651Z"
+  },
+  {
+    "id": "LEAD-1794310591670",
+    "fullName": "Test Lead",
+    "phone": "7697912636",
+    "message": "Testing enquiry response",
+    "timestamp": "2026-11-10T11:36:31.670Z"
+  },
+  {
+    "id": "LEAD-1794310649416",
+    "fullName": "Ayush Sharma",
+    "businessName": "cafe",
+    "email": "7697912636@client.smartlink",
+    "phone": "7697912636",
+    "service": "QR Digital Menu",
+    "message": "I want a digital QR menu for my cafe.",
+    "timestamp": "2026-11-10T11:37:29.413Z"
+  },
+  {
+    "id": "LEAD-1794310922081",
+    "fullName": "Ayush Sharma",
+    "businessName": "cafe",
+    "email": "7697912636@client.smartlink",
+    "phone": "7697912636",
+    "service": "QR Digital Menu",
+    "message": "mujhe mere cafe ke liye QR digital menu chahiye please.",
+    "timestamp": "2026-11-10T11:42:02.064Z"
+  },
+  {
+    "id": "LEAD-1794311939354",
+    "fullName": "Rohit Verma (Demo Client)",
+    "businessName": "Verma Grand Bistro",
+    "phone": "7697912636",
+    "service": "QR Digital Menu & NFC Cards",
+    "message": "Hello SmartLink, I need 15 NFC stands for my tables.",
+    "timestamp": "2026-11-10T11:58:59.354Z"
+  },
+  {
+    "id": "LEAD-1794312117063",
+    "fullName": "Ayush Sharma",
+    "businessName": "cafe",
+    "email": "7697912636@client.smartlink",
+    "phone": "7697912636",
+    "service": "QR Digital Menu",
+    "message": "Mujhe mere cafe ke liye ek QR code chahiye jismein menu ho aur NFC bhi ho but at a reasonable price. Kya aap mujhe wo provide kar sakte hain? Agar aap provide kar sakte hain to meri contact details ye rahi. 234567890",
+    "timestamp": "2026-11-10T12:01:57.060Z"
+  },
+  {
+    "id": "LEAD-1794312581731",
+    "fullName": "Vikram Joshi",
+    "businessName": "The Royal Treat Cafe",
+    "city": "Indore",
+    "tablesCount": "11 - 25 Tables",
+    "email": "Not Provided",
+    "phone": "7697912636",
+    "service": "QR Digital Menu & NFC Cards",
+    "message": "Need full package with table stands for our new opening.",
+    "timestamp": "2026-11-10T12:09:41.731Z"
   }
 ]
