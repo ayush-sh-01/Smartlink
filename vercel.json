@@ -3,8 +3,12 @@
   "cleanUrls": true,
   "rewrites": [
     {
-      "source": "/api/(.*)",
-      "destination": "/api/$1"
+      "source": "/api/send-enquiry",
+      "destination": "/api/send-enquiry.js"
+    },
+    {
+      "source": "/api/proxy-render",
+      "destination": "/api/proxy-render.js"
     }
   ]
 }
