@@ -25,6 +25,11 @@ app.get('/api/proxy-render', (req, res) => {
   return proxyRenderHandler(req, res);
 });
 
+// Explicit root route for index.html
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'index.html'));
+});
+
 // Start local server if run directly
 if (require.main === module) {
   app.listen(PORT, () => {
