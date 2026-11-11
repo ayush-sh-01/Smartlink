@@ -90,12 +90,12 @@ module.exports = async (req, res) => {
     console.warn('Local log warning (ignored in serverless):', err.message);
   }
 
-  // Read SMTP settings
-  const notificationEmail = process.env.NOTIFICATION_EMAIL;
-  const smtpHost = process.env.SMTP_HOST;
+  // Read SMTP settings (with reliable fallbacks for Vercel)
+  const notificationEmail = process.env.NOTIFICATION_EMAIL || 'smartlink7697@gmail.com';
+  const smtpHost = process.env.SMTP_HOST || 'smtp.gmail.com';
   const smtpPort = process.env.SMTP_PORT || 587;
-  const smtpUser = process.env.SMTP_USER;
-  const smtpPass = process.env.SMTP_PASS;
+  const smtpUser = process.env.SMTP_USER || 'smartlink7697@gmail.com';
+  const smtpPass = process.env.SMTP_PASS || 'xdur uzvj empl eljj';
 
   if (smtpHost && smtpUser && smtpPass && notificationEmail) {
     try {
