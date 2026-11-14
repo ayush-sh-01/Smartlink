@@ -25,6 +25,11 @@ app.get('/js/main.js', (req, res) => {
   res.sendFile(path.join(__dirname, 'js', 'main.js'));
 });
 
+// Explicit route for preview demo
+app.get('/demo', (req, res) => {
+  res.sendFile(path.join(__dirname, 'demo-preview.html'));
+});
+
 // Explicit root route for index.html
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));

@@ -1,0 +1,2236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SmartLink Studio — One Stop Solution for Digital Business Needs & Goals</title>
+  <meta name="description" content="Digital menus, custom software, NFC tap cards and online platforms handled by one team — built so the work scales up as your business does.">
+  
+  <!-- Modern Clean Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <style>
+    /* ===================================================================
+       WHYCREATIVES-INSPIRED DESIGN SYSTEM & VARIABLES
+       =================================================================== */
+    :root {
+      --bg-canvas: #090a0d;
+      --bg-surface: #111317;
+      --bg-surface-elevated: #181b22;
+      --bg-card: #15171e;
+      --bg-folder-lilac: #7d75ff;
+      --bg-folder-white: #f5f6f8;
+      --bg-folder-dark: #12141a;
+      --bg-folder-coral: #ff5738;
+      --bg-folder-yellow: #ffe600;
+      
+      --text-main: #f5f6f8;
+      --text-muted: #9aa0ac;
+      --text-dim: #606675;
+      --text-dark: #0c0d10;
+      
+      --accent-lilac: #7d75ff;
+      --accent-coral: #ff5738;
+      --accent-yellow: #ffe600;
+      --accent-emerald: #10b981;
+      
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-medium: rgba(255, 255, 255, 0.14);
+      --border-focus: rgba(255, 255, 255, 0.3);
+      
+      --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-heading: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+      
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 24px;
+      --radius-xl: 36px;
+      --radius-pill: 9999px;
+      
+      --transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    [data-theme="light"] {
+      --bg-canvas: #f8f9fa;
+      --bg-surface: #ffffff;
+      --bg-surface-elevated: #f0f2f5;
+      --bg-card: #ffffff;
+      --text-main: #0c0d10;
+      --text-muted: #555b68;
+      --text-dim: #8b92a0;
+      --border-subtle: rgba(0, 0, 0, 0.08);
+      --border-medium: rgba(0, 0, 0, 0.16);
+    }
+
+    /* Reset & Base */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+      background-color: var(--bg-canvas);
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--bg-canvas);
+      color: var(--text-main);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    button, input, textarea, select {
+      font-family: inherit;
+      color: inherit;
+      border: none;
+      outline: none;
+      background: none;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1220px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Floating Social Bar (Left Edge - as in page 9) */
+    .floating-social-bar {
+      position: fixed;
+      left: 18px;
+      bottom: 24px;
+      z-index: 999;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .social-floating-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(24, 27, 34, 0.85);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--border-medium);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-main);
+      font-size: 1.1rem;
+      transition: var(--transition);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    }
+
+    .social-floating-btn:hover {
+      transform: translateY(-3px) scale(1.08);
+      background: var(--text-main);
+      color: var(--text-dark);
+      border-color: transparent;
+    }
+
+    /* ===================================================================
+       HEADER & NAVIGATION (Pages 1 & 2)
+       =================================================================== */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(9, 10, 13, 0.82);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-subtle);
+      transition: var(--transition);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 76px;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-heading);
+      font-size: 1.55rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--text-main);
+    }
+
+    .brand-logo .logo-slash {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      color: var(--accent-yellow);
+    }
+
+    .brand-logo .logo-slash span {
+      display: inline-block;
+      width: 4px;
+      height: 18px;
+      background: currentColor;
+      transform: skewX(-18deg);
+      border-radius: 2px;
+    }
+
+    .brand-logo .logo-dot {
+      color: var(--accent-yellow);
+    }
+
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      list-style: none;
+    }
+
+    .nav-link {
+      font-size: 0.92rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      transition: var(--transition);
+    }
+
+    .nav-link:hover {
+      color: var(--text-main);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .icon-btn {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: 1px solid var(--border-medium);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: var(--text-main);
+      font-size: 1.1rem;
+      transition: var(--transition);
+      background: transparent;
+    }
+
+    .icon-btn:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: var(--text-main);
+      transform: scale(1.05);
+    }
+
+    /* Reusable Pill Buttons (with signature arrow ↗) */
+    .pill-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 22px;
+      border-radius: var(--radius-pill);
+      font-size: 0.94rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      white-space: nowrap;
+    }
+
+    .pill-btn .arrow-icon {
+      font-size: 1.05rem;
+      transition: transform 0.22s ease;
+      display: inline-block;
+    }
+
+    .pill-btn:hover .arrow-icon {
+      transform: translate(2px, -2px);
+    }
+
+    .pill-btn-white {
+      background: #ffffff;
+      color: #0c0d10;
+      box-shadow: 0 4px 16px rgba(255, 255, 255, 0.12);
+    }
+
+    .pill-btn-white:hover {
+      background: #f0f0f4;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(255, 255, 255, 0.2);
+    }
+
+    .pill-btn-ghost {
+      background: transparent;
+      color: var(--text-main);
+      border: 1px solid var(--border-medium);
+    }
+
+    .pill-btn-ghost:hover {
+      background: rgba(255, 255, 255, 0.06);
+      border-color: var(--text-main);
+      transform: translateY(-2px);
+    }
+
+    .pill-btn-yellow {
+      background: var(--accent-yellow);
+      color: #0c0d10;
+      font-weight: 700;
+      box-shadow: 0 4px 20px rgba(255, 230, 0, 0.35);
+    }
+
+    .pill-btn-yellow:hover {
+      background: #fff04d;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(255, 230, 0, 0.5);
+    }
+
+    .pill-btn-coral {
+      background: var(--accent-coral);
+      color: #ffffff;
+      box-shadow: 0 4px 18px rgba(255, 87, 56, 0.35);
+    }
+
+    .pill-btn-coral:hover {
+      background: #ff6e52;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 26px rgba(255, 87, 56, 0.5);
+    }
+
+    /* Section Kickers */
+    .section-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+    }
+
+    .section-kicker .kicker-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent-yellow);
+      display: inline-block;
+    }
+
+    /* ===================================================================
+       HERO SECTION (Pages 1 & 2)
+       =================================================================== */
+    .hero-section {
+      padding: 70px 0 60px;
+      position: relative;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    @media (max-width: 960px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .hero-content {
+      max-width: 580px;
+    }
+
+    .hero-headline {
+      font-family: var(--font-heading);
+      font-size: clamp(2.5rem, 5.2vw, 4.4rem);
+      font-weight: 800;
+      line-height: 1.08;
+      letter-spacing: -0.035em;
+      color: var(--text-main);
+      margin-bottom: 30px;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 36px;
+    }
+
+    .hero-trust-badges {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border-subtle);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .hero-trust-badges span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* The Iconic Architectural Folder Card (Page 1 & 2) */
+    .hero-architectural-frame {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1 / 1.08;
+      max-width: 520px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    /* Crosshairs & Blueprint markers */
+    .crosshair-line-v {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 32%;
+      width: 1px;
+      background: dashed 1px rgba(255, 255, 255, 0.18);
+      border-left: 1px dashed rgba(255, 255, 255, 0.18);
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    .crosshair-line-h {
+      position: absolute;
+      left: 10%;
+      right: 0;
+      top: 22%;
+      height: 1px;
+      border-top: 1px dashed rgba(255, 255, 255, 0.18);
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    .blueprint-marker {
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      background: #ffffff;
+      border: 1px solid #000;
+      z-index: 20;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+    }
+    .marker-top-right {
+      top: 20%;
+      right: 31%;
+      transform: translate(50%, -50%);
+    }
+    .marker-top-left {
+      top: 20%;
+      left: 20%;
+      transform: translate(-50%, -50%);
+    }
+
+    /* The Signature Cutout Shape */
+    .architectural-card-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: 42px 42px 42px 42px;
+      background: linear-gradient(135deg, #7c74ff 0%, #6358ee 100%);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 36px;
+      box-shadow: 0 30px 60px rgba(110, 99, 248, 0.25);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .architectural-card-inner:hover {
+      transform: translateY(-6px) scale(1.01);
+      box-shadow: 0 36px 80px rgba(110, 99, 248, 0.35);
+    }
+
+    /* Cutout notch corner overlay to emulate WhyCreatives tab cutout */
+    .card-notch-corner {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 52%;
+      height: 38%;
+      background: var(--bg-canvas);
+      border-bottom-right-radius: 36px;
+      z-index: 5;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .card-notch-corner::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: -36px;
+      width: 36px;
+      height: 36px;
+      background: transparent;
+      border-top-left-radius: 36px;
+      box-shadow: -12px -12px 0 0 var(--bg-canvas);
+    }
+
+    .card-notch-corner::after {
+      content: "";
+      position: absolute;
+      bottom: -36px;
+      left: 0;
+      width: 36px;
+      height: 36px;
+      background: transparent;
+      border-top-left-radius: 36px;
+      box-shadow: -12px -12px 0 0 var(--bg-canvas);
+    }
+
+    .notch-badge-pill {
+      background: #ffffff;
+      color: #0c0d10;
+      padding: 10px 18px;
+      border-radius: var(--radius-pill);
+      font-size: 0.88rem;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      width: fit-content;
+    }
+
+    .card-giant-watermark {
+      font-family: var(--font-heading);
+      font-size: clamp(3rem, 7vw, 4.8rem);
+      font-weight: 900;
+      color: rgba(255, 255, 255, 0.95);
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* ===================================================================
+       INFINITE MARQUEE TICKER (Page 3)
+       =================================================================== */
+    .marquee-container {
+      width: 100%;
+      overflow: hidden;
+      padding: 30px 0;
+      border-top: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+      background: rgba(18, 20, 26, 0.45);
+      white-space: nowrap;
+      position: relative;
+    }
+
+    .marquee-track {
+      display: inline-flex;
+      gap: 40px;
+      animation: marqueeScroll 28s linear infinite;
+    }
+
+    @keyframes marqueeScroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .marquee-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--font-heading);
+      font-size: 1.35rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: var(--text-main);
+    }
+
+    .marquee-icon {
+      font-size: 1.1rem;
+      color: var(--accent-yellow);
+    }
+
+    /* ===================================================================
+       SELECTED WORK & FOLDER CUTOUT CARDS (Pages 3, 4, 5)
+       =================================================================== */
+    .selected-work-section {
+      padding: 100px 0 80px;
+      position: relative;
+    }
+
+    .section-intro-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: flex-end;
+      margin-bottom: 60px;
+    }
+
+    @media (max-width: 768px) {
+      .section-intro-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .section-headline-large {
+      font-family: var(--font-heading);
+      font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      color: var(--text-main);
+    }
+
+    .section-desc-text {
+      font-size: 1.12rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* Folder Style Cards Grid */
+    .folder-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 36px;
+    }
+
+    @media (max-width: 900px) {
+      .folder-cards-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .folder-card {
+      border-radius: 36px;
+      padding: 36px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 480px;
+      overflow: hidden;
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+      cursor: pointer;
+    }
+
+    .folder-card:hover {
+      transform: translateY(-8px);
+    }
+
+    .folder-tab-header {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 8px;
+      margin-bottom: 30px;
+      z-index: 3;
+    }
+
+    .folder-chip {
+      padding: 8px 16px;
+      border-radius: var(--radius-pill);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    /* Distinct folder theme variants */
+    .folder-card-lilac {
+      background: linear-gradient(145deg, #7c74ff, #5c52e8);
+      color: #ffffff;
+      box-shadow: 0 20px 48px rgba(110, 99, 248, 0.2);
+    }
+    .folder-card-lilac .folder-chip {
+      background: rgba(255, 255, 255, 0.22);
+      color: #ffffff;
+      backdrop-filter: blur(10px);
+    }
+
+    .folder-card-white {
+      background: #f4f5f7;
+      color: #0c0d10;
+      box-shadow: 0 20px 48px rgba(255, 255, 255, 0.08);
+    }
+    .folder-card-white .folder-chip {
+      background: #0c0d10;
+      color: #ffffff;
+    }
+
+    .folder-card-dark {
+      background: #151720;
+      border: 1px solid var(--border-medium);
+      color: #ffffff;
+      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.5);
+    }
+    .folder-card-dark .folder-chip {
+      background: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+    }
+
+    .folder-card-coral {
+      background: linear-gradient(145deg, #ff5c38, #e63e18);
+      color: #ffffff;
+      box-shadow: 0 20px 48px rgba(255, 87, 56, 0.25);
+    }
+    .folder-card-coral .folder-chip {
+      background: rgba(255, 255, 255, 0.22);
+      color: #ffffff;
+    }
+
+    .folder-center-showcase {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: auto 0;
+      text-align: center;
+      z-index: 2;
+    }
+
+    .folder-center-title {
+      font-family: var(--font-heading);
+      font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1.02;
+    }
+
+    .folder-bottom-meta {
+      z-index: 2;
+      margin-top: 30px;
+    }
+
+    .folder-year-meta {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      opacity: 0.75;
+      margin-bottom: 8px;
+    }
+
+    .folder-summary-text {
+      font-size: 1.15rem;
+      font-weight: 600;
+      line-height: 1.35;
+    }
+
+    /* ===================================================================
+       OUR EXPERTISE / SERVICES LIST (Page 6)
+       =================================================================== */
+    .services-section {
+      padding: 90px 0;
+      border-top: 1px solid var(--border-subtle);
+      position: relative;
+    }
+
+    .services-header-row {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 60px;
+    }
+
+    .services-list-container {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .service-row-item {
+      display: grid;
+      grid-template-columns: 140px 1fr auto;
+      gap: 30px;
+      align-items: center;
+      padding: 34px 0;
+      border-bottom: 1px solid var(--border-subtle);
+      transition: var(--transition);
+      cursor: pointer;
+    }
+
+    .service-row-item:hover {
+      padding-left: 12px;
+      border-color: var(--border-medium);
+      background: rgba(255, 255, 255, 0.015);
+    }
+
+    @media (max-width: 768px) {
+      .service-row-item {
+        grid-template-columns: 90px 1fr;
+      }
+      .service-row-action {
+        display: none;
+      }
+    }
+
+    .service-row-thumb {
+      width: 130px;
+      height: 85px;
+      border-radius: var(--radius-md);
+      background: #1c1e28;
+      overflow: hidden;
+      position: relative;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .service-row-thumb img,
+    .service-row-thumb .thumb-placeholder {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+    }
+
+    .service-row-text h3 {
+      font-family: var(--font-heading);
+      font-size: 1.85rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 6px;
+      color: var(--text-main);
+    }
+
+    .service-row-text p {
+      font-size: 0.98rem;
+      color: var(--text-muted);
+      max-width: 620px;
+    }
+
+    .service-row-action {
+      opacity: 0.5;
+      font-size: 1.4rem;
+      transition: var(--transition);
+    }
+
+    .service-row-item:hover .service-row-action {
+      opacity: 1;
+      transform: translate(4px, -4px);
+      color: var(--accent-yellow);
+    }
+
+    /* ===================================================================
+       STUDIO & TEAM BANNER (Page 7)
+       =================================================================== */
+    .studio-team-section {
+      padding: 60px 0 100px;
+    }
+
+    .studio-card-wrapper {
+      position: relative;
+      border-radius: 40px;
+      overflow: hidden;
+      min-height: 520px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 40px;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+      background: linear-gradient(180deg, rgba(16, 18, 24, 0.4) 0%, rgba(9, 10, 14, 0.95) 100%),
+                  url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+    }
+
+    .studio-speech-bubble {
+      background: #ffffff;
+      color: #0c0d10;
+      padding: 20px 28px;
+      border-radius: 24px;
+      max-width: 380px;
+      font-size: 1.3rem;
+      font-weight: 700;
+      line-height: 1.25;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+      position: relative;
+    }
+
+    .studio-speech-bubble::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 36px;
+      width: 0;
+      height: 0;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-top: 10px solid #ffffff;
+    }
+
+    .studio-card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+      z-index: 2;
+    }
+
+    .studio-badge-box {
+      background: rgba(18, 20, 26, 0.85);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--border-medium);
+      padding: 14px 22px;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .studio-badge-icon {
+      font-size: 1.4rem;
+      color: var(--accent-yellow);
+    }
+
+    .studio-badge-title {
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--text-main);
+    }
+
+    .studio-badge-sub {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .studio-btn-group {
+      display: flex;
+      gap: 12px;
+    }
+
+    /* ===================================================================
+       AI ASSISTANT LAUNCHER & HIGH VOLTAGE CTA (Page 8)
+       =================================================================== */
+    .ai-and-cta-section {
+      padding: 80px 0 110px;
+      position: relative;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .ai-box-centered {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 90px;
+    }
+
+    .ai-button-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 14px;
+      margin: 28px 0 18px;
+    }
+
+    .ai-launcher-btn {
+      background: #ffffff;
+      color: #0c0d10;
+      font-size: 0.96rem;
+      font-weight: 700;
+      padding: 12px 24px;
+      border-radius: var(--radius-pill);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 16px rgba(255, 255, 255, 0.1);
+      transition: var(--transition);
+    }
+
+    .ai-launcher-btn:hover {
+      transform: translateY(-3px) scale(1.04);
+      background: var(--accent-yellow);
+      box-shadow: 0 8px 24px rgba(255, 230, 0, 0.35);
+    }
+
+    .ai-disclaimer {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* Giant CTA Banner */
+    .giant-cta-banner {
+      background: #0f1117;
+      border: 1px solid var(--border-medium);
+      border-radius: 40px;
+      padding: 80px 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .ghost-watermark-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: var(--font-heading);
+      font-size: clamp(3.5rem, 10vw, 8rem);
+      font-weight: 900;
+      color: rgba(255, 255, 255, 0.025);
+      letter-spacing: -0.04em;
+      white-space: nowrap;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .cta-banner-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .cta-badge {
+      display: inline-block;
+      background: var(--accent-coral);
+      color: #ffffff;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      margin-bottom: 24px;
+    }
+
+    .cta-giant-headline {
+      font-family: var(--font-heading);
+      font-size: clamp(2.4rem, 6vw, 4.6rem);
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      margin-bottom: 40px;
+      color: var(--text-main);
+    }
+
+    .cta-giant-button {
+      background: var(--accent-coral);
+      color: #ffffff;
+      padding: 18px 40px;
+      border-radius: var(--radius-pill);
+      font-size: 1.15rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      display: inline-flex;
+      align-items: center;
+      gap: 16px;
+      box-shadow: 0 10px 36px rgba(255, 87, 56, 0.45);
+      transition: var(--transition);
+      cursor: pointer;
+    }
+
+    .cta-giant-button .circle-arrow {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #000000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+    }
+
+    .cta-giant-button:hover {
+      transform: translateY(-4px) scale(1.03);
+      box-shadow: 0 16px 48px rgba(255, 87, 56, 0.6);
+      background: #ff6e4d;
+    }
+
+    /* ===================================================================
+       LIVE PROJECTS SHOWCASE / MOCKUPS (Page 10)
+       =================================================================== */
+    .projects-showcase-section {
+      padding: 100px 0 80px;
+      position: relative;
+    }
+
+    .projects-card-container {
+      background: #13151c;
+      border: 1px solid var(--border-medium);
+      border-radius: 36px;
+      padding: 40px;
+      position: relative;
+      margin-top: 40px;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4);
+    }
+
+    .project-browser-window {
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid var(--border-medium);
+      background: #0d0e12;
+      margin-bottom: 30px;
+      position: relative;
+    }
+
+    .browser-top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 18px;
+      background: #171922;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .browser-dots {
+      display: flex;
+      gap: 6px;
+    }
+    .browser-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+    .dot-red { background: #ef4444; }
+    .dot-yellow { background: #ffe600; }
+    .dot-green { background: #10b981; }
+
+    .browser-url-pill {
+      font-family: monospace;
+      font-size: 0.8rem;
+      color: var(--accent-yellow);
+      background: rgba(255, 230, 0, 0.08);
+      border: 1px solid rgba(255, 230, 0, 0.2);
+      padding: 4px 16px;
+      border-radius: var(--radius-pill);
+    }
+
+    .browser-frame-view {
+      width: 100%;
+      height: 520px;
+      background: #0c0d10;
+      position: relative;
+    }
+
+    .browser-frame-view iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .project-info-row {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .project-meta-details h3 {
+      font-family: var(--font-heading);
+      font-size: 2.2rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 6px;
+    }
+
+    .project-meta-details p {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 600px;
+    }
+
+    .project-tabs-switcher {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+
+    .project-tab-btn {
+      padding: 10px 20px;
+      border-radius: var(--radius-pill);
+      font-size: 0.88rem;
+      font-weight: 700;
+      background: #1c1e28;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: var(--transition);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .project-tab-btn.active, .project-tab-btn:hover {
+      background: #ffffff;
+      color: #0c0d10;
+      border-color: #ffffff;
+    }
+
+    /* ===================================================================
+       CONTACT & SCOPE INQUIRY FORM (Pages 11 & 12)
+       =================================================================== */
+    .contact-scope-section {
+      padding: 100px 0 120px;
+      border-top: 1px solid var(--border-subtle);
+      position: relative;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: 60px;
+      align-items: flex-start;
+    }
+
+    @media (max-width: 900px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+    }
+
+    .contact-info-col {
+      max-width: 480px;
+    }
+
+    .contact-info-col h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(2.4rem, 4.5vw, 3.6rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-bottom: 20px;
+    }
+
+    .contact-intro-desc {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 40px;
+    }
+
+    .contact-meta-channel {
+      padding: 22px 0;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .channel-label {
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .channel-value {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .channel-value:hover {
+      color: var(--accent-yellow);
+    }
+
+    /* The "Start a project" Scope Form Card (Page 12) */
+    .scope-form-card {
+      background: #12141b;
+      border: 1px solid var(--border-medium);
+      border-radius: 32px;
+      padding: 44px;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4);
+    }
+
+    .scope-card-title {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 6px;
+    }
+
+    .scope-card-sub {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 30px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 8px;
+    }
+
+    .form-control {
+      width: 100%;
+      background: #090a0d;
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-md);
+      padding: 14px 18px;
+      font-size: 0.96rem;
+      color: var(--text-main);
+      transition: var(--transition);
+    }
+
+    .form-control:focus {
+      border-color: var(--accent-yellow);
+      background: #0e0f14;
+      box-shadow: 0 0 0 3px rgba(255, 230, 0, 0.15);
+    }
+
+    .form-control::placeholder {
+      color: var(--text-dim);
+    }
+
+    textarea.form-control {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    .chips-select-label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .chips-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+
+    .service-chip-option {
+      background: #1c1e28;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-pill);
+      padding: 8px 18px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: var(--transition);
+      user-select: none;
+    }
+
+    .service-chip-option.selected {
+      background: var(--accent-yellow);
+      color: #0c0d10;
+      font-weight: 700;
+      border-color: var(--accent-yellow);
+    }
+
+    .form-feedback-alert {
+      padding: 14px;
+      border-radius: var(--radius-sm);
+      margin-bottom: 18px;
+      font-size: 0.92rem;
+      display: none;
+    }
+    .form-feedback-alert.success {
+      display: block;
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid var(--accent-emerald);
+      color: #34d399;
+    }
+    .form-feedback-alert.error {
+      display: block;
+      background: rgba(239, 68, 68, 0.15);
+      border: 1px solid #ef4444;
+      color: #f87171;
+    }
+
+    /* ===================================================================
+       FOOTER (Page 9)
+       =================================================================== */
+    .site-footer {
+      background: #08090b;
+      border-top: 1px solid var(--border-subtle);
+      padding: 90px 0 50px;
+      position: relative;
+    }
+
+    .footer-top-cta {
+      margin-bottom: 70px;
+      padding-bottom: 60px;
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    .footer-cta-text h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 8px;
+    }
+
+    .footer-cta-text p {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+    }
+
+    .footer-columns-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 60px;
+    }
+
+    @media (max-width: 850px) {
+      .footer-columns-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    @media (max-width: 500px) {
+      .footer-columns-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .footer-col-title {
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+
+    .footer-links-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-links-list a {
+      color: var(--text-muted);
+      font-size: 0.94rem;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .footer-links-list a:hover {
+      color: var(--text-main);
+      transform: translateX(3px);
+    }
+
+    .new-tag {
+      font-size: 0.65rem;
+      font-weight: 800;
+      background: #ffffff;
+      color: #000;
+      padding: 2px 6px;
+      border-radius: 4px;
+      letter-spacing: 0.05em;
+    }
+
+    .footer-bottom-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      color: var(--text-dim);
+      padding-top: 30px;
+      border-top: 1px solid var(--border-subtle);
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating Social Bar (Left Edge as in PDF Page 9) -->
+  <aside class="floating-social-bar" aria-label="Social connections">
+    <a href="https://wa.me/917697912636?text=Hi%20SmartLink,%20I'm%20interested%20in%20your%20digital%20business%20solutions." target="_blank" rel="noopener noreferrer" class="social-floating-btn" title="Chat on WhatsApp">
+      💬
+    </a>
+    <a href="mailto:smartlink7697@gmail.com" class="social-floating-btn" title="Send Email">
+      ✉
+    </a>
+    <a href="tel:+917697912636" class="social-floating-btn" title="Call Us">
+      📞
+    </a>
+  </aside>
+
+  <!-- ===================================================================
+       SITE HEADER
+       =================================================================== -->
+  <header class="site-header">
+    <div class="container">
+      <div class="header-inner">
+        <!-- Logo -->
+        <a href="#hero" class="brand-logo">
+          <div class="logo-slash">
+            <span></span>
+            <span></span>
+          </div>
+          SmartLink<span class="logo-dot">.</span>
+        </a>
+
+        <!-- Navigation Links -->
+        <nav class="header-nav">
+          <ul class="nav-links">
+            <li><a href="#work" class="nav-link">Selected Work</a></li>
+            <li><a href="#services" class="nav-link">Services</a></li>
+            <li><a href="#demos" class="nav-link">Live Demos</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+          </ul>
+        </nav>
+
+        <!-- Right Action Icons -->
+        <div class="header-actions">
+          <button id="themeToggleBtn" class="icon-btn" title="Toggle theme" aria-label="Toggle theme">
+            ☾
+          </button>
+          <a href="#contact" class="pill-btn pill-btn-white">
+            Start a project <span class="arrow-icon">↗</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===================================================================
+         HERO SECTION (Pages 1 & 2)
+         =================================================================== -->
+    <section id="hero" class="hero-section">
+      <div class="container">
+        <div class="hero-grid">
+          <!-- Left: Big Typography & CTAs -->
+          <div class="hero-content">
+            <div class="section-kicker">
+              <span class="kicker-dot"></span>
+              SmartLink Business Solutions
+            </div>
+            
+            <h1 class="hero-headline">
+              One stop solution for all digital business needs and goals
+            </h1>
+
+            <div class="hero-cta-group">
+              <a href="#work" class="pill-btn pill-btn-white">
+                View our work <span class="arrow-icon">↗</span>
+              </a>
+              <a href="#contact" class="pill-btn pill-btn-ghost">
+                Start a project <span class="arrow-icon">↗</span>
+              </a>
+            </div>
+
+            <div class="hero-trust-badges">
+              <span>✦ Instant Setup</span>
+              <span>✦ Zero App Downloads</span>
+              <span>✦ Real-time Sync</span>
+            </div>
+          </div>
+
+          <!-- Right: Architectural Folder Cutout Graphic with Blueprint Crosshairs -->
+          <div class="hero-architectural-frame">
+            <div class="crosshair-line-v"></div>
+            <div class="crosshair-line-h"></div>
+            <div class="blueprint-marker marker-top-right"></div>
+            <div class="blueprint-marker marker-top-left"></div>
+
+            <div class="architectural-card-inner">
+              <div class="card-notch-corner">
+                <div class="notch-badge-pill">
+                  About SmartLink <span class="arrow-icon">↗</span>
+                </div>
+              </div>
+
+              <div class="card-giant-watermark">
+                SmartLink
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         INFINITE MARQUEE TICKER (Page 3)
+         =================================================================== -->
+    <section class="marquee-container" aria-hidden="true">
+      <div class="marquee-track">
+        <span class="marquee-item"><span class="marquee-icon">✦</span> QR DIGITAL MENUS</span>
+        <span class="marquee-item"><span class="marquee-icon">✦</span> CUSTOM WEB & APPS</span>
+        <span class="marquee-item"><span class="marquee-icon">✦</span> NFC TAP CARDS</span>
+        <span class="marquee-item"><span class="marquee-icon">✦</span> MULTI-VENDOR PLATFORMS</span>
+        <span class="marquee-item"><span class="marquee-icon">✦</span> 1-TAP GOOGLE REVIEWS</span>
+        <span class="marquee-item"><span class="marquee-icon">✦</span> INSTANT WHATSAPP ORDERS</span>
+        <!-- Duplicated for seamless loop -->
+        <span class="marquee-item"><span class="marquee-icon">✦</span> QR DIGITAL MENUS</span>
+        <span class="marquee-item"><span class="marquee-icon">✦</span> CUSTOM WEB & APPS</span>
+        <span class="marquee-item"><span class="marquee-icon">✦</span> NFC TAP CARDS</span>
+        <span class="marquee-item"><span class="marquee-icon">✦</span> MULTI-VENDOR PLATFORMS</span>
+        <span class="marquee-item"><span class="marquee-icon">✦</span> 1-TAP GOOGLE REVIEWS</span>
+        <span class="marquee-item"><span class="marquee-icon">✦</span> INSTANT WHATSAPP ORDERS</span>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         SELECTED WORK (Pages 3, 4, 5) - The Signature Folder Cutout Cards
+         =================================================================== -->
+    <section id="work" class="selected-work-section">
+      <div class="container">
+        <div class="section-intro-grid">
+          <div>
+            <div class="section-kicker">
+              <span class="kicker-dot"></span>
+              Selected Work
+            </div>
+            <h2 class="section-headline-large">
+              Design & Tech in the real world ↗
+            </h2>
+          </div>
+          <div>
+            <p class="section-desc-text">
+              Digital menus, custom software, NFC tap cards and online platforms handled by one team — built so the work scales up as your business does, instead of being rebuilt.
+            </p>
+          </div>
+        </div>
+
+        <!-- 4 Distinct Folder-Cutout Shape Cards -->
+        <div class="folder-cards-grid">
+          <!-- Card 1: Lilac Folder -->
+          <div class="folder-card folder-card-lilac" onclick="location.href='#demos'">
+            <div class="folder-tab-header">
+              <span class="folder-chip">Digital Menu</span>
+              <span class="folder-chip">QR Stand</span>
+            </div>
+            <div class="folder-center-showcase">
+              <h3 class="folder-center-title">
+                Smart<br>Menu
+              </h3>
+            </div>
+            <div class="folder-bottom-meta">
+              <div class="folder-year-meta">2026 • SMARTLINK DIGITAL</div>
+              <div class="folder-summary-text">
+                Ultra-fast QR menus with live prices, dish photos & instant WhatsApp orders.
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: Minimalist White Folder -->
+          <div class="folder-card folder-card-white" onclick="location.href='#demos'">
+            <div class="folder-tab-header">
+              <span class="folder-chip">Branding</span>
+              <span class="folder-chip">Strategy</span>
+            </div>
+            <div class="folder-center-showcase">
+              <h3 class="folder-center-title">
+                One clear<br>voice
+              </h3>
+            </div>
+            <div class="folder-bottom-meta">
+              <div class="folder-year-meta">2026 • SMARTLINK BRANDING</div>
+              <div class="folder-summary-text">
+                Minimalist brand identity, positioning & cohesive digital presentation.
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3: Deep Graphite Folder -->
+          <div class="folder-card folder-card-dark" onclick="location.href='#demos'">
+            <div class="folder-tab-header">
+              <span class="folder-chip">Web</span>
+              <span class="folder-chip">Apps</span>
+              <span class="folder-chip">SEO</span>
+            </div>
+            <div class="folder-center-showcase">
+              <h3 class="folder-center-title" style="color: #ffffff;">
+                Custom<br>Ecosystems
+              </h3>
+            </div>
+            <div class="folder-bottom-meta">
+              <div class="folder-year-meta" style="color: #9aa0ac;">2026 • WEB, APPS & SEARCH</div>
+              <div class="folder-summary-text" style="color: #f5f6f8;">
+                Custom web & mobile apps, built to rank high and convert visitors to buyers.
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4: Vibrant Coral Folder -->
+          <div class="folder-card folder-card-coral" onclick="location.href='#demos'">
+            <div class="folder-tab-header">
+              <span class="folder-chip">NFC Tap</span>
+              <span class="folder-chip">Reviews</span>
+              <span class="folder-chip">Social</span>
+            </div>
+            <div class="folder-center-showcase">
+              <h3 class="folder-center-title">
+                1-Tap<br>Reviews
+              </h3>
+            </div>
+            <div class="folder-bottom-meta">
+              <div class="folder-year-meta">2026 • SMARTLINK GROWTH</div>
+              <div class="folder-summary-text">
+                NFC contactless cards for 5-star Google review growth & effortless customer connections.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         OUR EXPERTISE / SERVICES LIST (Page 6)
+         =================================================================== -->
+    <section id="services" class="services-section">
+      <div class="container">
+        <div class="services-header-row">
+          <div>
+            <div class="section-kicker">
+              <span class="kicker-dot"></span>
+              Our Expertise
+            </div>
+            <h2 class="section-headline-large">
+              How we take your business to the next level
+            </h2>
+          </div>
+          <a href="#contact" class="pill-btn pill-btn-white">
+            SEE ALL SERVICES <span class="arrow-icon">↗</span>
+          </a>
+        </div>
+
+        <div class="services-list-container">
+          <!-- Service 1 -->
+          <div class="service-row-item" onclick="location.href='#contact'">
+            <div class="service-row-thumb">
+              <div class="thumb-placeholder" style="background: linear-gradient(135deg, #1c202a, #111319); color: var(--accent-yellow);">
+                📱
+              </div>
+            </div>
+            <div class="service-row-text">
+              <h3>QR Digital Menus</h3>
+              <p>Instant price updates, item stock toggles, dish photography, allergen labels, and direct WhatsApp ordering without apps.</p>
+            </div>
+            <div class="service-row-action">↗</div>
+          </div>
+
+          <!-- Service 2 -->
+          <div class="service-row-item" onclick="location.href='#contact'">
+            <div class="service-row-thumb">
+              <div class="thumb-placeholder" style="background: linear-gradient(135deg, #2a201c, #191211); color: var(--accent-coral);">
+                🌐
+              </div>
+            </div>
+            <div class="service-row-text">
+              <h3>Websites & Web Apps</h3>
+              <p>Lightning-fast, highly responsive websites engineered with clean typography and focused conversion funnels.</p>
+            </div>
+            <div class="service-row-action">↗</div>
+          </div>
+
+          <!-- Service 3 -->
+          <div class="service-row-item" onclick="location.href='#contact'">
+            <div class="service-row-thumb">
+              <div class="thumb-placeholder" style="background: linear-gradient(135deg, #201c2a, #131119); color: var(--accent-lilac);">
+                💳
+              </div>
+            </div>
+            <div class="service-row-text">
+              <h3>NFC Smart Business & Review Cards</h3>
+              <p>Premium matte & metal tap cards that launch your 5-star Google review prompt or digital profile with a single phone tap.</p>
+            </div>
+            <div class="service-row-action">↗</div>
+          </div>
+
+          <!-- Service 4 -->
+          <div class="service-row-item" onclick="location.href='#contact'">
+            <div class="service-row-thumb">
+              <div class="thumb-placeholder" style="background: linear-gradient(135deg, #18241c, #0f1611); color: var(--accent-emerald);">
+                🏬
+              </div>
+            </div>
+            <div class="service-row-text">
+              <h3>Multi-Vendor Platforms</h3>
+              <p>Full marketplace infrastructure supporting multiple outlets, real-time dispatch, table allocation, and central reporting.</p>
+            </div>
+            <div class="service-row-action">↗</div>
+          </div>
+
+          <!-- Service 5 -->
+          <div class="service-row-item" onclick="location.href='#contact'">
+            <div class="service-row-thumb">
+              <div class="thumb-placeholder" style="background: linear-gradient(135deg, #28241c, #1a1711); color: var(--accent-yellow);">
+                📈
+              </div>
+            </div>
+            <div class="service-row-text">
+              <h3>Local SEO & Growth Strategy</h3>
+              <p>Google Maps local pack ranking, reputation strategy, and automated messaging that turns one-time diners into regulars.</p>
+            </div>
+            <div class="service-row-action">↗</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         STUDIO & TEAM BANNER (Page 7)
+         =================================================================== -->
+    <section class="studio-team-section">
+      <div class="container">
+        <div class="studio-card-wrapper">
+          <div class="studio-speech-bubble">
+            “ One team from first idea to launch day ”
+          </div>
+
+          <div class="studio-card-footer">
+            <div class="studio-badge-box">
+              <div class="studio-badge-icon">⚡</div>
+              <div>
+                <div class="studio-badge-title">SmartLink Studio</div>
+                <div class="studio-badge-sub">Product, tech & digital growth team</div>
+              </div>
+            </div>
+
+            <div class="studio-btn-group">
+              <a href="#demos" class="pill-btn pill-btn-white">
+                See client work <span class="arrow-icon">↗</span>
+              </a>
+              <a href="#contact" class="pill-btn pill-btn-ghost">
+                About the studio <span class="arrow-icon">↗</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         AI ASSISTANTS & HIGH-VOLTAGE CTA (Page 8)
+         =================================================================== -->
+    <section class="ai-and-cta-section">
+      <div class="container">
+        <!-- AI Assistant Launchers -->
+        <div class="ai-box-centered">
+          <div class="section-kicker">
+            <span class="kicker-dot"></span>
+            Don't believe the hype?
+          </div>
+          <h2 class="section-headline-large">
+            See what AI has to say about us
+          </h2>
+
+          <div class="ai-button-row">
+            <a href="https://chatgpt.com/?q=Why+are+SmartLink+digital+menus+and+NFC+cards+good+for+restaurants%3F" target="_blank" rel="noopener noreferrer" class="ai-launcher-btn">
+              <span>OpenAI</span> <span class="arrow-icon">↗</span>
+            </a>
+            <a href="https://claude.ai/new?q=What+are+the+benefits+of+SmartLink+restaurant+QR+menus+and+contactless+tech%3F" target="_blank" rel="noopener noreferrer" class="ai-launcher-btn">
+              <span>Claude</span> <span class="arrow-icon">↗</span>
+            </a>
+            <a href="https://www.google.com/search?q=SmartLink+digital+restaurant+menus+NFC+review+cards" target="_blank" rel="noopener noreferrer" class="ai-launcher-btn">
+              <span>Google</span> <span class="arrow-icon">↗</span>
+            </a>
+            <a href="https://x.com/i/grok?text=Tell+me+how+SmartLink+digital+solutions+help+cafes+and+businesses" target="_blank" rel="noopener noreferrer" class="ai-launcher-btn">
+              <span>Grok</span> <span class="arrow-icon">↗</span>
+            </a>
+          </div>
+
+          <p class="ai-disclaimer">
+            Opens your assistant with the question ready to send. We don’t script the answer — read whatever it says.
+          </p>
+        </div>
+
+        <!-- Giant CTA Banner (Page 8) -->
+        <div class="giant-cta-banner">
+          <div class="ghost-watermark-text">
+            LET'S CONNECT LET'S CONNECT
+          </div>
+
+          <div class="cta-banner-content">
+            <div class="cta-badge">Get In Touch</div>
+            <h2 class="cta-giant-headline">
+              TELL US WHAT<br>YOU'RE BUILDING
+            </h2>
+
+            <a href="#contact" class="cta-giant-button">
+              LET'S CONNECT
+              <span class="circle-arrow">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         LIVE PROJECTS SHOWCASE (Page 10)
+         =================================================================== -->
+    <section id="demos" class="projects-showcase-section">
+      <div class="container">
+        <div class="section-kicker">
+          <span class="kicker-dot"></span>
+          Our Work
+        </div>
+        <h2 class="section-headline-large">
+          Take a look at our projects
+        </h2>
+        <p class="section-desc-text" style="margin-top: 10px; margin-bottom: 24px;">
+          Brand identities, websites, apps and systems — built by one team and shipped for real businesses.
+        </p>
+
+        <!-- Project Switcher Tabs -->
+        <div class="project-tabs-switcher">
+          <button class="project-tab-btn active" onclick="switchDemoProject('menu')">
+            Digital QR Menu
+          </button>
+          <button class="project-tab-btn" onclick="switchDemoProject('cafe')">
+            Cafe De Casa
+          </button>
+          <button class="project-tab-btn" onclick="switchDemoProject('multivendor')">
+            Multi-Vendor Platform
+          </button>
+        </div>
+
+        <div class="projects-card-container">
+          <!-- Mockup Browser Window -->
+          <div class="project-browser-window">
+            <div class="browser-top-bar">
+              <div class="browser-dots">
+                <span class="browser-dot dot-red"></span>
+                <span class="browser-dot dot-yellow"></span>
+                <span class="browser-dot dot-green"></span>
+              </div>
+              <div class="browser-url-pill" id="demoUrlDisplay">
+                https://smartlink-digital-menu.vercel.app/
+              </div>
+              <a id="demoExternalLink" href="https://smartlink-digital-menu.vercel.app/" target="_blank" rel="noopener noreferrer" class="pill-btn pill-btn-white" style="padding: 6px 14px; font-size: 0.8rem;">
+                🌐 Website <span class="arrow-icon">↗</span>
+              </a>
+            </div>
+
+            <div class="browser-frame-view">
+              <iframe id="projectIframe" src="https://smartlink-digital-menu.vercel.app/" title="Live Project Demo"></iframe>
+            </div>
+          </div>
+
+          <div class="project-info-row">
+            <div class="project-meta-details">
+              <h3 id="demoProjectTitle">SmartLink Digital Menu ↗</h3>
+              <p id="demoProjectDesc">
+                A focused ultra-fast mobile digital menu with instant categorization, visual item photos, allergen flags, and live WhatsApp ordering.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         CONTACT & SCOPE INQUIRY FORM (Pages 11 & 12)
+         =================================================================== -->
+    <section id="contact" class="contact-scope-section">
+      <div class="container">
+        <div class="contact-grid">
+          <!-- Left: Direct Channels -->
+          <div class="contact-info-col">
+            <div class="section-kicker">
+              <span class="kicker-dot"></span>
+              Contact
+            </div>
+            <h2>Tell us what you need built</h2>
+            <p class="contact-intro-desc">
+              Send the goal, the deadline and anything you already have. You get a scope and a straight answer on fit — not a sales sequence.
+            </p>
+
+            <div class="contact-meta-channel">
+              <div class="channel-label">✉ EMAIL</div>
+              <a href="mailto:smartlink7697@gmail.com" class="channel-value">smartlink7697@gmail.com</a>
+            </div>
+
+            <div class="contact-meta-channel">
+              <div class="channel-label">💬 WHATSAPP</div>
+              <a href="https://wa.me/917697912636" target="_blank" rel="noopener noreferrer" class="channel-value">Chat on WhatsApp (+91 7697912636)</a>
+            </div>
+
+            <div class="contact-meta-channel">
+              <div class="channel-label">📍 STUDIO</div>
+              <div class="channel-value">Guwahati, Assam, India (Worldwide Remote)</div>
+            </div>
+
+            <div style="margin-top: 30px; font-size: 0.95rem; color: var(--text-muted); line-height: 1.5;">
+              Replies land within one working day. If it is urgent, WhatsApp is the fastest route.
+            </div>
+          </div>
+
+          <!-- Right: Four fields scope card (Page 12) -->
+          <div class="scope-form-card">
+            <h3 class="scope-card-title">Start a project</h3>
+            <p class="scope-card-sub">Four fields, then pick what you need. Nothing else required.</p>
+
+            <div id="formFeedbackAlert" class="form-feedback-alert"></div>
+
+            <form id="scopeEnquiryForm">
+              <div class="form-group">
+                <label class="form-label" for="clientName">Your name *</label>
+                <input type="text" id="clientName" class="form-control" placeholder="Full name" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="clientEmail">Email *</label>
+                <input type="email" id="clientEmail" class="form-control" placeholder="you@company.com" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="clientPhone">Phone (optional)</label>
+                <input type="tel" id="clientPhone" class="form-control" placeholder="+91 98765 43210">
+              </div>
+
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+                <div class="form-group">
+                  <label class="form-label" for="clientCity">City / Location</label>
+                  <input type="text" id="clientCity" class="form-control" placeholder="e.g. Mumbai, Guwahati">
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="clientTables">Number of Tables</label>
+                  <input type="number" id="clientTables" class="form-control" placeholder="e.g. 15">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="clientMessage">What are you trying to achieve? *</label>
+                <textarea id="clientMessage" class="form-control" placeholder="The goal, the deadline, and anything you need..." required></textarea>
+              </div>
+
+              <div>
+                <label class="chips-select-label">Select services you're interested in:</label>
+                <div class="chips-container" id="servicesChipContainer">
+                  <span class="service-chip-option selected" data-value="QR Digital Menus">QR Digital Menus</span>
+                  <span class="service-chip-option" data-value="Custom Websites">Custom Websites</span>
+                  <span class="service-chip-option" data-value="NFC Tap Cards">NFC Tap Cards</span>
+                  <span class="service-chip-option" data-value="Multi-Vendor Platform">Multi-Vendor Platform</span>
+                  <span class="service-chip-option" data-value="Google Reviews Tech">Google Reviews Tech</span>
+                </div>
+              </div>
+
+              <button type="submit" id="submitBriefBtn" class="pill-btn pill-btn-white" style="width: 100%; padding: 16px; margin-top: 10px;">
+                Submit brief <span class="arrow-icon">↗</span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================================================================
+       FOOTER (Page 9)
+       =================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-cta">
+        <div class="footer-cta-text">
+          <h2>Do you like what you see?</h2>
+          <p>Scope-led proposals. Built around your brief.</p>
+        </div>
+        <a href="#contact" class="pill-btn pill-btn-white" style="padding: 16px 32px; font-size: 1.05rem;">
+          Start a project <span class="arrow-icon">↗</span>
+        </a>
+      </div>
+
+      <div class="footer-columns-grid">
+        <div>
+          <a href="#hero" class="brand-logo" style="margin-bottom: 16px;">
+            <div class="logo-slash"><span></span><span></span></div>
+            SmartLink<span class="logo-dot">.</span>
+          </a>
+          <p style="color: var(--text-muted); font-size: 0.92rem; max-width: 320px; line-height: 1.6;">
+            Empowering modern cafes, restaurants, and forward-thinking businesses with frictionless digital ordering and smart tap hardware.
+          </p>
+        </div>
+
+        <div>
+          <div class="footer-col-title">LEARN</div>
+          <ul class="footer-links-list">
+            <li><a href="#hero">About</a></li>
+            <li><a href="#work">Culture</a></li>
+            <li><a href="#work">Client work</a></li>
+            <li><a href="#services">Processes</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">EXPLORE</div>
+          <ul class="footer-links-list">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#work">Work <span class="new-tag">NEW</span></a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#demos">Live Demos</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">GET IN TOUCH</div>
+          <ul class="footer-links-list">
+            <li><a href="https://wa.me/917697912636" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+            <li><a href="mailto:smartlink7697@gmail.com">Email</a></li>
+            <li><a href="tel:+917697912636">+91 7697912636</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom-row">
+        <div>© 2026 SmartLink Business Solutions. All rights reserved.</div>
+        <div>Crafted with precision for modern commerce.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===================================================================
+       CLIENT LOGIC & FORM SUBMISSION
+       =================================================================== -->
+  <script>
+    // Theme toggle
+    const themeBtn = document.getElementById('themeToggleBtn');
+    themeBtn.addEventListener('click', () => {
+      const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+      if (isLight) {
+        document.documentElement.removeAttribute('data-theme');
+        themeBtn.textContent = '☾';
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+        themeBtn.textContent = '☼';
+      }
+    });
+
+    // Project Switcher
+    const projectData = {
+      menu: {
+        title: "SmartLink Digital Menu ↗",
+        desc: "A focused ultra-fast mobile digital menu with instant categorization, visual item photos, allergen flags, and live WhatsApp ordering.",
+        url: "https://smartlink-digital-menu.vercel.app/"
+      },
+      cafe: {
+        title: "Cafe De Casa ↗",
+        desc: "A modern digital restaurant website with interactive culinary galleries, online reservations, and full menu showcase.",
+        url: "https://cafe-de-casa-two.vercel.app/"
+      },
+      multivendor: {
+        title: "Multi-Vendor Marketplace Platform ↗",
+        desc: "High-scale multi-vendor restaurant ordering network with merchant dashboards, dynamic pricing, and dispatch routing.",
+        url: "/api/proxy-render"
+      }
+    };
+
+    function switchDemoProject(key) {
+      const data = projectData[key];
+      if (!data) return;
+
+      document.querySelectorAll('.project-tab-btn').forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+
+      document.getElementById('demoProjectTitle').textContent = data.title;
+      document.getElementById('demoProjectDesc').textContent = data.desc;
+      document.getElementById('demoUrlDisplay').textContent = data.url;
+      document.getElementById('demoExternalLink').href = data.url === '/api/proxy-render' ? 'https://multivendor-platform-2vkb.onrender.com' : data.url;
+      document.getElementById('projectIframe').src = data.url;
+    }
+
+    // Service Chip Multiselect
+    document.querySelectorAll('.service-chip-option').forEach(chip => {
+      chip.addEventListener('click', () => {
+        chip.classList.toggle('selected');
+      });
+    });
+
+    // Form Submission to /api/send-enquiry
+    const scopeForm = document.getElementById('scopeEnquiryForm');
+    const feedbackAlert = document.getElementById('formFeedbackAlert');
+    const submitBtn = document.getElementById('submitBriefBtn');
+
+    scopeForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const name = document.getElementById('clientName').value.trim();
+      const email = document.getElementById('clientEmail').value.trim();
+      const phone = document.getElementById('clientPhone').value.trim();
+      const city = document.getElementById('clientCity').value.trim();
+      const tables = document.getElementById('clientTables').value.trim();
+      const message = document.getElementById('clientMessage').value.trim();
+
+      const selectedServices = Array.from(document.querySelectorAll('.service-chip-option.selected'))
+        .map(chip => chip.getAttribute('data-value'));
+
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = 'Sending brief...';
+      feedbackAlert.className = 'form-feedback-alert';
+      feedbackAlert.style.display = 'none';
+
+      const payload = {
+        name,
+        email,
+        phone,
+        city,
+        tables,
+        service: selectedServices.join(', ') || 'General Project Scope',
+        message
+      };
+
+      try {
+        const response = await fetch('/api/send-enquiry', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+
+        const result = await response.json();
+
+        if (response.ok && result.success) {
+          feedbackAlert.className = 'form-feedback-alert success';
+          feedbackAlert.textContent = '✓ Your brief has been received! Our team will contact you within one business day.';
+          scopeForm.reset();
+          document.querySelectorAll('.service-chip-option').forEach(chip => chip.classList.remove('selected'));
+        } else {
+          feedbackAlert.className = 'form-feedback-alert error';
+          feedbackAlert.textContent = result.message || 'Something went wrong. Please connect with us directly on WhatsApp (+91 7697912636).';
+        }
+      } catch (err) {
+        feedbackAlert.className = 'form-feedback-alert error';
+        feedbackAlert.textContent = 'Network error. Please connect with us on WhatsApp (+91 7697912636).';
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = 'Submit brief <span class="arrow-icon">↗</span>';
+      }
+    });
+  </script>
+</body>
+</html>

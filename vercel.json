@@ -3,6 +3,10 @@
   "cleanUrls": true,
   "rewrites": [
     {
+      "source": "/demo",
+      "destination": "/demo-preview.html"
+    },
+    {
       "source": "/api/send-enquiry",
       "destination": "/api/send-enquiry.js"
     },
