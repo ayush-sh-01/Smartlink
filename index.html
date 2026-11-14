@@ -14,31 +14,35 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap');
 
 :root {
-  --bg-deep: #08090b;
-  --bg-surface: #101216;
-  --bg-surface-elevated: #161920;
-  --bg-card: rgba(20, 24, 31, 0.75);
-  --bg-card-hover: rgba(26, 31, 41, 0.95);
-  --bg-glass: rgba(14, 17, 23, 0.85);
+  /* Deep Graphite foundations */
+  --bg-deep: #121316;
+  --bg-surface: #1a1c22;
+  --bg-surface-elevated: #22252e;
+  --bg-card: rgba(26, 28, 36, 0.78);
+  --bg-card-hover: rgba(33, 36, 46, 0.96);
+  --bg-glass: rgba(18, 19, 23, 0.88);
 
-  --amber-400: #fbbf24;
-  --amber-500: #f59e0b;
-  --amber-600: #d97706;
-  --amber-glow: rgba(245, 158, 11, 0.3);
-  --amber-glow-soft: rgba(245, 158, 11, 0.12);
+  /* Sunshine Yellow accents */
+  --amber-300: #fff176;
+  --amber-400: #ffe600;
+  --amber-500: #ffd000;
+  --amber-600: #e6b800;
+  --amber-glow: rgba(255, 230, 0, 0.38);
+  --amber-glow-soft: rgba(255, 230, 0, 0.14);
 
   --emerald-400: #34d399;
   --emerald-500: #10b981;
   --emerald-glow: rgba(16, 185, 129, 0.25);
 
-  --text-heading: #fcfbf9;
-  --text-body: #d1d5db;
-  --text-muted: #9ca3af;
-  --text-dim: #6b7280;
+  /* Soft Cloud White typography */
+  --text-heading: #f8f9fa;
+  --text-body: #e2e5eb;
+  --text-muted: #9aa1ab;
+  --text-dim: #6e7480;
 
-  --border-subtle: rgba(255, 255, 255, 0.08);
-  --border-medium: rgba(255, 255, 255, 0.14);
-  --border-highlight: rgba(245, 158, 11, 0.35);
+  --border-subtle: rgba(248, 249, 250, 0.08);
+  --border-medium: rgba(248, 249, 250, 0.15);
+  --border-highlight: rgba(255, 230, 0, 0.42);
 
   --radius-sm: 8px;
   --radius-md: 14px;
@@ -91,7 +95,7 @@ body {
   transform: translateX(-50%);
   width: 700px;
   height: 450px;
-  background: radial-gradient(ellipse, rgba(245, 158, 11, 0.14) 0%, rgba(245, 158, 11, 0) 70%);
+  background: radial-gradient(ellipse, rgba(255, 230, 0, 0.16) 0%, rgba(255, 230, 0, 0) 70%);
   filter: blur(80px);
 }
 .glow-orb-2 {
@@ -146,11 +150,11 @@ body {
   width: 40px;
   height: 40px;
   border-radius: 10px;
-  background: linear-gradient(135deg, var(--amber-500), var(--amber-600));
+  background: linear-gradient(135deg, var(--amber-400), var(--amber-500));
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #000;
+  color: #121316;
   box-shadow: 0 4px 14px var(--amber-glow);
 }
 
@@ -239,15 +243,16 @@ body {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, var(--amber-500), #f59e0b);
-  color: #0a0b0d;
+  background: linear-gradient(135deg, var(--amber-400), var(--amber-500));
+  color: #121316;
+  font-weight: 700;
   box-shadow: 0 4px 18px var(--amber-glow);
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 24px rgba(245, 158, 11, 0.45);
-  background: linear-gradient(135deg, #fbbf24, var(--amber-500));
+  box-shadow: 0 6px 26px rgba(255, 230, 0, 0.45);
+  background: linear-gradient(135deg, #fff176, var(--amber-400));
 }
 
 .btn-secondary {
@@ -571,7 +576,7 @@ body {
   align-items: center;
   gap: 10px;
   padding: 8px 14px;
-  background: #12151b;
+  background: #181920;
   border-bottom: 1px solid var(--border-subtle);
 }
 
@@ -586,7 +591,7 @@ body {
   border-radius: 50%;
 }
 .demo-dot.red { background: #ef4444; opacity: 0.8; }
-.demo-dot.yellow { background: #f59e0b; opacity: 0.8; }
+.demo-dot.yellow { background: #ffe600; opacity: 0.9; }
 .demo-dot.green { background: #10b981; opacity: 0.8; }
 
 .demo-url-pill {
@@ -600,7 +605,7 @@ body {
   font-family: monospace;
   font-size: 0.74rem;
   color: var(--amber-400);
-  border: 1px solid rgba(245, 158, 11, 0.15);
+  border: 1px solid rgba(255, 230, 0, 0.2);
 }
 
 .demo-badge {
@@ -630,7 +635,7 @@ body {
   position: relative;
   width: 100%;
   height: 460px;
-  background: #0d0f12;
+  background: #15161b;
   overflow: hidden;
 }
 
@@ -647,7 +652,7 @@ body {
   flex-direction: column;
   gap: 12px;
   flex-grow: 1;
-  background: rgba(18, 21, 27, 0.5);
+  background: rgba(24, 26, 33, 0.65);
 }
 
 .demo-title {
@@ -679,7 +684,7 @@ body {
    CONTACT SECTION
    =================================================================== */
 .contact-section {
-  background: linear-gradient(180deg, var(--bg-deep) 0%, #0d0f14 100%);
+  background: linear-gradient(180deg, var(--bg-deep) 0%, #16171d 100%);
   border-top: 1px solid var(--border-subtle);
 }
 
