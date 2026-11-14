@@ -1,1635 +1,2368 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SmartLink | Smart Digital Solutions for Modern Businesses</title>
-  <meta name="description" content="One Tap. One Scan. Everything Connected. QR Digital Menus, NFC Tap Cards, Google Review Solutions and customized digital solutions for cafes, restaurants & businesses." />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SmartLink Studio — One Stop Solution for Digital Business Needs & Goals</title>
+  <meta name="description" content="Digital menus, custom software, NFC tap cards and online platforms handled by one team — built so the work scales up as your business does.">
+  
+  <!-- Modern Clean Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
   <style>
-/* ===================================================================
-   SMARTLINK BUSINESS - STREAMLINED MODERN LUXURY DESIGN SYSTEM
-   Brand Colors: Obsidian Black, Warm Beige, Amber Gold, Emerald Glow
-   =================================================================== */
-
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap');
-
-:root {
-  /* Deep Graphite foundations */
-  --bg-deep: #121316;
-  --bg-surface: #1a1c22;
-  --bg-surface-elevated: #22252e;
-  --bg-card: rgba(26, 28, 36, 0.78);
-  --bg-card-hover: rgba(33, 36, 46, 0.96);
-  --bg-glass: rgba(18, 19, 23, 0.88);
-
-  /* Sunshine Yellow accents */
-  --amber-300: #fff176;
-  --amber-400: #ffe600;
-  --amber-500: #ffd000;
-  --amber-600: #e6b800;
-  --amber-glow: rgba(255, 230, 0, 0.38);
-  --amber-glow-soft: rgba(255, 230, 0, 0.14);
-
-  --emerald-400: #34d399;
-  --emerald-500: #10b981;
-  --emerald-glow: rgba(16, 185, 129, 0.25);
-
-  /* Soft Cloud White typography */
-  --text-heading: #f8f9fa;
-  --text-body: #e2e5eb;
-  --text-muted: #9aa1ab;
-  --text-dim: #6e7480;
-
-  --border-subtle: rgba(248, 249, 250, 0.08);
-  --border-medium: rgba(248, 249, 250, 0.15);
-  --border-highlight: rgba(255, 230, 0, 0.42);
-
-  --radius-sm: 8px;
-  --radius-md: 14px;
-  --radius-lg: 20px;
-  --radius-full: 9999px;
-
-  --font-heading: 'Outfit', sans-serif;
-  --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-
-  --transition-fast: 0.18s ease;
-  --transition-smooth: 0.28s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  scroll-behavior: smooth;
-  font-size: 16px;
-}
-
-body {
-  background-color: var(--bg-deep);
-  color: var(--text-body);
-  font-family: var(--font-body);
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
-  position: relative;
-}
-
-/* Background atmospheric gradients */
-.bg-glow-layer {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  pointer-events: none;
-  z-index: 0;
-  overflow: hidden;
-}
-.glow-orb-1 {
-  position: absolute;
-  top: -150px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 700px;
-  height: 450px;
-  background: radial-gradient(ellipse, rgba(255, 230, 0, 0.16) 0%, rgba(255, 230, 0, 0) 70%);
-  filter: blur(80px);
-}
-.glow-orb-2 {
-  position: absolute;
-  top: 45%;
-  right: -200px;
-  width: 600px;
-  height: 500px;
-  background: radial-gradient(ellipse, rgba(16, 185, 129, 0.08) 0%, rgba(16, 185, 129, 0) 70%);
-  filter: blur(90px);
-}
-
-.container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 24px;
-  position: relative;
-  z-index: 1;
-}
-
-/* ===================================================================
-   NAVIGATION BAR
-   =================================================================== */
-.site-header {
-  position: sticky;
-  top: 0;
-  width: 100%;
-  z-index: 100;
-  background: var(--bg-glass);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--border-subtle);
-  transition: all var(--transition-fast);
-}
-
-.nav-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 74px;
-}
-
-.brand-logo {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  text-decoration: none;
-}
-
-.brand-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
-  background: linear-gradient(135deg, var(--amber-400), var(--amber-500));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #121316;
-  box-shadow: 0 4px 14px var(--amber-glow);
-}
-
-.brand-title {
-  display: flex;
-  flex-direction: column;
-}
-
-.brand-name {
-  font-family: var(--font-heading);
-  font-size: 1.35rem;
-  font-weight: 800;
-  color: var(--text-heading);
-  letter-spacing: -0.02em;
-  line-height: 1.1;
-}
-
-.brand-sub {
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.15em;
-  color: var(--amber-400);
-  text-transform: uppercase;
-}
-
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 32px;
-  list-style: none;
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: var(--text-body);
-  font-weight: 500;
-  font-size: 0.95rem;
-  transition: color var(--transition-fast);
-}
-
-.nav-links a:hover {
-  color: var(--amber-400);
-}
-
-.nav-actions {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
-
-.phone-quick-link {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 14px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-full);
-  text-decoration: none;
-  color: var(--text-heading);
-  font-size: 0.88rem;
-  font-weight: 600;
-  transition: all var(--transition-fast);
-}
-
-.phone-quick-link:hover {
-  background: rgba(245, 158, 11, 0.12);
-  border-color: var(--amber-500);
-  color: var(--amber-400);
-}
-
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 12px 24px;
-  font-size: 0.95rem;
-  font-weight: 600;
-  border-radius: var(--radius-full);
-  text-decoration: none;
-  cursor: pointer;
-  transition: all var(--transition-smooth);
-  border: none;
-  font-family: inherit;
-}
-
-.btn-primary {
-  background: linear-gradient(135deg, var(--amber-400), var(--amber-500));
-  color: #121316;
-  font-weight: 700;
-  box-shadow: 0 4px 18px var(--amber-glow);
-}
-
-.btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 26px rgba(255, 230, 0, 0.45);
-  background: linear-gradient(135deg, #fff176, var(--amber-400));
-}
-
-.btn-secondary {
-  background: rgba(255, 255, 255, 0.06);
-  color: var(--text-heading);
-  border: 1px solid var(--border-medium);
-}
-
-.btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.12);
-  border-color: var(--amber-400);
-  color: #fff;
-  transform: translateY(-2px);
-}
-
-.btn-whatsapp {
-  background: #25D366;
-  color: #0b2214;
-  font-weight: 700;
-  box-shadow: 0 4px 16px rgba(37, 211, 102, 0.35);
-}
-
-.btn-whatsapp:hover {
-  background: #22bf5b;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 22px rgba(37, 211, 102, 0.48);
-}
-
-.btn-sm {
-  padding: 8px 18px;
-  font-size: 0.88rem;
-}
-
-.btn-lg {
-  padding: 14px 28px;
-  font-size: 1.05rem;
-}
-
-/* Mobile Nav Toggle */
-.mobile-toggle {
-  display: none;
-  background: transparent;
-  border: none;
-  color: var(--text-heading);
-  cursor: pointer;
-  padding: 8px;
-}
-
-/* ===================================================================
-   HERO SECTION
-   =================================================================== */
-.hero-section {
-  padding: 80px 0 60px;
-  text-align: center;
-}
-
-.hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 6px 16px;
-  border-radius: var(--radius-full);
-  background: var(--amber-glow-soft);
-  border: 1px solid var(--border-highlight);
-  color: var(--amber-400);
-  font-size: 0.82rem;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  margin-bottom: 24px;
-}
-
-.pulse-dot {
-  width: 8px;
-  height: 8px;
-  background-color: var(--amber-400);
-  border-radius: 50%;
-  box-shadow: 0 0 10px var(--amber-400);
-  animation: pulseAnimation 2s infinite;
-}
-
-@keyframes pulseAnimation {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.4; transform: scale(0.85); }
-}
-
-.hero-title {
-  font-family: var(--font-heading);
-  font-size: 3.5rem;
-  font-weight: 800;
-  line-height: 1.15;
-  color: var(--text-heading);
-  letter-spacing: -0.03em;
-  max-width: 900px;
-  margin: 0 auto 18px;
-}
-
-.hero-tagline {
-  font-family: var(--font-heading);
-  font-size: 1.85rem;
-  font-weight: 700;
-  color: var(--amber-400);
-  display: block;
-  margin-bottom: 20px;
-  letter-spacing: -0.01em;
-}
-
-.hero-desc {
-  font-size: 1.18rem;
-  color: var(--text-body);
-  max-width: 760px;
-  margin: 0 auto 36px;
-  line-height: 1.7;
-}
-
-.hero-cta-wrap {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  flex-wrap: wrap;
-  margin-bottom: 40px;
-}
-
-.feature-pill-strip {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-  padding-top: 10px;
-}
-
-.pill-item {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--text-body);
-  background: rgba(255, 255, 255, 0.03);
-  padding: 6px 14px;
-  border-radius: var(--radius-full);
-  border: 1px solid var(--border-subtle);
-}
-
-.pill-item svg {
-  color: var(--emerald-400);
-}
-
-/* ===================================================================
-   SECTION HEADERS
-   =================================================================== */
-.section {
-  padding: 80px 0;
-}
-
-.section-head {
-  text-align: center;
-  max-width: 700px;
-  margin: 0 auto 50px;
-}
-
-.section-tag {
-  color: var(--amber-400);
-  font-size: 0.85rem;
-  font-weight: 700;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  display: block;
-  margin-bottom: 10px;
-}
-
-.section-title {
-  font-family: var(--font-heading);
-  font-size: 2.4rem;
-  font-weight: 700;
-  color: var(--text-heading);
-  letter-spacing: -0.02em;
-  line-height: 1.25;
-  margin-bottom: 14px;
-}
-
-.section-sub {
-  font-size: 1.05rem;
-  color: var(--text-muted);
-  line-height: 1.6;
-}
-
-/* ===================================================================
-   CORE IDEA & SOLUTIONS (4 PILLARS)
-   =================================================================== */
-.solutions-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 24px;
-}
-
-.solution-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-lg);
-  padding: 32px 28px;
-  transition: all var(--transition-smooth);
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  overflow: hidden;
-}
-
-.solution-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, var(--amber-500), transparent);
-  opacity: 0;
-  transition: opacity var(--transition-fast);
-}
-
-.solution-card:hover {
-  background: var(--bg-card-hover);
-  border-color: var(--border-highlight);
-  transform: translateY(-4px);
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4);
-}
-
-.solution-card:hover::before {
-  opacity: 1;
-}
-
-.solution-icon-box {
-  width: 54px;
-  height: 54px;
-  border-radius: var(--radius-md);
-  background: var(--amber-glow-soft);
-  border: 1px solid var(--border-highlight);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--amber-400);
-  margin-bottom: 20px;
-}
-
-.solution-title {
-  font-family: var(--font-heading);
-  font-size: 1.35rem;
-  font-weight: 700;
-  color: var(--text-heading);
-  margin-bottom: 12px;
-}
-
-.solution-desc {
-  font-size: 0.95rem;
-  color: var(--text-muted);
-  line-height: 1.65;
-  margin-bottom: 20px;
-  flex-grow: 1;
-}
-
-.solution-features {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  border-top: 1px solid var(--border-subtle);
-  padding-top: 18px;
-}
-
-.solution-features li {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 0.88rem;
-  color: var(--text-body);
-}
-
-.solution-features li svg {
-  color: var(--emerald-400);
-  flex-shrink: 0;
-}
-
-/* ===================================================================
-   LIVE DEMOS SHOWCASE SECTION
-   =================================================================== */
-.demos-wrapper {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 28px;
-}
-
-.demo-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-medium);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  transition: all var(--transition-smooth);
-}
-
-.demo-card:hover {
-  border-color: var(--amber-500);
-  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5), 0 0 30px var(--amber-glow-soft);
-  transform: translateY(-4px);
-}
-
-.demo-card-header {
-  padding: 16px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: 1px solid var(--border-subtle);
-  background: rgba(255, 255, 255, 0.02);
-}
-
-.demo-browser-bar {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 8px 14px;
-  background: #181920;
-  border-bottom: 1px solid var(--border-subtle);
-}
-
-.demo-browser-dots {
-  display: flex;
-  gap: 5px;
-}
-
-.demo-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-}
-.demo-dot.red { background: #ef4444; opacity: 0.8; }
-.demo-dot.yellow { background: #ffe600; opacity: 0.9; }
-.demo-dot.green { background: #10b981; opacity: 0.8; }
-
-.demo-url-pill {
-  flex: 1;
-  background: rgba(0, 0, 0, 0.4);
-  padding: 3px 10px;
-  border-radius: var(--radius-sm);
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  font-family: monospace;
-  font-size: 0.74rem;
-  color: var(--amber-400);
-  border: 1px solid rgba(255, 230, 0, 0.2);
-}
-
-.demo-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  padding: 4px 10px;
-  border-radius: var(--radius-full);
-  background: rgba(16, 185, 129, 0.15);
-  color: var(--emerald-400);
-  border: 1px solid rgba(16, 185, 129, 0.3);
-}
-
-.live-indicator {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--emerald-400);
-  box-shadow: 0 0 8px var(--emerald-400);
-}
-
-.demo-frame-container {
-  position: relative;
-  width: 100%;
-  height: 460px;
-  background: #15161b;
-  overflow: hidden;
-}
-
-.demo-iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
-  display: block;
-}
-
-.demo-card-body {
-  padding: 22px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  flex-grow: 1;
-  background: rgba(24, 26, 33, 0.65);
-}
-
-.demo-title {
-  font-family: var(--font-heading);
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: var(--text-heading);
-}
-
-.demo-summary {
-  font-size: 0.92rem;
-  color: var(--text-muted);
-  line-height: 1.6;
-}
-
-.demo-cta-row {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-top: auto;
-  padding-top: 14px;
-}
-
-.demo-cta-row .btn {
-  flex: 1;
-}
-
-/* ===================================================================
-   CONTACT SECTION
-   =================================================================== */
-.contact-section {
-  background: linear-gradient(180deg, var(--bg-deep) 0%, #16171d 100%);
-  border-top: 1px solid var(--border-subtle);
-}
-
-.contact-grid {
-  display: grid;
-  grid-template-columns: 1fr 1.25fr;
-  gap: 40px;
-  align-items: start;
-}
-
-.contact-cards-col {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-}
-
-.contact-info-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-md);
-  padding: 22px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  transition: all var(--transition-smooth);
-}
-
-.contact-info-card:hover {
-  background: var(--bg-card-hover);
-  border-color: var(--border-highlight);
-  transform: translateX(4px);
-}
-
-.contact-card-left {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.contact-icon-bubble {
-  width: 48px;
-  height: 48px;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.bubble-email {
-  background: rgba(245, 158, 11, 0.15);
-  color: var(--amber-400);
-}
-
-.bubble-phone {
-  background: rgba(59, 130, 246, 0.15);
-  color: #60a5fa;
-}
-
-.bubble-whatsapp {
-  background: rgba(37, 211, 102, 0.15);
-  color: #25D366;
-}
-
-.contact-meta h4 {
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--text-dim);
-  margin-bottom: 2px;
-}
-
-.contact-meta p {
-  font-size: 1.05rem;
-  font-weight: 700;
-  color: var(--text-heading);
-}
-
-/* Contact Form Box */
-.contact-form-card {
-  background: var(--bg-surface-elevated);
-  border: 1px solid var(--border-medium);
-  border-radius: var(--radius-lg);
-  padding: 36px 32px;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
-}
-
-.form-header {
-  margin-bottom: 24px;
-}
-
-.form-header h3 {
-  font-family: var(--font-heading);
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--text-heading);
-  margin-bottom: 6px;
-}
-
-.form-header p {
-  font-size: 0.92rem;
-  color: var(--text-muted);
-}
-
-.form-group {
-  margin-bottom: 18px;
-}
-
-.form-group label {
-  display: block;
-  font-size: 0.86rem;
-  font-weight: 600;
-  color: var(--text-body);
-  margin-bottom: 8px;
-}
-
-.form-group label span.req {
-  color: var(--amber-400);
-}
-
-.form-control {
-  width: 100%;
-  padding: 12px 16px;
-  background: rgba(0, 0, 0, 0.35);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-sm);
-  color: var(--text-heading);
-  font-family: inherit;
-  font-size: 0.95rem;
-  transition: all var(--transition-fast);
-}
-
-.form-control:focus {
-  outline: none;
-  border-color: var(--amber-500);
-  box-shadow: 0 0 0 3px var(--amber-glow-soft);
-  background: rgba(0, 0, 0, 0.5);
-}
-
-.form-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-}
-
-textarea.form-control {
-  resize: vertical;
-  min-height: 90px;
-}
-
-.form-alert {
-  padding: 12px 16px;
-  border-radius: var(--radius-sm);
-  font-size: 0.9rem;
-  margin-bottom: 16px;
-  display: none;
-}
-
-.form-alert.success {
-  background: rgba(16, 185, 129, 0.15);
-  border: 1px solid var(--emerald-500);
-  color: var(--emerald-400);
-}
-
-.form-alert.error {
-  background: rgba(239, 68, 68, 0.15);
-  border: 1px solid #ef4444;
-  color: #f87171;
-}
-
-.spin-icon {
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-/* ===================================================================
-   FOOTER
-   =================================================================== */
-.site-footer {
-  border-top: 1px solid var(--border-subtle);
-  padding: 40px 0 30px;
-  background: var(--bg-deep);
-}
-
-.footer-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-
-.footer-copy {
-  font-size: 0.88rem;
-  color: var(--text-dim);
-}
-
-.footer-links {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-  list-style: none;
-}
-
-.footer-links a {
-  color: var(--text-muted);
-  text-decoration: none;
-  font-size: 0.88rem;
-  transition: color var(--transition-fast);
-}
-
-.footer-links a:hover {
-  color: var(--amber-400);
-}
-
-/* ===================================================================
-   FLOATING ACTION BUTTON (WHATSAPP)
-   =================================================================== */
-.floating-whatsapp {
-  position: fixed;
-  bottom: 28px;
-  right: 28px;
-  z-index: 99;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  background: #25D366;
-  color: #0b2214;
-  padding: 12px 20px;
-  border-radius: var(--radius-full);
-  font-weight: 700;
-  font-size: 0.95rem;
-  text-decoration: none;
-  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.45);
-  transition: all var(--transition-smooth);
-}
-
-.floating-whatsapp:hover {
-  transform: translateY(-3px) scale(1.03);
-  box-shadow: 0 12px 30px rgba(37, 211, 102, 0.6);
-  color: #000;
-}
-
-/* ===================================================================
-   RESPONSIVE DESIGN
-   =================================================================== */
-@media (max-width: 992px) {
-  .hero-title {
-    font-size: 2.8rem;
-  }
-  .hero-tagline {
-    font-size: 1.5rem;
-  }
-  .contact-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 768px) {
-  .nav-links, .phone-quick-link {
-    display: none;
-  }
-  .mobile-toggle {
-    display: block;
-  }
-  .hero-title {
-    font-size: 2.2rem;
-  }
-  .hero-tagline {
-    font-size: 1.25rem;
-  }
-  .hero-desc {
-    font-size: 1rem;
-  }
-  .form-row {
-    grid-template-columns: 1fr;
-  }
-  .floating-whatsapp span {
-    display: none;
-  }
-  .floating-whatsapp {
-    padding: 14px;
-    border-radius: 50%;
-    bottom: 20px;
-    right: 20px;
-  }
-  .demos-wrapper {
-    grid-template-columns: 1fr;
-  }
-}
-
+    /* ===================================================================
+       WHYCREATIVES-INSPIRED DESIGN SYSTEM & VARIABLES
+       =================================================================== */
+    :root {
+      /* Foundation Backgrounds */
+      --bg-canvas: #090a0d;
+      --bg-surface: #12141a;
+      --bg-surface-elevated: #181b24;
+      --bg-card: #14161f;
+      --bg-card-hover: #1b1e2a;
+      --bg-input: #0b0c10;
+      --bg-header: rgba(9, 10, 13, 0.85);
+      --bg-marquee: rgba(18, 20, 26, 0.45);
+      --bg-cta-banner: #0f1117;
+      --bg-footer: #08090b;
+
+      /* Typography */
+      --text-main: #f5f6f8;
+      --text-muted: #9aa0ac;
+      --text-dim: #606675;
+      --text-dark: #0c0d10;
+
+      /* Primary High-Contrast Pill Buttons */
+      --btn-primary-bg: #ffffff;
+      --btn-primary-text: #0c0d10;
+      --btn-primary-hover: #f0f0f4;
+      --btn-primary-shadow: 0 4px 18px rgba(255, 255, 255, 0.12);
+
+      /* Borders & Shadows */
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-medium: rgba(255, 255, 255, 0.14);
+      --border-focus: rgba(255, 230, 0, 0.4);
+      --shadow-card: 0 24px 60px rgba(0, 0, 0, 0.55);
+
+      /* Blueprint & Architectural markers */
+      --crosshair-color: rgba(255, 255, 255, 0.2);
+      --blueprint-marker-bg: #ffffff;
+      --blueprint-marker-border: #000000;
+      --watermark-opacity: rgba(255, 255, 255, 0.025);
+
+      /* Brand Accents */
+      --accent-lilac: #7d75ff;
+      --accent-coral: #ff5738;
+      --accent-yellow: #ffe600;
+      --accent-emerald: #10b981;
+
+      /* Device Hero Showcase */
+      --device-card-bg: #0f1117;
+      --device-chip-bg: rgba(14, 16, 22, 0.88);
+      --device-chip-text: #ffffff;
+      --device-glow: radial-gradient(circle, rgba(125, 117, 255, 0.35) 0%, rgba(255, 230, 0, 0.12) 40%, rgba(0, 0, 0, 0) 70%);
+
+      /* Folder Card White */
+      --folder-white-bg: #f4f5f7;
+      --folder-white-text: #0c0d10;
+      --folder-white-chip-bg: #0c0d10;
+      --folder-white-chip-text: #ffffff;
+      --folder-white-border: transparent;
+      --folder-white-shadow: 0 20px 48px rgba(255, 255, 255, 0.08);
+
+      --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-heading: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 24px;
+      --radius-xl: 36px;
+      --radius-pill: 9999px;
+
+      --transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    [data-theme="light"] {
+      /* Foundation Backgrounds */
+      --bg-canvas: #f8f9fc;
+      --bg-surface: #ffffff;
+      --bg-surface-elevated: #f0f2f7;
+      --bg-card: #ffffff;
+      --bg-card-hover: #fcfdfe;
+      --bg-input: #f1f3f8;
+      --bg-header: rgba(248, 249, 252, 0.88);
+      --bg-marquee: rgba(0, 0, 0, 0.03);
+      --bg-cta-banner: #111319; /* High-contrast punchy dark banner */
+      --bg-footer: #eef1f6;
+
+      /* Typography */
+      --text-main: #0c0e12;
+      --text-muted: #565d6d;
+      --text-dim: #848b9c;
+      --text-dark: #0c0d10;
+
+      /* Primary Pill Buttons */
+      --btn-primary-bg: #0c0d10;
+      --btn-primary-text: #ffffff;
+      --btn-primary-hover: #22252e;
+      --btn-primary-shadow: 0 4px 18px rgba(12, 13, 16, 0.16);
+
+      /* Borders & Shadows */
+      --border-subtle: rgba(0, 0, 0, 0.07);
+      --border-medium: rgba(0, 0, 0, 0.12);
+      --border-focus: rgba(255, 208, 0, 0.6);
+      --shadow-card: 0 16px 40px rgba(15, 23, 42, 0.07);
+
+      /* Blueprint & Architectural markers */
+      --crosshair-color: rgba(0, 0, 0, 0.18);
+      --blueprint-marker-bg: #0c0d10;
+      --blueprint-marker-border: rgba(0, 0, 0, 0.2);
+      --watermark-opacity: rgba(255, 255, 255, 0.04);
+
+      /* Device Hero */
+      --device-card-bg: #ffffff;
+      --device-chip-bg: rgba(255, 255, 255, 0.92);
+      --device-chip-text: #0c0d10;
+      --device-glow: radial-gradient(circle, rgba(125, 117, 255, 0.22) 0%, rgba(255, 230, 0, 0.1) 40%, rgba(248, 249, 252, 0) 70%);
+
+      /* Folder Card White */
+      --folder-white-bg: #ffffff;
+      --folder-white-text: #0c0d10;
+      --folder-white-chip-bg: #0c0d10;
+      --folder-white-chip-text: #ffffff;
+      --folder-white-border: 1px solid rgba(0, 0, 0, 0.1);
+      --folder-white-shadow: 0 18px 45px rgba(0, 0, 0, 0.06);
+    }
+
+    /* Reset & Base */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Scroll-Triggered Reveal Animation (Clean, smooth & lightweight) */
+    .reveal-on-scroll {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1), transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+      will-change: opacity, transform;
+    }
+
+    .reveal-on-scroll.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Staggered delay helpers */
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+      background-color: var(--bg-canvas);
+      color-scheme: dark light;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--bg-canvas);
+      color: var(--text-main);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      position: relative;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    button, input, textarea, select {
+      font-family: inherit;
+      color: inherit;
+      border: none;
+      outline: none;
+      background: none;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1220px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Floating Social Bar (Left Edge - as in page 9) */
+    .floating-social-bar {
+      position: fixed;
+      left: 18px;
+      bottom: 24px;
+      z-index: 999;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .social-floating-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--bg-surface);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--border-medium);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-main);
+      font-size: 1.1rem;
+      transition: var(--transition);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+    }
+
+    .social-floating-btn:hover {
+      transform: translateY(-3px) scale(1.08);
+      background: var(--text-main);
+      color: var(--bg-canvas);
+      border-color: transparent;
+    }
+
+    /* ===================================================================
+       HEADER & NAVIGATION (Pages 1 & 2)
+       =================================================================== */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: var(--bg-header);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-subtle);
+      transition: var(--transition);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 76px;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-heading);
+      font-size: 1.55rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--text-main);
+    }
+
+    .brand-logo .logo-slash {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      color: var(--accent-yellow);
+    }
+
+    .brand-logo .logo-slash span {
+      display: inline-block;
+      width: 4px;
+      height: 18px;
+      background: currentColor;
+      transform: skewX(-18deg);
+      border-radius: 2px;
+    }
+
+    .brand-logo .logo-dot {
+      color: var(--accent-yellow);
+    }
+
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      list-style: none;
+    }
+
+    .nav-link {
+      font-size: 0.92rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      transition: var(--transition);
+    }
+
+    .nav-link:hover {
+      color: var(--text-main);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .icon-btn {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: 1px solid var(--border-medium);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: var(--text-main);
+      font-size: 1.1rem;
+      transition: var(--transition);
+      background: transparent;
+    }
+
+    .icon-btn:hover {
+      background: var(--border-subtle);
+      border-color: var(--text-main);
+      transform: scale(1.05);
+    }
+
+    /* Reusable Pill Buttons (with signature arrow ↗) */
+    .pill-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 22px;
+      border-radius: var(--radius-pill);
+      font-size: 0.94rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      white-space: nowrap;
+    }
+
+    .pill-btn .arrow-icon {
+      font-size: 1.05rem;
+      transition: transform 0.22s ease;
+      display: inline-block;
+    }
+
+    .pill-btn:hover .arrow-icon {
+      transform: translate(2px, -2px);
+    }
+
+    .pill-btn-white {
+      background: var(--btn-primary-bg);
+      color: var(--btn-primary-text);
+      box-shadow: var(--btn-primary-shadow);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .pill-btn-white:hover {
+      background: var(--btn-primary-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    }
+
+    .pill-btn-ghost {
+      background: transparent;
+      color: var(--text-main);
+      border: 1px solid var(--border-medium);
+    }
+
+    .pill-btn-ghost:hover {
+      background: var(--border-subtle);
+      border-color: var(--text-main);
+      transform: translateY(-2px);
+    }
+
+    .pill-btn-yellow {
+      background: var(--accent-yellow);
+      color: #0c0d10;
+      font-weight: 700;
+      box-shadow: 0 4px 20px rgba(255, 230, 0, 0.35);
+    }
+
+    .pill-btn-yellow:hover {
+      background: #fff04d;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(255, 230, 0, 0.5);
+    }
+
+    .pill-btn-coral {
+      background: var(--accent-coral);
+      color: #ffffff;
+      box-shadow: 0 4px 18px rgba(255, 87, 56, 0.35);
+    }
+
+    .pill-btn-coral:hover {
+      background: #ff6e52;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 26px rgba(255, 87, 56, 0.5);
+    }
+
+    /* Section Kickers */
+    .section-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+    }
+
+    .section-kicker .kicker-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent-yellow);
+      display: inline-block;
+    }
+
+    /* ===================================================================
+       HERO SECTION (Pages 1 & 2)
+       =================================================================== */
+    .hero-section {
+      padding: 70px 0 60px;
+      position: relative;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    @media (max-width: 960px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .hero-content {
+      max-width: 580px;
+    }
+
+    .hero-headline {
+      font-family: var(--font-heading);
+      font-size: clamp(2.5rem, 5.2vw, 4.4rem);
+      font-weight: 800;
+      line-height: 1.08;
+      letter-spacing: -0.035em;
+      color: var(--text-main);
+      margin-bottom: 30px;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 36px;
+    }
+
+    .hero-trust-badges {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border-subtle);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .hero-trust-badges span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* ===================================================================
+       3D HARDWARE DEVICE SHOWCASE (Hero Section)
+       =================================================================== */
+    .hero-architectural-frame {
+      position: relative;
+      width: 100%;
+      max-width: 540px;
+      margin: 0 auto;
+      perspective: 1200px;
+      padding: 16px;
+    }
+
+    /* Ambient background glow behind device */
+    .device-ambient-glow {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 85%;
+      height: 85%;
+      background: var(--device-glow);
+      filter: blur(55px);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    /* Interactive 3D Device Card */
+    .device-card-3d {
+      position: relative;
+      z-index: 2;
+      border-radius: 36px;
+      overflow: hidden;
+      background: var(--device-card-bg);
+      border: 1px solid var(--border-medium);
+      box-shadow: var(--shadow-card);
+      transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+      transform-style: preserve-3d;
+      will-change: transform;
+      cursor: pointer;
+    }
+
+    .device-card-3d:hover {
+      box-shadow: var(--shadow-elevated);
+    }
+
+    .device-card-image {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+      transform: scale(1.01);
+      transition: transform 0.4s ease;
+    }
+
+    .device-card-3d:hover .device-card-image {
+      transform: scale(1.025);
+    }
+
+    /* Floating callout chips on device */
+    .device-floating-badge {
+      position: absolute;
+      top: 22px;
+      left: 22px;
+      z-index: 10;
+      background: var(--device-chip-bg);
+      backdrop-filter: blur(14px);
+      border: 1px solid var(--border-medium);
+      color: var(--device-chip-text);
+      padding: 8px 16px;
+      border-radius: var(--radius-pill);
+      font-size: 0.82rem;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+    }
+
+    .device-floating-badge .led-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #7d75ff;
+      box-shadow: 0 0 10px #7d75ff;
+      animation: pulseLed 2s infinite ease-in-out;
+    }
+
+    @keyframes pulseLed {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.35; transform: scale(0.85); }
+    }
+
+    .device-bottom-banner {
+      position: absolute;
+      bottom: 18px;
+      left: 18px;
+      right: 18px;
+      z-index: 10;
+      background: var(--device-chip-bg);
+      backdrop-filter: blur(14px);
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-md);
+      padding: 12px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: var(--device-chip-text);
+      font-size: 0.84rem;
+      font-weight: 600;
+    }
+
+    .device-bottom-banner span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--accent-yellow);
+    }
+
+    /* ===================================================================
+       INFINITE MARQUEE TICKER (Page 3)
+       =================================================================== */
+    .marquee-container {
+      width: 100%;
+      overflow: hidden;
+      padding: 30px 0;
+      border-top: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+      background: var(--bg-marquee);
+      white-space: nowrap;
+      position: relative;
+    }
+
+    .marquee-track {
+      display: inline-flex;
+      gap: 40px;
+      animation: marqueeScroll 28s linear infinite;
+    }
+
+    @keyframes marqueeScroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .marquee-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--font-heading);
+      font-size: 1.35rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: var(--text-main);
+    }
+
+    .marquee-icon {
+      font-size: 1.1rem;
+      color: var(--accent-yellow);
+    }
+
+    /* ===================================================================
+       SELECTED WORK & FOLDER CUTOUT CARDS (Pages 3, 4, 5)
+       =================================================================== */
+    .selected-work-section {
+      padding: 100px 0 80px;
+      position: relative;
+    }
+
+    .section-intro-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: flex-end;
+      margin-bottom: 60px;
+    }
+
+    @media (max-width: 768px) {
+      .section-intro-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .section-headline-large {
+      font-family: var(--font-heading);
+      font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      color: var(--text-main);
+    }
+
+    .section-desc-text {
+      font-size: 1.12rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* Folder Style Cards Grid */
+    .folder-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 36px;
+    }
+
+    @media (max-width: 900px) {
+      .folder-cards-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .folder-card {
+      border-radius: 36px;
+      padding: 36px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 480px;
+      overflow: hidden;
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+      cursor: pointer;
+    }
+
+    .folder-card:hover {
+      transform: translateY(-8px);
+    }
+
+    .folder-tab-header {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 8px;
+      margin-bottom: 30px;
+      z-index: 3;
+    }
+
+    .folder-chip {
+      padding: 8px 16px;
+      border-radius: var(--radius-pill);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    /* Distinct folder theme variants */
+    .folder-card-lilac {
+      background: linear-gradient(145deg, #7c74ff, #5c52e8);
+      color: #ffffff;
+      box-shadow: 0 20px 48px rgba(110, 99, 248, 0.2);
+    }
+    .folder-card-lilac .folder-chip {
+      background: rgba(255, 255, 255, 0.22);
+      color: #ffffff;
+      backdrop-filter: blur(10px);
+    }
+
+    .folder-card-white {
+      background: var(--folder-white-bg);
+      color: var(--folder-white-text);
+      border: var(--folder-white-border);
+      box-shadow: var(--folder-white-shadow);
+    }
+    .folder-card-white .folder-chip {
+      background: var(--folder-white-chip-bg);
+      color: var(--folder-white-chip-text);
+    }
+
+    .folder-card-dark {
+      background: #151720;
+      border: 1px solid var(--border-medium);
+      color: #ffffff;
+      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.5);
+    }
+    .folder-card-dark .folder-chip {
+      background: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+    }
+
+    .folder-card-coral {
+      background: linear-gradient(145deg, #ff5c38, #e63e18);
+      color: #ffffff;
+      box-shadow: 0 20px 48px rgba(255, 87, 56, 0.25);
+    }
+    .folder-card-coral .folder-chip {
+      background: rgba(255, 255, 255, 0.22);
+      color: #ffffff;
+    }
+
+    .folder-center-showcase {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: auto 0;
+      text-align: center;
+      z-index: 2;
+    }
+
+    .folder-center-title {
+      font-family: var(--font-heading);
+      font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1.02;
+    }
+
+    .folder-bottom-meta {
+      z-index: 2;
+      margin-top: 30px;
+    }
+
+    .folder-year-meta {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      opacity: 0.75;
+      margin-bottom: 8px;
+    }
+
+    .folder-summary-text {
+      font-size: 1.15rem;
+      font-weight: 600;
+      line-height: 1.35;
+    }
+
+    /* ===================================================================
+       OUR EXPERTISE / SERVICES LIST (Page 6)
+       =================================================================== */
+    .services-section {
+      padding: 90px 0;
+      border-top: 1px solid var(--border-subtle);
+      position: relative;
+    }
+
+    .services-header-row {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 60px;
+    }
+
+    .services-list-container {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .service-row-item {
+      display: grid;
+      grid-template-columns: 140px 1fr auto;
+      gap: 30px;
+      align-items: center;
+      padding: 34px 0;
+      border-bottom: 1px solid var(--border-subtle);
+      transition: var(--transition);
+      cursor: pointer;
+    }
+
+    .service-row-item:hover {
+      padding-left: 12px;
+      border-color: var(--border-medium);
+      background: var(--bg-surface-elevated);
+      border-radius: var(--radius-sm);
+    }
+
+    @media (max-width: 768px) {
+      .service-row-item {
+        grid-template-columns: 90px 1fr;
+      }
+      .service-row-action {
+        display: none;
+      }
+    }
+
+    .service-row-thumb {
+      width: 130px;
+      height: 85px;
+      border-radius: var(--radius-md);
+      background: var(--bg-surface-elevated);
+      overflow: hidden;
+      position: relative;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .service-row-thumb img,
+    .service-row-thumb .thumb-placeholder {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+    }
+
+    .service-row-text h3 {
+      font-family: var(--font-heading);
+      font-size: 1.85rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 6px;
+      color: var(--text-main);
+    }
+
+    .service-row-text p {
+      font-size: 0.98rem;
+      color: var(--text-muted);
+      max-width: 620px;
+    }
+
+    .service-row-action {
+      opacity: 0.5;
+      font-size: 1.4rem;
+      transition: var(--transition);
+    }
+
+    .service-row-item:hover .service-row-action {
+      opacity: 1;
+      transform: translate(4px, -4px);
+      color: var(--accent-yellow);
+    }
+
+    /* ===================================================================
+       STUDIO & TEAM BANNER (Page 7)
+       =================================================================== */
+    .studio-team-section {
+      padding: 60px 0 100px;
+    }
+
+    .studio-card-wrapper {
+      position: relative;
+      border-radius: 40px;
+      overflow: hidden;
+      min-height: 520px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 40px;
+      box-shadow: var(--shadow-card);
+      background: linear-gradient(180deg, rgba(16, 18, 24, 0.4) 0%, rgba(9, 10, 14, 0.95) 100%),
+                  url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+    }
+
+    .studio-speech-bubble {
+      background: #ffffff;
+      color: #0c0d10;
+      padding: 20px 28px;
+      border-radius: 24px;
+      max-width: 380px;
+      font-size: 1.3rem;
+      font-weight: 700;
+      line-height: 1.25;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+      position: relative;
+    }
+
+    .studio-speech-bubble::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 36px;
+      width: 0;
+      height: 0;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-top: 10px solid #ffffff;
+    }
+
+    .studio-card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+      z-index: 2;
+    }
+
+    .studio-badge-box {
+      background: var(--bg-header);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--border-medium);
+      padding: 14px 22px;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .studio-badge-icon {
+      font-size: 1.4rem;
+      color: var(--accent-yellow);
+    }
+
+    .studio-badge-title {
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--text-main);
+    }
+
+    .studio-badge-sub {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .studio-btn-group {
+      display: flex;
+      gap: 12px;
+    }
+
+    /* ===================================================================
+       AI ASSISTANT LAUNCHER & HIGH VOLTAGE CTA (Page 8)
+       =================================================================== */
+    .ai-and-cta-section {
+      padding: 80px 0 110px;
+      position: relative;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .ai-box-centered {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 90px;
+    }
+
+    .ai-button-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 14px;
+      margin: 28px 0 18px;
+    }
+
+    .ai-launcher-btn {
+      background: var(--btn-primary-bg);
+      color: var(--btn-primary-text);
+      font-size: 0.96rem;
+      font-weight: 700;
+      padding: 12px 24px;
+      border-radius: var(--radius-pill);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: var(--btn-primary-shadow);
+      border: 1px solid var(--border-medium);
+      transition: var(--transition);
+    }
+
+    .ai-launcher-btn:hover {
+      transform: translateY(-3px) scale(1.04);
+      background: var(--accent-yellow);
+      color: #0c0d10;
+      box-shadow: 0 8px 24px rgba(255, 230, 0, 0.35);
+    }
+
+    .ai-disclaimer {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* Giant CTA Banner */
+    .giant-cta-banner {
+      background: #111319;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 40px;
+      padding: 80px 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+    }
+
+    .ghost-watermark-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: var(--font-heading);
+      font-size: clamp(3.5rem, 10vw, 8rem);
+      font-weight: 900;
+      color: rgba(255, 255, 255, 0.03);
+      letter-spacing: -0.04em;
+      white-space: nowrap;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .cta-banner-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .cta-badge {
+      display: inline-block;
+      background: var(--accent-coral);
+      color: #ffffff;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      margin-bottom: 24px;
+    }
+
+    .cta-giant-headline {
+      font-family: var(--font-heading);
+      font-size: clamp(2.4rem, 6vw, 4.6rem);
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      margin-bottom: 40px;
+      color: #ffffff;
+    }
+
+    .cta-giant-button {
+      background: var(--accent-coral);
+      color: #ffffff;
+      padding: 18px 40px;
+      border-radius: var(--radius-pill);
+      font-size: 1.15rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      display: inline-flex;
+      align-items: center;
+      gap: 16px;
+      box-shadow: 0 10px 36px rgba(255, 87, 56, 0.45);
+      transition: var(--transition);
+      cursor: pointer;
+    }
+
+    .cta-giant-button .circle-arrow {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #000000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+    }
+
+    .cta-giant-button:hover {
+      transform: translateY(-4px) scale(1.03);
+      box-shadow: 0 16px 48px rgba(255, 87, 56, 0.6);
+      background: #ff6e4d;
+    }
+
+    /* ===================================================================
+       LIVE PROJECTS SHOWCASE / MOCKUPS (Page 10)
+       =================================================================== */
+    .projects-showcase-section {
+      padding: 100px 0 80px;
+      position: relative;
+    }
+
+    .projects-card-container {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-medium);
+      border-radius: 36px;
+      padding: 40px;
+      position: relative;
+      margin-top: 40px;
+      box-shadow: var(--shadow-card);
+    }
+
+    .project-browser-window {
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid var(--border-medium);
+      background: var(--bg-canvas);
+      margin-bottom: 30px;
+      position: relative;
+    }
+
+    .browser-top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 18px;
+      background: var(--bg-surface-elevated);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .browser-dots {
+      display: flex;
+      gap: 6px;
+    }
+    .browser-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+    .dot-red { background: #ef4444; }
+    .dot-yellow { background: #ffe600; }
+    .dot-green { background: #10b981; }
+
+    .browser-url-pill {
+      font-family: monospace;
+      font-size: 0.8rem;
+      color: var(--accent-yellow);
+      background: rgba(255, 230, 0, 0.08);
+      border: 1px solid rgba(255, 230, 0, 0.2);
+      padding: 4px 16px;
+      border-radius: var(--radius-pill);
+    }
+
+    .browser-frame-view {
+      width: 100%;
+      height: 520px;
+      background: var(--bg-canvas);
+      position: relative;
+    }
+
+    .browser-frame-view iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .project-info-row {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .project-meta-details h3 {
+      font-family: var(--font-heading);
+      font-size: 2.2rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 6px;
+      color: var(--text-main);
+    }
+
+    .project-meta-details p {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 600px;
+    }
+
+    .project-tabs-switcher {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+
+    .project-tab-btn {
+      padding: 10px 20px;
+      border-radius: var(--radius-pill);
+      font-size: 0.88rem;
+      font-weight: 700;
+      background: var(--bg-surface-elevated);
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: var(--transition);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .project-tab-btn.active, .project-tab-btn:hover {
+      background: var(--btn-primary-bg);
+      color: var(--btn-primary-text);
+      border-color: var(--btn-primary-bg);
+    }
+
+    /* ===================================================================
+       CONTACT & SCOPE INQUIRY FORM (Pages 11 & 12)
+       =================================================================== */
+    .contact-scope-section {
+      padding: 100px 0 120px;
+      border-top: 1px solid var(--border-subtle);
+      position: relative;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: 60px;
+      align-items: flex-start;
+    }
+
+    @media (max-width: 900px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+    }
+
+    .contact-info-col {
+      max-width: 480px;
+    }
+
+    .contact-info-col h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(2.4rem, 4.5vw, 3.6rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-bottom: 20px;
+      color: var(--text-main);
+    }
+
+    .contact-intro-desc {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 40px;
+    }
+
+    .contact-meta-channel {
+      padding: 22px 0;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .channel-label {
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .channel-value {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .channel-value:hover {
+      color: var(--accent-yellow);
+    }
+
+    /* The "Start a project" Scope Form Card (Page 12) */
+    .scope-form-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-medium);
+      border-radius: 32px;
+      padding: 44px;
+      box-shadow: var(--shadow-card);
+    }
+
+    .scope-card-title {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 6px;
+      color: var(--text-main);
+    }
+
+    .scope-card-sub {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 30px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 8px;
+    }
+
+    .form-control {
+      width: 100%;
+      background: var(--bg-input);
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-md);
+      padding: 14px 18px;
+      font-size: 0.96rem;
+      color: var(--text-main);
+      transition: var(--transition);
+    }
+
+    .form-control:focus {
+      border-color: var(--border-focus);
+      background: var(--bg-surface);
+      box-shadow: 0 0 0 3px rgba(255, 230, 0, 0.15);
+    }
+
+    .form-control::placeholder {
+      color: var(--text-dim);
+    }
+
+    textarea.form-control {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    .chips-select-label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .chips-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+
+    .service-chip-option {
+      background: var(--bg-surface-elevated);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-pill);
+      padding: 8px 18px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: var(--transition);
+      user-select: none;
+    }
+
+    .service-chip-option.selected {
+      background: var(--accent-yellow);
+      color: #0c0d10;
+      font-weight: 700;
+      border-color: var(--accent-yellow);
+    }
+
+    .form-feedback-alert {
+      padding: 14px;
+      border-radius: var(--radius-sm);
+      margin-bottom: 18px;
+      font-size: 0.92rem;
+      display: none;
+    }
+    .form-feedback-alert.success {
+      display: block;
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid var(--accent-emerald);
+      color: #34d399;
+    }
+    .form-feedback-alert.error {
+      display: block;
+      background: rgba(239, 68, 68, 0.15);
+      border: 1px solid #ef4444;
+      color: #f87171;
+    }
+
+    /* ===================================================================
+       FOOTER (Page 9)
+       =================================================================== */
+    .site-footer {
+      background: var(--bg-footer);
+      border-top: 1px solid var(--border-subtle);
+      padding: 90px 0 50px;
+      position: relative;
+    }
+
+    .footer-top-cta {
+      margin-bottom: 70px;
+      padding-bottom: 60px;
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    .footer-cta-text h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 8px;
+      color: var(--text-main);
+    }
+
+    .footer-cta-text p {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+    }
+
+    .footer-columns-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 60px;
+    }
+
+    @media (max-width: 850px) {
+      .footer-columns-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    @media (max-width: 500px) {
+      .footer-columns-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .footer-col-title {
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+
+    .footer-links-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-links-list a {
+      color: var(--text-muted);
+      font-size: 0.94rem;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .footer-links-list a:hover {
+      color: var(--text-main);
+      transform: translateX(3px);
+    }
+
+    .new-tag {
+      font-size: 0.65rem;
+      font-weight: 800;
+      background: #ffffff;
+      color: #000;
+      padding: 2px 6px;
+      border-radius: 4px;
+      letter-spacing: 0.05em;
+    }
+
+    .footer-bottom-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      color: var(--text-dim);
+      padding-top: 30px;
+      border-top: 1px solid var(--border-subtle);
+      flex-wrap: wrap;
+      gap: 16px;
+    }
   </style>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
 </head>
 <body>
 
-  <!-- Ambient Background Glows -->
-  <div class="bg-glow-layer">
-    <div class="glow-orb-1"></div>
-    <div class="glow-orb-2"></div>
-  </div>
+  <!-- Floating Social Bar (Left Edge as in PDF Page 9) -->
+  <aside class="floating-social-bar" aria-label="Social connections">
+    <a href="https://wa.me/917697912636?text=Hi%20SmartLink,%20I'm%20interested%20in%20your%20digital%20business%20solutions." target="_blank" rel="noopener noreferrer" class="social-floating-btn" title="Chat on WhatsApp">
+      💬
+    </a>
+    <a href="mailto:smartlink7697@gmail.com" class="social-floating-btn" title="Send Email">
+      ✉
+    </a>
+    <a href="tel:+917697912636" class="social-floating-btn" title="Call Us">
+      📞
+    </a>
+  </aside>
 
   <!-- ===================================================================
-       HEADER & NAVIGATION
+       SITE HEADER
        =================================================================== -->
   <header class="site-header">
-    <div class="container nav-inner">
-      <a href="#hero" class="brand-logo">
-        <div class="brand-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-            <path d="M12 2a10 10 0 0 1 10 10M12 6a6 6 0 0 1 6 6M12 10a2 2 0 0 1 2 2"/>
-            <rect x="2" y="14" width="20" height="8" rx="2"/>
-            <line x1="6" y1="18" x2="6.01" y2="18"/>
-          </svg>
-        </div>
-        <div class="brand-title">
-          <span class="brand-name">SmartLink</span>
-          <span class="brand-sub">BUSINESS SOLUTIONS</span>
-        </div>
-      </a>
-
-      <nav>
-        <ul class="nav-links">
-          <li><a href="#idea">Our Idea</a></li>
-          <li><a href="#solutions">Solutions</a></li>
-          <li><a href="#demos">Live Demos</a></li>
-          <li><a href="#contact">Contact Us</a></li>
-        </ul>
-      </nav>
-
-      <div class="nav-actions">
-        <a href="tel:7697912636" class="phone-quick-link" title="Call Us Directly">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-          </svg>
-          <span>7697912636</span>
+    <div class="container">
+      <div class="header-inner">
+        <!-- Logo -->
+        <a href="#hero" class="brand-logo">
+          <div class="logo-slash">
+            <span></span>
+            <span></span>
+          </div>
+          SmartLink<span class="logo-dot">.</span>
         </a>
-        <a href="#contact" class="btn btn-primary btn-sm">Get in Touch</a>
+
+        <!-- Navigation Links -->
+        <nav class="header-nav">
+          <ul class="nav-links">
+            <li><a href="#work" class="nav-link">Selected Work</a></li>
+            <li><a href="#services" class="nav-link">Services</a></li>
+            <li><a href="#demos" class="nav-link">Live Demos</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+          </ul>
+        </nav>
+
+        <!-- Right Action Icons -->
+        <div class="header-actions">
+          <button id="themeToggleBtn" class="icon-btn" title="Toggle theme" aria-label="Toggle theme">
+            ☾
+          </button>
+          <a href="#contact" class="pill-btn pill-btn-white">
+            Start a project <span class="arrow-icon">↗</span>
+          </a>
+        </div>
       </div>
     </div>
   </header>
 
-  <!-- ===================================================================
-       HERO SECTION
-       =================================================================== -->
-  <section class="hero-section" id="hero">
-    <div class="container">
-      <div class="hero-badge">
-        <span class="pulse-dot"></span>
-        <span>Modern Business Technology</span>
-      </div>
-
-      <h1 class="hero-title">Smart Digital Solutions for Modern Businesses</h1>
-      <span class="hero-tagline">"One Tap. One Scan. Everything Connected."</span>
-
-      <p class="hero-desc">
-        Upgrade your cafe, restaurant, or business with lightning-fast QR Digital Menus, premium NFC Tap Cards, and 1-tap Google Review Solutions. Zero app download required — seamless digital interaction for your customers.
-      </p>
-
-      <div class="hero-cta-wrap">
-        <a href="#demos" class="btn btn-primary btn-lg">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <polygon points="5 3 19 12 5 21 5 3"/>
-          </svg>
-          <span>Explore Live Demos</span>
-        </a>
-        <a href="https://wa.me/917697912636?text=Hi%20SmartLink%2C%20I%20am%20interested%20in%20your%20digital%20solutions" target="_blank" class="btn btn-whatsapp btn-lg">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-          </svg>
-          <span>Chat on WhatsApp</span>
-        </a>
-      </div>
-
-      <div class="feature-pill-strip">
-        <div class="pill-item">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-          <span>Zero App Installation</span>
-        </div>
-        <div class="pill-item">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-          <span>Works with iOS & Android</span>
-        </div>
-        <div class="pill-item">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-          <span>Instant Setup & Live Sync</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================================================================
-       CORE IDEA & SOLUTIONS (4 PILLARS)
-       =================================================================== -->
-  <section class="section" id="idea">
-    <div class="container">
-      <div class="section-head" id="solutions">
-        <span class="section-tag">What We Do</span>
-        <h2 class="section-title">Everything Your Business Needs To Go Digital</h2>
-        <p class="section-sub">
-          We combine smart contactless hardware with seamless digital experiences to increase your orders, elevate customer delight, and boost your 5-star reviews.
-        </p>
-      </div>
-
-      <div class="solutions-grid">
-        <!-- Pillar 1: QR Digital Menus -->
-        <div class="solution-card">
-          <div class="solution-icon-box">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <rect x="3" y="3" width="7" height="7"/>
-              <rect x="14" y="3" width="7" height="7"/>
-              <rect x="14" y="14" width="7" height="7"/>
-              <rect x="3" y="14" width="7" height="7"/>
-            </svg>
-          </div>
-          <h3 class="solution-title">QR Digital Menus</h3>
-          <p class="solution-desc">
-            Ultra-fast, mobile-friendly menus that load instantly when customers scan the QR stand at their table.
-          </p>
-          <ul class="solution-features">
-            <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Instant price & item updates</span>
-            </li>
-            <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>High-res food & drink images</span>
-            </li>
-            <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Direct WhatsApp order support</span>
-            </li>
-          </ul>
-        </div>
-
-        <!-- Pillar 2: NFC Tap Cards -->
-        <div class="solution-card">
-          <div class="solution-icon-box">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <rect x="2" y="5" width="20" height="14" rx="2"/>
-              <line x1="2" y1="10" x2="22" y2="10"/>
-            </svg>
-          </div>
-          <h3 class="solution-title">NFC Tap Cards</h3>
-          <p class="solution-desc">
-            Luxury smart cards & table tags. Customers simply tap their phone on the card to open your menu or digital business profile.
-          </p>
-          <ul class="solution-features">
-            <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>1-tap instant phone connection</span>
-            </li>
-            <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Durable, premium luxury finish</span>
-            </li>
-            <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>No battery or app needed</span>
-            </li>
-          </ul>
-        </div>
-
-        <!-- Pillar 3: Google Review Tap Solutions -->
-        <div class="solution-card">
-          <div class="solution-icon-box">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
-            </svg>
-          </div>
-          <h3 class="solution-title">Google Review Tap</h3>
-          <p class="solution-desc">
-            Multiply your 5-star Google ratings effortlessly. Customers tap their phone at checkout and land straight on your Google review box.
-          </p>
-          <ul class="solution-features">
-            <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Takes customers directly to 5 stars</span>
-            </li>
-            <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Boosts local Google Maps rank</span>
-            </li>
-            <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Zero typing or search friction</span>
-            </li>
-          </ul>
-        </div>
-
-        <!-- Pillar 4: Customized Digital Solutions -->
-        <div class="solution-card">
-          <div class="solution-icon-box">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polyline points="16 18 22 12 16 6"/>
-              <polyline points="8 6 2 12 8 18"/>
-            </svg>
-          </div>
-          <h3 class="solution-title">Custom Digital Solutions</h3>
-          <p class="solution-desc">
-            Tailored digital workflows, custom landing pages, and interactive catalogs designed specifically around your business requirements.
-          </p>
-          <ul class="solution-features">
-            <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Custom brand styling & layout</span>
-            </li>
-            <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Flexible workflow integrations</span>
-            </li>
-            <li>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Dedicated technical support</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================================================================
-       LIVE DEMOS SECTION (VERCEL & RENDER LIVE DEMOS)
-       =================================================================== -->
-  <section class="section" id="demos">
-    <div class="container">
-      <div class="section-head">
-        <span class="section-tag">Interactive Preview</span>
-        <h2 class="section-title">Experience Our Live Demos</h2>
-        <p class="section-sub">
-          Explore our real deployed solutions to see the seamless performance, rich design, and instant responsiveness firsthand.
-        </p>
-      </div>
-
-      <div class="demos-wrapper">
-        <!-- Demo Card 1: SmartLink Digital Menu -->
-        <div class="demo-card" id="demoCard1">
-          <div class="demo-card-header">
-            <span class="demo-badge">
-              <span class="live-indicator"></span>
-              Live Vercel Demo
-            </span>
-            <span style="font-size: 0.82rem; color: var(--text-muted);">QR Digital Menu</span>
-          </div>
-
-          <div class="demo-browser-bar">
-            <div class="demo-browser-dots">
-              <span class="demo-dot red"></span>
-              <span class="demo-dot yellow"></span>
-              <span class="demo-dot green"></span>
+  <main>
+    <!-- ===================================================================
+         HERO SECTION (Pages 1 & 2)
+         =================================================================== -->
+    <section id="hero" class="hero-section">
+      <div class="container">
+        <div class="hero-grid">
+          <!-- Left: Big Typography & CTAs -->
+          <div class="hero-content">
+            <div class="section-kicker">
+              <span class="kicker-dot"></span>
+              SmartLink Business Solutions
             </div>
-            <div class="demo-url-pill">smartlink-digital-menu.vercel.app</div>
-          </div>
+            
+            <h1 class="hero-headline">
+              One stop solution for all digital business needs and goals
+            </h1>
 
-          <div class="demo-frame-container">
-            <iframe id="demoFrame1" class="demo-iframe" src="https://smartlink-digital-menu.vercel.app/" title="SmartLink Digital Menu" loading="lazy"></iframe>
-          </div>
-
-          <div class="demo-card-body">
-            <h3 class="demo-title">SmartLink Digital Menu</h3>
-            <p class="demo-summary">
-              Our flagship QR digital menu with category filtering, instant browsing, and responsive mobile-first architecture.
-            </p>
-            <div class="demo-cta-row">
-              <a href="https://smartlink-digital-menu.vercel.app/" target="_blank" rel="noopener noreferrer" id="demoBtnPrimary1" class="btn btn-primary">
-                <span>Open Fullscreen Demo ↗</span>
+            <div class="hero-cta-group">
+              <a href="#work" class="pill-btn pill-btn-white">
+                View our work <span class="arrow-icon">↗</span>
+              </a>
+              <a href="#contact" class="pill-btn pill-btn-ghost">
+                Start a project <span class="arrow-icon">↗</span>
               </a>
             </div>
+
+            <div class="hero-trust-badges">
+              <span>✦ Instant Setup</span>
+              <span>✦ Zero App Downloads</span>
+              <span>✦ Real-time Sync</span>
+            </div>
+          </div>
+
+          <!-- Right: Luxury Hardware Showcase -->
+          <div class="hero-architectural-frame" id="heroDeviceShowcase">
+            <div class="device-ambient-glow"></div>
+
+            <div class="device-card-3d" id="heroDeviceCard">
+              <img src="/images/smartlink-luxury-hardware.jpg" alt="SmartLink Luxury Hardware Showcase" class="device-card-image" id="deviceImg">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         INFINITE MARQUEE TICKER (Page 3)
+         =================================================================== -->
+    <section class="marquee-container" aria-hidden="true">
+      <div class="marquee-track">
+        <span class="marquee-item"><span class="marquee-icon">✦</span> QR DIGITAL MENUS</span>
+        <span class="marquee-item"><span class="marquee-icon">✦</span> CUSTOM WEB & APPS</span>
+        <span class="marquee-item"><span class="marquee-icon">✦</span> NFC TAP CARDS</span>
+        <span class="marquee-item"><span class="marquee-icon">✦</span> MULTI-VENDOR PLATFORMS</span>
+        <span class="marquee-item"><span class="marquee-icon">✦</span> 1-TAP GOOGLE REVIEWS</span>
+        <span class="marquee-item"><span class="marquee-icon">✦</span> INSTANT WHATSAPP ORDERS</span>
+        <!-- Duplicated for seamless loop -->
+        <span class="marquee-item"><span class="marquee-icon">✦</span> QR DIGITAL MENUS</span>
+        <span class="marquee-item"><span class="marquee-icon">✦</span> CUSTOM WEB & APPS</span>
+        <span class="marquee-item"><span class="marquee-icon">✦</span> NFC TAP CARDS</span>
+        <span class="marquee-item"><span class="marquee-icon">✦</span> MULTI-VENDOR PLATFORMS</span>
+        <span class="marquee-item"><span class="marquee-icon">✦</span> 1-TAP GOOGLE REVIEWS</span>
+        <span class="marquee-item"><span class="marquee-icon">✦</span> INSTANT WHATSAPP ORDERS</span>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         SELECTED WORK (Pages 3, 4, 5) - The Signature Folder Cutout Cards
+         =================================================================== -->
+    <section id="work" class="selected-work-section reveal-on-scroll">
+      <div class="container">
+        <div class="section-intro-grid">
+          <div>
+            <div class="section-kicker">
+              <span class="kicker-dot"></span>
+              Selected Work
+            </div>
+            <h2 class="section-headline-large">
+              Design & Tech in the real world ↗
+            </h2>
+          </div>
+          <div>
+            <p class="section-desc-text">
+              Digital menus, custom software, NFC tap cards and online platforms handled by one team — built so the work scales up as your business does, instead of being rebuilt.
+            </p>
           </div>
         </div>
 
-        <!-- Demo Card 2: Café De Casa -->
-        <div class="demo-card" id="demoCard2">
-          <div class="demo-card-header">
-            <span class="demo-badge">
-              <span class="live-indicator"></span>
-              Live Vercel Demo
-            </span>
-            <span style="font-size: 0.82rem; color: var(--text-muted);">Restaurant & Café</span>
-          </div>
-
-          <div class="demo-browser-bar">
-            <div class="demo-browser-dots">
-              <span class="demo-dot red"></span>
-              <span class="demo-dot yellow"></span>
-              <span class="demo-dot green"></span>
+        <!-- 4 Distinct Folder-Cutout Shape Cards -->
+        <div class="folder-cards-grid">
+          <!-- Card 1: Lilac Folder -->
+          <div class="folder-card folder-card-lilac reveal-on-scroll reveal-delay-1" onclick="location.href='#demos'">
+            <div class="folder-tab-header">
+              <span class="folder-chip">Digital Menu</span>
+              <span class="folder-chip">QR Stand</span>
             </div>
-            <div class="demo-url-pill">cafe-de-casa-two.vercel.app</div>
+            <div class="folder-center-showcase">
+              <h3 class="folder-center-title">
+                Smart<br>Menu
+              </h3>
+            </div>
+            <div class="folder-bottom-meta">
+              <div class="folder-year-meta">2026 • SMARTLINK DIGITAL</div>
+              <div class="folder-summary-text">
+                Ultra-fast QR menus with live prices, dish photos & instant WhatsApp orders.
+              </div>
+            </div>
           </div>
 
-          <div class="demo-frame-container">
-            <iframe id="demoFrame2" class="demo-iframe" src="https://cafe-de-casa-two.vercel.app/" title="Café De Casa Menu" loading="lazy"></iframe>
+          <!-- Card 2: Minimalist White Folder -->
+          <div class="folder-card folder-card-white reveal-on-scroll reveal-delay-2" onclick="location.href='#demos'">
+            <div class="folder-tab-header">
+              <span class="folder-chip">Branding</span>
+              <span class="folder-chip">Strategy</span>
+            </div>
+            <div class="folder-center-showcase">
+              <h3 class="folder-center-title">
+                One clear<br>voice
+              </h3>
+            </div>
+            <div class="folder-bottom-meta">
+              <div class="folder-year-meta">2026 • SMARTLINK BRANDING</div>
+              <div class="folder-summary-text">
+                Minimalist brand identity, positioning & cohesive digital presentation.
+              </div>
+            </div>
           </div>
 
-          <div class="demo-card-body">
-            <h3 class="demo-title">Café De Casa Experience</h3>
-            <p class="demo-summary">
-              A real-world cafe & dining digital menu experience showcasing beautiful item displays, chef specials, and direct ordering.
-            </p>
-            <div class="demo-cta-row">
-              <a href="https://cafe-de-casa-two.vercel.app/" target="_blank" rel="noopener noreferrer" id="demoBtnPrimary2" class="btn btn-primary">
-                <span>Open Fullscreen Demo ↗</span>
+          <!-- Card 3: Deep Graphite Folder -->
+          <div class="folder-card folder-card-dark reveal-on-scroll reveal-delay-3" onclick="location.href='#demos'">
+            <div class="folder-tab-header">
+              <span class="folder-chip">Web</span>
+              <span class="folder-chip">Apps</span>
+              <span class="folder-chip">SEO</span>
+            </div>
+            <div class="folder-center-showcase">
+              <h3 class="folder-center-title" style="color: #ffffff;">
+                Custom<br>Ecosystems
+              </h3>
+            </div>
+            <div class="folder-bottom-meta">
+              <div class="folder-year-meta" style="color: #9aa0ac;">2026 • WEB, APPS & SEARCH</div>
+              <div class="folder-summary-text" style="color: #f5f6f8;">
+                Custom web & mobile apps, built to rank high and convert visitors to buyers.
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4: Vibrant Coral Folder -->
+          <div class="folder-card folder-card-coral reveal-on-scroll reveal-delay-4" onclick="location.href='#demos'">
+            <div class="folder-tab-header">
+              <span class="folder-chip">NFC Tap</span>
+              <span class="folder-chip">Reviews</span>
+              <span class="folder-chip">Social</span>
+            </div>
+            <div class="folder-center-showcase">
+              <h3 class="folder-center-title">
+                1-Tap<br>Reviews
+              </h3>
+            </div>
+            <div class="folder-bottom-meta">
+              <div class="folder-year-meta">2026 • SMARTLINK GROWTH</div>
+              <div class="folder-summary-text">
+                NFC contactless cards for 5-star Google review growth & effortless customer connections.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         OUR EXPERTISE / SERVICES LIST (Page 6)
+         =================================================================== -->
+    <section id="services" class="services-section reveal-on-scroll">
+      <div class="container">
+        <div class="services-header-row">
+          <div>
+            <div class="section-kicker">
+              <span class="kicker-dot"></span>
+              Our Expertise
+            </div>
+            <h2 class="section-headline-large">
+              How we take your business to the next level
+            </h2>
+          </div>
+          <a href="#contact" class="pill-btn pill-btn-white">
+            SEE ALL SERVICES <span class="arrow-icon">↗</span>
+          </a>
+        </div>
+
+        <div class="services-list-container">
+          <!-- Service 1 -->
+          <div class="service-row-item reveal-on-scroll reveal-delay-1" onclick="location.href='#contact'">
+            <div class="service-row-thumb">
+              <div class="thumb-placeholder" style="background: linear-gradient(135deg, #1c202a, #111319); color: var(--accent-yellow);">
+                📱
+              </div>
+            </div>
+            <div class="service-row-text">
+              <h3>QR Digital Menus</h3>
+              <p>Instant price updates, item stock toggles, dish photography, allergen labels, and direct WhatsApp ordering without apps.</p>
+            </div>
+            <div class="service-row-action">↗</div>
+          </div>
+
+          <!-- Service 2 -->
+          <div class="service-row-item reveal-on-scroll reveal-delay-2" onclick="location.href='#contact'">
+            <div class="service-row-thumb">
+              <div class="thumb-placeholder" style="background: linear-gradient(135deg, #2a201c, #191211); color: var(--accent-coral);">
+                🌐
+              </div>
+            </div>
+            <div class="service-row-text">
+              <h3>Websites & Web Apps</h3>
+              <p>Lightning-fast, highly responsive websites engineered with clean typography and focused conversion funnels.</p>
+            </div>
+            <div class="service-row-action">↗</div>
+          </div>
+
+          <!-- Service 3 -->
+          <div class="service-row-item reveal-on-scroll reveal-delay-3" onclick="location.href='#contact'">
+            <div class="service-row-thumb">
+              <div class="thumb-placeholder" style="background: linear-gradient(135deg, #201c2a, #131119); color: var(--accent-lilac);">
+                💳
+              </div>
+            </div>
+            <div class="service-row-text">
+              <h3>NFC Smart Business & Review Cards</h3>
+              <p>Premium matte & metal tap cards that launch your 5-star Google review prompt or digital profile with a single phone tap.</p>
+            </div>
+            <div class="service-row-action">↗</div>
+          </div>
+
+          <!-- Service 4 -->
+          <div class="service-row-item reveal-on-scroll reveal-delay-4" onclick="location.href='#contact'">
+            <div class="service-row-thumb">
+              <div class="thumb-placeholder" style="background: linear-gradient(135deg, #18241c, #0f1611); color: var(--accent-emerald);">
+                🏬
+              </div>
+            </div>
+            <div class="service-row-text">
+              <h3>Multi-Vendor Platforms</h3>
+              <p>Full marketplace infrastructure supporting multiple outlets, real-time dispatch, table allocation, and central reporting.</p>
+            </div>
+            <div class="service-row-action">↗</div>
+          </div>
+
+          <!-- Service 5 -->
+          <div class="service-row-item reveal-on-scroll reveal-delay-1" onclick="location.href='#contact'">
+            <div class="service-row-thumb">
+              <div class="thumb-placeholder" style="background: linear-gradient(135deg, #28241c, #1a1711); color: var(--accent-yellow);">
+                📈
+              </div>
+            </div>
+            <div class="service-row-text">
+              <h3>Local SEO & Growth Strategy</h3>
+              <p>Google Maps local pack ranking, reputation strategy, and automated messaging that turns one-time diners into regulars.</p>
+            </div>
+            <div class="service-row-action">↗</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         STUDIO & TEAM BANNER (Page 7)
+         =================================================================== -->
+    <section class="studio-team-section reveal-on-scroll">
+      <div class="container">
+        <div class="studio-card-wrapper">
+          <div class="studio-speech-bubble">
+            “ One team from first idea to launch day ”
+          </div>
+
+          <div class="studio-card-footer">
+            <div class="studio-badge-box">
+              <div class="studio-badge-icon">⚡</div>
+              <div>
+                <div class="studio-badge-title">SmartLink Studio</div>
+                <div class="studio-badge-sub">Product, tech & digital growth team</div>
+              </div>
+            </div>
+
+            <div class="studio-btn-group">
+              <a href="#demos" class="pill-btn pill-btn-white">
+                See client work <span class="arrow-icon">↗</span>
               </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Demo Card 3: Multi-Vendor Platform -->
-        <div class="demo-card" id="demoCard3">
-          <div class="demo-card-header">
-            <span class="demo-badge">
-              <span class="live-indicator"></span>
-              Live Render Platform
-            </span>
-            <span style="font-size: 0.82rem; color: var(--text-muted);">Custom Solution</span>
-          </div>
-
-          <div class="demo-browser-bar">
-            <div class="demo-browser-dots">
-              <span class="demo-dot red"></span>
-              <span class="demo-dot yellow"></span>
-              <span class="demo-dot green"></span>
-            </div>
-            <div class="demo-url-pill">multivendor-platform-2vkb.onrender.com</div>
-          </div>
-
-          <div class="demo-frame-container">
-            <iframe id="demoFrame3" class="demo-iframe" src="/api/proxy-render" title="Multi-Vendor Platform" loading="lazy"></iframe>
-          </div>
-
-          <div class="demo-card-body">
-            <h3 class="demo-title">Multi-Vendor Platform</h3>
-            <p class="demo-summary">
-              Advanced multi-vendor commerce solution for food courts and multi-outlet setups with synchronized ordering and vendor management.
-            </p>
-            <div class="demo-cta-row">
-              <a href="https://multivendor-platform-2vkb.onrender.com" target="_blank" rel="noopener noreferrer" id="demoBtnPrimary3" class="btn btn-primary">
-                <span>Open Fullscreen Demo ↗</span>
+              <a href="#contact" class="pill-btn pill-btn-ghost">
+                About the studio <span class="arrow-icon">↗</span>
               </a>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ===================================================================
-       CONTACT SECTION
-       =================================================================== -->
-  <section class="section contact-section" id="contact">
-    <div class="container">
-      <div class="section-head">
-        <span class="section-tag">Direct Communication</span>
-        <h2 class="section-title">Ready To Upgrade Your Business?</h2>
-        <p class="section-sub">
-          Contact us directly via phone, WhatsApp, or email. We will guide you with the perfect solution tailored to your venue.
+    <!-- ===================================================================
+         AI ASSISTANTS & HIGH-VOLTAGE CTA (Page 8)
+         =================================================================== -->
+    <section class="ai-and-cta-section reveal-on-scroll">
+      <div class="container">
+        <!-- AI Assistant Launchers -->
+        <div class="ai-box-centered reveal-on-scroll">
+          <div class="section-kicker">
+            <span class="kicker-dot"></span>
+            Don't believe the hype?
+          </div>
+          <h2 class="section-headline-large">
+            See what AI has to say about us
+          </h2>
+
+          <div class="ai-button-row">
+            <a href="https://chatgpt.com/?q=Why+are+SmartLink+digital+menus+and+NFC+cards+good+for+restaurants%3F" target="_blank" rel="noopener noreferrer" class="ai-launcher-btn">
+              <span>OpenAI</span> <span class="arrow-icon">↗</span>
+            </a>
+            <a href="https://claude.ai/new?q=What+are+the+benefits+of+SmartLink+restaurant+QR+menus+and+contactless+tech%3F" target="_blank" rel="noopener noreferrer" class="ai-launcher-btn">
+              <span>Claude</span> <span class="arrow-icon">↗</span>
+            </a>
+            <a href="https://www.google.com/search?q=SmartLink+digital+restaurant+menus+NFC+review+cards" target="_blank" rel="noopener noreferrer" class="ai-launcher-btn">
+              <span>Google</span> <span class="arrow-icon">↗</span>
+            </a>
+            <a href="https://x.com/i/grok?text=Tell+me+how+SmartLink+digital+solutions+help+cafes+and+businesses" target="_blank" rel="noopener noreferrer" class="ai-launcher-btn">
+              <span>Grok</span> <span class="arrow-icon">↗</span>
+            </a>
+          </div>
+
+          <p class="ai-disclaimer">
+            Opens your assistant with the question ready to send. We don’t script the answer — read whatever it says.
+          </p>
+        </div>
+
+        <!-- Giant CTA Banner (Page 8) -->
+        <div class="giant-cta-banner reveal-on-scroll">
+          <div class="ghost-watermark-text">
+            LET'S CONNECT LET'S CONNECT
+          </div>
+
+          <div class="cta-banner-content">
+            <div class="cta-badge">Get In Touch</div>
+            <h2 class="cta-giant-headline">
+              TELL US WHAT<br>YOU'RE BUILDING
+            </h2>
+
+            <a href="#contact" class="cta-giant-button">
+              LET'S CONNECT
+              <span class="circle-arrow">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         LIVE PROJECTS SHOWCASE (Page 10)
+         =================================================================== -->
+    <section id="demos" class="projects-showcase-section reveal-on-scroll">
+      <div class="container">
+        <div class="section-kicker">
+          <span class="kicker-dot"></span>
+          Our Work
+        </div>
+        <h2 class="section-headline-large">
+          Take a look at our projects
+        </h2>
+        <p class="section-desc-text" style="margin-top: 10px; margin-bottom: 24px;">
+          Brand identities, websites, apps and systems — built by one team and shipped for real businesses.
         </p>
-      </div>
 
-      <div class="contact-grid">
-        <!-- Direct Contact Cards -->
-        <div class="contact-cards-col">
-          <!-- Card 1: Phone -->
-          <div class="contact-info-card">
-            <div class="contact-card-left">
-              <div class="contact-icon-bubble bubble-phone">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-                </svg>
-              </div>
-              <div class="contact-meta">
-                <h4>Direct Phone / Call</h4>
-                <p>+91 7697912636</p>
-              </div>
-            </div>
-            <a href="tel:7697912636" class="btn btn-secondary btn-sm">Call Now</a>
-          </div>
-
-          <!-- Card 2: WhatsApp -->
-          <div class="contact-info-card">
-            <div class="contact-card-left">
-              <div class="contact-icon-bubble bubble-whatsapp">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-                </svg>
-              </div>
-              <div class="contact-meta">
-                <h4>WhatsApp Support</h4>
-                <p>+91 7697912636</p>
-              </div>
-            </div>
-            <a href="https://wa.me/917697912636?text=Hi%20SmartLink%2C%20I%20am%20interested%20in%20your%20digital%20solutions" target="_blank" class="btn btn-whatsapp btn-sm">Chat</a>
-          </div>
-
-          <!-- Card 3: Email -->
-          <div class="contact-info-card">
-            <div class="contact-card-left">
-              <div class="contact-icon-bubble bubble-email">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                  <polyline points="22,6 12,13 2,6"/>
-                </svg>
-              </div>
-              <div class="contact-meta">
-                <h4>Official Mail ID</h4>
-                <p>smartlink7697@gmail.com</p>
-              </div>
-            </div>
-            <a href="mailto:smartlink7697@gmail.com?subject=SmartLink%20Business%20Enquiry" class="btn btn-secondary btn-sm">Email</a>
-          </div>
+        <!-- Project Switcher Tabs -->
+        <div class="project-tabs-switcher">
+          <button class="project-tab-btn active" onclick="switchDemoProject('menu')">
+            Digital QR Menu
+          </button>
+          <button class="project-tab-btn" onclick="switchDemoProject('cafe')">
+            Cafe De Casa
+          </button>
+          <button class="project-tab-btn" onclick="switchDemoProject('multivendor')">
+            Multi-Vendor Platform
+          </button>
         </div>
 
-        <!-- Contact / Quick Enquiry Form -->
-        <div class="contact-form-card">
-          <div class="form-header">
-            <h3>Send an Enquiry</h3>
-            <p>Tell us about your business and requirements — we will connect shortly.</p>
+        <div class="projects-card-container">
+          <!-- Mockup Browser Window -->
+          <div class="project-browser-window">
+            <div class="browser-top-bar">
+              <div class="browser-dots">
+                <span class="browser-dot dot-red"></span>
+                <span class="browser-dot dot-yellow"></span>
+                <span class="browser-dot dot-green"></span>
+              </div>
+              <div class="browser-url-pill" id="demoUrlDisplay">
+                https://smartlink-digital-menu.vercel.app/
+              </div>
+              <a id="demoExternalLink" href="https://smartlink-digital-menu.vercel.app/" target="_blank" rel="noopener noreferrer" class="pill-btn pill-btn-white" style="padding: 6px 14px; font-size: 0.8rem;">
+                🌐 Website <span class="arrow-icon">↗</span>
+              </a>
+            </div>
+
+            <div class="browser-frame-view">
+              <iframe id="projectIframe" src="https://smartlink-digital-menu.vercel.app/" title="Live Project Demo"></iframe>
+            </div>
           </div>
 
-          <div id="formAlert" class="form-alert"></div>
-
-          <form id="enquiryForm">
-            <div class="form-row">
-              <div class="form-group">
-                <label for="fullName">Your Name <span class="req">*</span></label>
-                <input type="text" id="fullName" class="form-control" placeholder="e.g. Rahul Sharma" required />
-              </div>
-              <div class="form-group">
-                <label for="phone">Phone / WhatsApp Number <span class="req">*</span></label>
-                <input type="tel" id="phone" class="form-control" placeholder="e.g. 9876543210" required />
-              </div>
+          <div class="project-info-row">
+            <div class="project-meta-details">
+              <h3 id="demoProjectTitle">SmartLink Digital Menu ↗</h3>
+              <p id="demoProjectDesc">
+                A focused ultra-fast mobile digital menu with instant categorization, visual item photos, allergen flags, and live WhatsApp ordering.
+              </p>
             </div>
-
-            <div class="form-row">
-              <div class="form-group">
-                <label for="businessName">Business / Cafe / Restaurant Name</label>
-                <input type="text" id="businessName" class="form-control" placeholder="e.g. The Urban Bistro" />
-              </div>
-              <div class="form-group">
-                <label for="city">City / Location</label>
-                <input type="text" id="city" class="form-control" placeholder="e.g. Indore, Bhopal, Mumbai" />
-              </div>
-            </div>
-
-            <div class="form-row">
-              <div class="form-group">
-                <label for="tablesCount">Number of Tables / Outlets</label>
-                <select id="tablesCount" class="form-control">
-                  <option value="1 - 10 Tables">1 - 10 Tables</option>
-                  <option value="11 - 25 Tables">11 - 25 Tables</option>
-                  <option value="26 - 50 Tables">26 - 50 Tables</option>
-                  <option value="50+ Tables / Multi-Branch">50+ Tables / Multi-Branch</option>
-                  <option value="Retail / Counter Only">Retail / Counter Only (No Tables)</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="service">Solution Needed</label>
-                <select id="service" class="form-control">
-                  <option value="QR Digital Menu">QR Digital Menu</option>
-                  <option value="NFC Tap Cards">NFC Tap Cards & Stands</option>
-                  <option value="Google Review Solutions">Google Review Tap Solution</option>
-                  <option value="Complete Bundle (All)">Complete Package (Menu + NFC + Reviews)</option>
-                  <option value="Custom Solution">Custom Digital Solution</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label for="email">Email Address (Optional)</label>
-              <input type="email" id="email" class="form-control" placeholder="e.g. contact@yourbusiness.com" />
-            </div>
-
-            <div class="form-group">
-              <label for="message">Message or Requirements</label>
-              <textarea id="message" class="form-control" placeholder="Briefly describe what you are looking for (tables count, location, special needs)..."></textarea>
-            </div>
-
-            <button type="submit" id="submitBtn" class="btn btn-primary btn-lg" style="width: 100%;">
-              <span>Submit Enquiry</span>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </button>
-          </form>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <!-- ===================================================================
+         CONTACT & SCOPE INQUIRY FORM (Pages 11 & 12)
+         =================================================================== -->
+    <section id="contact" class="contact-scope-section reveal-on-scroll">
+      <div class="container">
+        <div class="contact-grid">
+          <!-- Left: Direct Channels -->
+          <div class="contact-info-col">
+            <div class="section-kicker">
+              <span class="kicker-dot"></span>
+              Contact
+            </div>
+            <h2>Tell us what you need built</h2>
+            <p class="contact-intro-desc">
+              Send the goal, the deadline and anything you already have. You get a scope and a straight answer on fit — not a sales sequence.
+            </p>
+
+            <div class="contact-meta-channel">
+              <div class="channel-label">✉ EMAIL</div>
+              <a href="mailto:smartlink7697@gmail.com" class="channel-value">smartlink7697@gmail.com</a>
+            </div>
+
+            <div class="contact-meta-channel">
+              <div class="channel-label">💬 WHATSAPP</div>
+              <a href="https://wa.me/917697912636" target="_blank" rel="noopener noreferrer" class="channel-value">Chat on WhatsApp (+91 7697912636)</a>
+            </div>
+
+            <div class="contact-meta-channel">
+              <div class="channel-label">📍 STUDIO</div>
+              <div class="channel-value">Guwahati, Assam, India (Worldwide Remote)</div>
+            </div>
+
+            <div style="margin-top: 30px; font-size: 0.95rem; color: var(--text-muted); line-height: 1.5;">
+              Replies land within one working day. If it is urgent, WhatsApp is the fastest route.
+            </div>
+          </div>
+
+          <!-- Right: Four fields scope card (Page 12) -->
+          <div class="scope-form-card">
+            <h3 class="scope-card-title">Start a project</h3>
+            <p class="scope-card-sub">Four fields, then pick what you need. Nothing else required.</p>
+
+            <div id="formFeedbackAlert" class="form-feedback-alert"></div>
+
+            <form id="scopeEnquiryForm">
+              <div class="form-group">
+                <label class="form-label" for="clientName">Your name *</label>
+                <input type="text" id="clientName" class="form-control" placeholder="Full name" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="clientEmail">Email *</label>
+                <input type="email" id="clientEmail" class="form-control" placeholder="you@company.com" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="clientPhone">Phone (optional)</label>
+                <input type="tel" id="clientPhone" class="form-control" placeholder="+91 98765 43210">
+              </div>
+
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+                <div class="form-group">
+                  <label class="form-label" for="clientCity">City / Location</label>
+                  <input type="text" id="clientCity" class="form-control" placeholder="e.g. Mumbai, Guwahati">
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="clientTables">Number of Tables</label>
+                  <input type="number" id="clientTables" class="form-control" placeholder="e.g. 15">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="clientMessage">What are you trying to achieve? *</label>
+                <textarea id="clientMessage" class="form-control" placeholder="The goal, the deadline, and anything you need..." required></textarea>
+              </div>
+
+              <div>
+                <label class="chips-select-label">Select services you're interested in:</label>
+                <div class="chips-container" id="servicesChipContainer">
+                  <span class="service-chip-option selected" data-value="QR Digital Menus">QR Digital Menus</span>
+                  <span class="service-chip-option" data-value="Custom Websites">Custom Websites</span>
+                  <span class="service-chip-option" data-value="NFC Tap Cards">NFC Tap Cards</span>
+                  <span class="service-chip-option" data-value="Multi-Vendor Platform">Multi-Vendor Platform</span>
+                  <span class="service-chip-option" data-value="Google Reviews Tech">Google Reviews Tech</span>
+                </div>
+              </div>
+
+              <button type="submit" id="submitBriefBtn" class="pill-btn pill-btn-white" style="width: 100%; padding: 16px; margin-top: 10px;">
+                Submit brief <span class="arrow-icon">↗</span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <!-- ===================================================================
-       FOOTER
+       FOOTER (Page 9)
        =================================================================== -->
   <footer class="site-footer">
-    <div class="container footer-inner">
-      <div class="footer-copy">
-        &copy; <span id="currentYear"></span> <strong>SmartLink</strong>. All rights reserved.
+    <div class="container">
+      <div class="footer-top-cta">
+        <div class="footer-cta-text">
+          <h2>Do you like what you see?</h2>
+          <p>Scope-led proposals. Built around your brief.</p>
+        </div>
+        <a href="#contact" class="pill-btn pill-btn-white" style="padding: 16px 32px; font-size: 1.05rem;">
+          Start a project <span class="arrow-icon">↗</span>
+        </a>
       </div>
-      <ul class="footer-links">
-        <li><a href="#hero">Back to top ↑</a></li>
-        <li><a href="mailto:smartlink7697@gmail.com">smartlink7697@gmail.com</a></li>
-        <li><a href="tel:7697912636">+91 7697912636</a></li>
-      </ul>
+
+      <div class="footer-columns-grid">
+        <div>
+          <a href="#hero" class="brand-logo" style="margin-bottom: 16px;">
+            <div class="logo-slash"><span></span><span></span></div>
+            SmartLink<span class="logo-dot">.</span>
+          </a>
+          <p style="color: var(--text-muted); font-size: 0.92rem; max-width: 320px; line-height: 1.6;">
+            Empowering modern cafes, restaurants, and forward-thinking businesses with frictionless digital ordering and smart tap hardware.
+          </p>
+        </div>
+
+        <div>
+          <div class="footer-col-title">LEARN</div>
+          <ul class="footer-links-list">
+            <li><a href="#hero">About</a></li>
+            <li><a href="#work">Culture</a></li>
+            <li><a href="#work">Client work</a></li>
+            <li><a href="#services">Processes</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">EXPLORE</div>
+          <ul class="footer-links-list">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#work">Work <span class="new-tag">NEW</span></a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#demos">Live Demos</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">GET IN TOUCH</div>
+          <ul class="footer-links-list">
+            <li><a href="https://wa.me/917697912636" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+            <li><a href="mailto:smartlink7697@gmail.com">Email</a></li>
+            <li><a href="tel:+917697912636">+91 7697912636</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom-row">
+        <div>© 2026 SmartLink Business Solutions. All rights reserved.</div>
+        <div>Crafted with precision for modern commerce.</div>
+      </div>
     </div>
   </footer>
 
-  <!-- Floating WhatsApp Action -->
-  <a href="https://wa.me/917697912636?text=Hi%20SmartLink%2C%20I%20am%20interested%20in%20your%20digital%20solutions" target="_blank" class="floating-whatsapp" title="Chat on WhatsApp">
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-    </svg>
-    <span>Chat with us</span>
-  </a>
-
+  <!-- ===================================================================
+       CLIENT LOGIC & FORM SUBMISSION
+       =================================================================== -->
   <script>
-/**
- * SMARTLINK BUSINESS - STREAMLINED CLIENT JAVASCRIPT
- * Handles contact enquiry submissions and live demo previews.
- */
-
-document.addEventListener('DOMContentLoaded', () => {
-  initCopyrightYear();
-  initEnquiryForm();
-  initDemoShowcase();
-});
-
-// 1. Current Year in Footer
-function initCopyrightYear() {
-  const el = document.getElementById('currentYear');
-  if (el) el.textContent = new Date().getFullYear();
-}
-
-// 2. Demo Showcase Configuration
-function initDemoShowcase() {
-  window.setDemoUrls = function(url1, url2, url3) {
-    if (url1) {
-      const frame1 = document.getElementById('demoFrame1');
-      const btn1 = document.getElementById('demoBtnPrimary1');
-      if (frame1) frame1.src = url1;
-      if (btn1) btn1.href = url1;
+    // Theme toggle with localStorage persistence
+    const themeBtn = document.getElementById('themeToggleBtn');
+    const savedTheme = localStorage.getItem('smartlink_theme');
+    if (savedTheme === 'light') {
+      document.documentElement.setAttribute('data-theme', 'light');
+      if (themeBtn) themeBtn.textContent = '☼';
     }
 
-    if (url2) {
-      const frame2 = document.getElementById('demoFrame2');
-      const btn2 = document.getElementById('demoBtnPrimary2');
-      if (frame2) frame2.src = url2;
-      if (btn2) btn2.href = url2;
+    if (themeBtn) {
+      themeBtn.addEventListener('click', () => {
+        const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+        if (isLight) {
+          document.documentElement.removeAttribute('data-theme');
+          themeBtn.textContent = '☾';
+          localStorage.setItem('smartlink_theme', 'dark');
+        } else {
+          document.documentElement.setAttribute('data-theme', 'light');
+          themeBtn.textContent = '☼';
+          localStorage.setItem('smartlink_theme', 'light');
+        }
+      });
     }
 
-    if (url3) {
-      const frame3 = document.getElementById('demoFrame3');
-      const btn3 = document.getElementById('demoBtnPrimary3');
-      if (frame3) frame3.src = url3;
-      if (btn3) btn3.href = url3;
+    // Project Switcher
+    const projectData = {
+      menu: {
+        title: "SmartLink Digital Menu ↗",
+        desc: "A focused ultra-fast mobile digital menu with instant categorization, visual item photos, allergen flags, and live WhatsApp ordering.",
+        url: "https://smartlink-digital-menu.vercel.app/"
+      },
+      cafe: {
+        title: "Cafe De Casa ↗",
+        desc: "A modern digital restaurant website with interactive culinary galleries, online reservations, and full menu showcase.",
+        url: "https://cafe-de-casa-two.vercel.app/"
+      },
+      multivendor: {
+        title: "Multi-Vendor Marketplace Platform ↗",
+        desc: "High-scale multi-vendor restaurant ordering network with merchant dashboards, dynamic pricing, and dispatch routing.",
+        url: "/api/proxy-render"
+      }
+    };
+
+    function switchDemoProject(key) {
+      const data = projectData[key];
+      if (!data) return;
+
+      document.querySelectorAll('.project-tab-btn').forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+
+      document.getElementById('demoProjectTitle').textContent = data.title;
+      document.getElementById('demoProjectDesc').textContent = data.desc;
+      document.getElementById('demoUrlDisplay').textContent = data.url;
+      document.getElementById('demoExternalLink').href = data.url === '/api/proxy-render' ? 'https://multivendor-platform-2vkb.onrender.com' : data.url;
+      document.getElementById('projectIframe').src = data.url;
     }
-  };
-}
 
-// 3. Enquiry Form Submission
-function initEnquiryForm() {
-  const form = document.getElementById('enquiryForm');
-  const alertBox = document.getElementById('formAlert');
-  const submitBtn = document.getElementById('submitBtn');
+    // Service Chip Multiselect
+    document.querySelectorAll('.service-chip-option').forEach(chip => {
+      chip.addEventListener('click', () => {
+        chip.classList.toggle('selected');
+      });
+    });
 
-  if (!form) return;
+    // Form Submission to /api/send-enquiry
+    const scopeForm = document.getElementById('scopeEnquiryForm');
+    const feedbackAlert = document.getElementById('formFeedbackAlert');
+    const submitBtn = document.getElementById('submitBriefBtn');
 
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
+    scopeForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
 
-    const fullName = document.getElementById('fullName').value.trim();
-    const phone = document.getElementById('phone').value.trim();
-    const businessName = document.getElementById('businessName').value.trim();
-    const city = document.getElementById('city') ? document.getElementById('city').value.trim() : '';
-    const tablesCount = document.getElementById('tablesCount') ? document.getElementById('tablesCount').value : '';
-    const service = document.getElementById('service').value;
-    const email = document.getElementById('email').value.trim();
-    const message = document.getElementById('message').value.trim();
+      const name = document.getElementById('clientName').value.trim();
+      const email = document.getElementById('clientEmail').value.trim();
+      const phone = document.getElementById('clientPhone').value.trim();
+      const city = document.getElementById('clientCity').value.trim();
+      const tables = document.getElementById('clientTables').value.trim();
+      const message = document.getElementById('clientMessage').value.trim();
 
-    if (!fullName || !phone) {
-      showAlert('Please enter your name and phone number.', 'error');
-      return;
-    }
+      const selectedServices = Array.from(document.querySelectorAll('.service-chip-option.selected'))
+        .map(chip => chip.getAttribute('data-value'));
 
-    // Set loading state
-    const originalBtnText = submitBtn.innerHTML;
-    submitBtn.disabled = true;
-    submitBtn.innerHTML = `
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="spin-icon">
-        <circle cx="12" cy="12" r="10" stroke-opacity="0.25"/>
-        <path d="M12 2a10 10 0 0 1 10 10"/>
-      </svg>
-      <span>Sending Enquiry...</span>
-    `;
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = 'Sending brief...';
+      feedbackAlert.className = 'form-feedback-alert';
+      feedbackAlert.style.display = 'none';
 
-    try {
-      const response = await fetch('/api/send-enquiry', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          fullName,
-          phone,
-          businessName,
-          city,
-          tablesCount,
-          service,
-          email: email || '',
-          message,
-          timestamp: new Date().toISOString()
-        })
+      const payload = {
+        name,
+        email,
+        phone,
+        city,
+        tables,
+        service: selectedServices.join(', ') || 'General Project Scope',
+        message
+      };
+
+      try {
+        const response = await fetch('/api/send-enquiry', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+
+        const result = await response.json();
+
+        if (response.ok && result.success) {
+          feedbackAlert.className = 'form-feedback-alert success';
+          feedbackAlert.textContent = '✓ Your brief has been received! Our team will contact you within one business day.';
+          scopeForm.reset();
+          document.querySelectorAll('.service-chip-option').forEach(chip => chip.classList.remove('selected'));
+        } else {
+          feedbackAlert.className = 'form-feedback-alert error';
+          feedbackAlert.textContent = result.message || 'Something went wrong. Please connect with us directly on WhatsApp (+91 7697912636).';
+        }
+      } catch (err) {
+        feedbackAlert.className = 'form-feedback-alert error';
+        feedbackAlert.textContent = 'Network error. Please connect with us on WhatsApp (+91 7697912636).';
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = 'Submit brief <span class="arrow-icon">↗</span>';
+      }
+    });
+
+    // Interactive 3D tilt effect on mouse movement for the hero device
+    const deviceShowcase = document.getElementById('heroDeviceShowcase');
+    const deviceCard = document.getElementById('heroDeviceCard');
+
+    if (deviceShowcase && deviceCard) {
+      let isHovering = false;
+
+      deviceShowcase.addEventListener('mouseenter', () => {
+        isHovering = true;
       });
 
-      const data = await response.json();
+      deviceShowcase.addEventListener('mousemove', (e) => {
+        const rect = deviceShowcase.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
 
-      if (response.ok && data.success !== false) {
-        showAlert('Thank you! Your enquiry has been received. Our team will contact you shortly.', 'success');
-        form.reset();
-      } else {
-        showAlert(data.message || 'Error sending enquiry. Please call or WhatsApp us directly.', 'error');
-      }
-    } catch (err) {
-      console.error('Enquiry error:', err);
-      // Fallback: If local API is not available or blocked, show direct contact guidance
-      showAlert('Your enquiry was recorded. You can also reach us immediately via WhatsApp or Call on 7697912636.', 'success');
-      form.reset();
-    } finally {
-      submitBtn.disabled = false;
-      submitBtn.innerHTML = originalBtnText;
+        const rotateX = ((y - centerY) / centerY) * -12;
+        const rotateY = ((x - centerX) / centerX) * 14;
+
+        deviceCard.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) scale3d(1.02, 1.02, 1.02)`;
+      });
+
+      deviceShowcase.addEventListener('mouseleave', () => {
+        isHovering = false;
+        deviceCard.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+      });
     }
-  });
 
-  function showAlert(msg, type) {
-    if (!alertBox) return;
-    alertBox.textContent = msg;
-    alertBox.className = `form-alert ${type}`;
-    alertBox.style.display = 'block';
-    alertBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-  }
-}
+    // Scroll reveal observer (Smooth subtle animation on scroll down)
+    const revealElements = document.querySelectorAll('.reveal-on-scroll');
+    if ('IntersectionObserver' in window) {
+      const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.08,
+        rootMargin: '0px 0px -40px 0px'
+      });
 
+      revealElements.forEach(el => revealObserver.observe(el));
+    } else {
+      revealElements.forEach(el => el.classList.add('revealed'));
+    }
   </script>
 </body>
 </html>
+

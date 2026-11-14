@@ -16,52 +16,124 @@
        WHYCREATIVES-INSPIRED DESIGN SYSTEM & VARIABLES
        =================================================================== */
     :root {
+      /* Foundation Backgrounds */
       --bg-canvas: #090a0d;
-      --bg-surface: #111317;
-      --bg-surface-elevated: #181b22;
-      --bg-card: #15171e;
-      --bg-folder-lilac: #7d75ff;
-      --bg-folder-white: #f5f6f8;
-      --bg-folder-dark: #12141a;
-      --bg-folder-coral: #ff5738;
-      --bg-folder-yellow: #ffe600;
-      
+      --bg-surface: #12141a;
+      --bg-surface-elevated: #181b24;
+      --bg-card: #14161f;
+      --bg-card-hover: #1b1e2a;
+      --bg-input: #0b0c10;
+      --bg-header: rgba(9, 10, 13, 0.85);
+      --bg-marquee: rgba(18, 20, 26, 0.45);
+      --bg-cta-banner: #0f1117;
+      --bg-footer: #08090b;
+
+      /* Typography */
       --text-main: #f5f6f8;
       --text-muted: #9aa0ac;
       --text-dim: #606675;
       --text-dark: #0c0d10;
-      
+
+      /* Primary High-Contrast Pill Buttons */
+      --btn-primary-bg: #ffffff;
+      --btn-primary-text: #0c0d10;
+      --btn-primary-hover: #f0f0f4;
+      --btn-primary-shadow: 0 4px 18px rgba(255, 255, 255, 0.12);
+
+      /* Borders & Shadows */
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-medium: rgba(255, 255, 255, 0.14);
+      --border-focus: rgba(255, 230, 0, 0.4);
+      --shadow-card: 0 24px 60px rgba(0, 0, 0, 0.55);
+
+      /* Blueprint & Architectural markers */
+      --crosshair-color: rgba(255, 255, 255, 0.2);
+      --blueprint-marker-bg: #ffffff;
+      --blueprint-marker-border: #000000;
+      --watermark-opacity: rgba(255, 255, 255, 0.025);
+
+      /* Brand Accents */
       --accent-lilac: #7d75ff;
       --accent-coral: #ff5738;
       --accent-yellow: #ffe600;
       --accent-emerald: #10b981;
-      
-      --border-subtle: rgba(255, 255, 255, 0.08);
-      --border-medium: rgba(255, 255, 255, 0.14);
-      --border-focus: rgba(255, 255, 255, 0.3);
-      
+
+      /* Device Hero Showcase */
+      --device-card-bg: #0f1117;
+      --device-chip-bg: rgba(14, 16, 22, 0.88);
+      --device-chip-text: #ffffff;
+      --device-glow: radial-gradient(circle, rgba(125, 117, 255, 0.35) 0%, rgba(255, 230, 0, 0.12) 40%, rgba(0, 0, 0, 0) 70%);
+
+      /* Folder Card White */
+      --folder-white-bg: #f4f5f7;
+      --folder-white-text: #0c0d10;
+      --folder-white-chip-bg: #0c0d10;
+      --folder-white-chip-text: #ffffff;
+      --folder-white-border: transparent;
+      --folder-white-shadow: 0 20px 48px rgba(255, 255, 255, 0.08);
+
       --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
       --font-heading: 'Outfit', 'Plus Jakarta Sans', sans-serif;
-      
+
       --radius-sm: 8px;
       --radius-md: 14px;
       --radius-lg: 24px;
       --radius-xl: 36px;
       --radius-pill: 9999px;
-      
+
       --transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     [data-theme="light"] {
-      --bg-canvas: #f8f9fa;
+      /* Foundation Backgrounds */
+      --bg-canvas: #f8f9fc;
       --bg-surface: #ffffff;
-      --bg-surface-elevated: #f0f2f5;
+      --bg-surface-elevated: #f0f2f7;
       --bg-card: #ffffff;
-      --text-main: #0c0d10;
-      --text-muted: #555b68;
-      --text-dim: #8b92a0;
-      --border-subtle: rgba(0, 0, 0, 0.08);
-      --border-medium: rgba(0, 0, 0, 0.16);
+      --bg-card-hover: #fcfdfe;
+      --bg-input: #f1f3f8;
+      --bg-header: rgba(248, 249, 252, 0.88);
+      --bg-marquee: rgba(0, 0, 0, 0.03);
+      --bg-cta-banner: #111319; /* High-contrast punchy dark banner */
+      --bg-footer: #eef1f6;
+
+      /* Typography */
+      --text-main: #0c0e12;
+      --text-muted: #565d6d;
+      --text-dim: #848b9c;
+      --text-dark: #0c0d10;
+
+      /* Primary Pill Buttons */
+      --btn-primary-bg: #0c0d10;
+      --btn-primary-text: #ffffff;
+      --btn-primary-hover: #22252e;
+      --btn-primary-shadow: 0 4px 18px rgba(12, 13, 16, 0.16);
+
+      /* Borders & Shadows */
+      --border-subtle: rgba(0, 0, 0, 0.07);
+      --border-medium: rgba(0, 0, 0, 0.12);
+      --border-focus: rgba(255, 208, 0, 0.6);
+      --shadow-card: 0 16px 40px rgba(15, 23, 42, 0.07);
+
+      /* Blueprint & Architectural markers */
+      --crosshair-color: rgba(0, 0, 0, 0.18);
+      --blueprint-marker-bg: #0c0d10;
+      --blueprint-marker-border: rgba(0, 0, 0, 0.2);
+      --watermark-opacity: rgba(255, 255, 255, 0.04);
+
+      /* Device Hero */
+      --device-card-bg: #ffffff;
+      --device-chip-bg: rgba(255, 255, 255, 0.92);
+      --device-chip-text: #0c0d10;
+      --device-glow: radial-gradient(circle, rgba(125, 117, 255, 0.22) 0%, rgba(255, 230, 0, 0.1) 40%, rgba(248, 249, 252, 0) 70%);
+
+      /* Folder Card White */
+      --folder-white-bg: #ffffff;
+      --folder-white-text: #0c0d10;
+      --folder-white-chip-bg: #0c0d10;
+      --folder-white-chip-text: #ffffff;
+      --folder-white-border: 1px solid rgba(0, 0, 0, 0.1);
+      --folder-white-shadow: 0 18px 45px rgba(0, 0, 0, 0.06);
     }
 
     /* Reset & Base */
@@ -71,10 +143,30 @@
       padding: 0;
     }
 
+    /* Scroll-Triggered Reveal Animation (Clean, smooth & lightweight) */
+    .reveal-on-scroll {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1), transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+      will-change: opacity, transform;
+    }
+
+    .reveal-on-scroll.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Staggered delay helpers */
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
     html {
       scroll-behavior: smooth;
       font-size: 16px;
       background-color: var(--bg-canvas);
+      color-scheme: dark light;
     }
 
     body {
@@ -85,6 +177,7 @@
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
       position: relative;
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
 
     a {
@@ -123,7 +216,7 @@
       width: 44px;
       height: 44px;
       border-radius: 50%;
-      background: rgba(24, 27, 34, 0.85);
+      background: var(--bg-surface);
       backdrop-filter: blur(12px);
       border: 1px solid var(--border-medium);
       display: flex;
@@ -132,13 +225,13 @@
       color: var(--text-main);
       font-size: 1.1rem;
       transition: var(--transition);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.25);
     }
 
     .social-floating-btn:hover {
       transform: translateY(-3px) scale(1.08);
       background: var(--text-main);
-      color: var(--text-dark);
+      color: var(--bg-canvas);
       border-color: transparent;
     }
 
@@ -149,7 +242,7 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: rgba(9, 10, 13, 0.82);
+      background: var(--bg-header);
       backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border-subtle);
       transition: var(--transition);
@@ -239,7 +332,7 @@
     }
 
     .icon-btn:hover {
-      background: rgba(255, 255, 255, 0.08);
+      background: var(--border-subtle);
       border-color: var(--text-main);
       transform: scale(1.05);
     }
@@ -270,15 +363,16 @@
     }
 
     .pill-btn-white {
-      background: #ffffff;
-      color: #0c0d10;
-      box-shadow: 0 4px 16px rgba(255, 255, 255, 0.12);
+      background: var(--btn-primary-bg);
+      color: var(--btn-primary-text);
+      box-shadow: var(--btn-primary-shadow);
+      border: 1px solid var(--border-subtle);
     }
 
     .pill-btn-white:hover {
-      background: #f0f0f4;
+      background: var(--btn-primary-hover);
       transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(255, 255, 255, 0.2);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
     }
 
     .pill-btn-ghost {
@@ -288,7 +382,7 @@
     }
 
     .pill-btn-ghost:hover {
-      background: rgba(255, 255, 255, 0.06);
+      background: var(--border-subtle);
       border-color: var(--text-main);
       transform: translateY(-2px);
     }
@@ -418,53 +512,10 @@
       transform: translate(-50%, -50%);
       width: 85%;
       height: 85%;
-      background: radial-gradient(circle, rgba(125, 117, 255, 0.35) 0%, rgba(255, 230, 0, 0.12) 40%, rgba(0, 0, 0, 0) 70%);
+      background: var(--device-glow);
       filter: blur(55px);
       z-index: 1;
       pointer-events: none;
-    }
-
-    /* Crosshairs & Blueprint markers */
-    .crosshair-line-v {
-      position: absolute;
-      top: -10px;
-      bottom: -10px;
-      right: 28%;
-      width: 1px;
-      border-left: 1px dashed rgba(255, 255, 255, 0.22);
-      pointer-events: none;
-      z-index: 5;
-    }
-
-    .crosshair-line-h {
-      position: absolute;
-      left: -10px;
-      right: -10px;
-      top: 24%;
-      height: 1px;
-      border-top: 1px dashed rgba(255, 255, 255, 0.22);
-      pointer-events: none;
-      z-index: 5;
-    }
-
-    .blueprint-marker {
-      position: absolute;
-      width: 14px;
-      height: 14px;
-      background: #ffffff;
-      border: 1px solid #000;
-      z-index: 6;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.5);
-    }
-    .marker-top-right {
-      top: 24%;
-      right: 28%;
-      transform: translate(50%, -50%);
-    }
-    .marker-top-left {
-      top: 24%;
-      left: 12%;
-      transform: translate(-50%, -50%);
     }
 
     /* Interactive 3D Device Card */
@@ -473,9 +524,9 @@
       z-index: 2;
       border-radius: 36px;
       overflow: hidden;
-      background: #0f1117;
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      box-shadow: 0 28px 70px rgba(0, 0, 0, 0.7), 0 0 45px rgba(125, 117, 255, 0.22);
+      background: var(--device-card-bg);
+      border: 1px solid var(--border-medium);
+      box-shadow: var(--shadow-card);
       transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
       transform-style: preserve-3d;
       will-change: transform;
@@ -483,7 +534,7 @@
     }
 
     .device-card-3d:hover {
-      box-shadow: 0 36px 90px rgba(0, 0, 0, 0.8), 0 0 60px rgba(125, 117, 255, 0.35);
+      box-shadow: var(--shadow-elevated);
     }
 
     .device-card-image {
@@ -505,10 +556,10 @@
       top: 22px;
       left: 22px;
       z-index: 10;
-      background: rgba(14, 16, 22, 0.88);
+      background: var(--device-chip-bg);
       backdrop-filter: blur(14px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      color: #ffffff;
+      border: 1px solid var(--border-medium);
+      color: var(--device-chip-text);
       padding: 8px 16px;
       border-radius: var(--radius-pill);
       font-size: 0.82rem;
@@ -516,7 +567,7 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.25);
     }
 
     .device-floating-badge .led-dot {
@@ -539,15 +590,15 @@
       left: 18px;
       right: 18px;
       z-index: 10;
-      background: rgba(14, 16, 22, 0.85);
+      background: var(--device-chip-bg);
       backdrop-filter: blur(14px);
-      border: 1px solid rgba(255, 255, 255, 0.14);
+      border: 1px solid var(--border-medium);
       border-radius: var(--radius-md);
       padding: 12px 18px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      color: #ffffff;
+      color: var(--device-chip-text);
       font-size: 0.84rem;
       font-weight: 600;
     }
@@ -568,7 +619,7 @@
       padding: 30px 0;
       border-top: 1px solid var(--border-subtle);
       border-bottom: 1px solid var(--border-subtle);
-      background: rgba(18, 20, 26, 0.45);
+      background: var(--bg-marquee);
       white-space: nowrap;
       position: relative;
     }
@@ -697,13 +748,14 @@
     }
 
     .folder-card-white {
-      background: #f4f5f7;
-      color: #0c0d10;
-      box-shadow: 0 20px 48px rgba(255, 255, 255, 0.08);
+      background: var(--folder-white-bg);
+      color: var(--folder-white-text);
+      border: var(--folder-white-border);
+      box-shadow: var(--folder-white-shadow);
     }
     .folder-card-white .folder-chip {
-      background: #0c0d10;
-      color: #ffffff;
+      background: var(--folder-white-chip-bg);
+      color: var(--folder-white-chip-text);
     }
 
     .folder-card-dark {
@@ -801,7 +853,8 @@
     .service-row-item:hover {
       padding-left: 12px;
       border-color: var(--border-medium);
-      background: rgba(255, 255, 255, 0.015);
+      background: var(--bg-surface-elevated);
+      border-radius: var(--radius-sm);
     }
 
     @media (max-width: 768px) {
@@ -817,7 +870,7 @@
       width: 130px;
       height: 85px;
       border-radius: var(--radius-md);
-      background: #1c1e28;
+      background: var(--bg-surface-elevated);
       overflow: hidden;
       position: relative;
       border: 1px solid var(--border-subtle);
@@ -877,7 +930,7 @@
       flex-direction: column;
       justify-content: space-between;
       padding: 40px;
-      box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+      box-shadow: var(--shadow-card);
       background: linear-gradient(180deg, rgba(16, 18, 24, 0.4) 0%, rgba(9, 10, 14, 0.95) 100%),
                   url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
     }
@@ -917,7 +970,7 @@
     }
 
     .studio-badge-box {
-      background: rgba(18, 20, 26, 0.85);
+      background: var(--bg-header);
       backdrop-filter: blur(12px);
       border: 1px solid var(--border-medium);
       padding: 14px 22px;
@@ -972,8 +1025,8 @@
     }
 
     .ai-launcher-btn {
-      background: #ffffff;
-      color: #0c0d10;
+      background: var(--btn-primary-bg);
+      color: var(--btn-primary-text);
       font-size: 0.96rem;
       font-weight: 700;
       padding: 12px 24px;
@@ -981,13 +1034,15 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      box-shadow: 0 4px 16px rgba(255, 255, 255, 0.1);
+      box-shadow: var(--btn-primary-shadow);
+      border: 1px solid var(--border-medium);
       transition: var(--transition);
     }
 
     .ai-launcher-btn:hover {
       transform: translateY(-3px) scale(1.04);
       background: var(--accent-yellow);
+      color: #0c0d10;
       box-shadow: 0 8px 24px rgba(255, 230, 0, 0.35);
     }
 
@@ -999,13 +1054,14 @@
 
     /* Giant CTA Banner */
     .giant-cta-banner {
-      background: #0f1117;
-      border: 1px solid var(--border-medium);
+      background: #111319;
+      border: 1px solid rgba(255, 255, 255, 0.14);
       border-radius: 40px;
       padding: 80px 40px;
       text-align: center;
       position: relative;
       overflow: hidden;
+      box-shadow: var(--shadow-card);
     }
 
     .ghost-watermark-text {
@@ -1016,7 +1072,7 @@
       font-family: var(--font-heading);
       font-size: clamp(3.5rem, 10vw, 8rem);
       font-weight: 900;
-      color: rgba(255, 255, 255, 0.025);
+      color: rgba(255, 255, 255, 0.03);
       letter-spacing: -0.04em;
       white-space: nowrap;
       pointer-events: none;
@@ -1050,7 +1106,7 @@
       line-height: 1.05;
       letter-spacing: -0.04em;
       margin-bottom: 40px;
-      color: var(--text-main);
+      color: #ffffff;
     }
 
     .cta-giant-button {
@@ -1095,20 +1151,20 @@
     }
 
     .projects-card-container {
-      background: #13151c;
+      background: var(--bg-surface);
       border: 1px solid var(--border-medium);
       border-radius: 36px;
       padding: 40px;
       position: relative;
       margin-top: 40px;
-      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4);
+      box-shadow: var(--shadow-card);
     }
 
     .project-browser-window {
       border-radius: 20px;
       overflow: hidden;
       border: 1px solid var(--border-medium);
-      background: #0d0e12;
+      background: var(--bg-canvas);
       margin-bottom: 30px;
       position: relative;
     }
@@ -1118,7 +1174,7 @@
       align-items: center;
       justify-content: space-between;
       padding: 12px 18px;
-      background: #171922;
+      background: var(--bg-surface-elevated);
       border-bottom: 1px solid var(--border-subtle);
     }
 
@@ -1148,7 +1204,7 @@
     .browser-frame-view {
       width: 100%;
       height: 520px;
-      background: #0c0d10;
+      background: var(--bg-canvas);
       position: relative;
     }
 
@@ -1172,6 +1228,7 @@
       font-weight: 800;
       letter-spacing: -0.03em;
       margin-bottom: 6px;
+      color: var(--text-main);
     }
 
     .project-meta-details p {
@@ -1192,7 +1249,7 @@
       border-radius: var(--radius-pill);
       font-size: 0.88rem;
       font-weight: 700;
-      background: #1c1e28;
+      background: var(--bg-surface-elevated);
       color: var(--text-muted);
       cursor: pointer;
       transition: var(--transition);
@@ -1200,9 +1257,9 @@
     }
 
     .project-tab-btn.active, .project-tab-btn:hover {
-      background: #ffffff;
-      color: #0c0d10;
-      border-color: #ffffff;
+      background: var(--btn-primary-bg);
+      color: var(--btn-primary-text);
+      border-color: var(--btn-primary-bg);
     }
 
     /* ===================================================================
@@ -1239,6 +1296,7 @@
       line-height: 1.1;
       letter-spacing: -0.03em;
       margin-bottom: 20px;
+      color: var(--text-main);
     }
 
     .contact-intro-desc {
@@ -1277,11 +1335,11 @@
 
     /* The "Start a project" Scope Form Card (Page 12) */
     .scope-form-card {
-      background: #12141b;
+      background: var(--bg-surface);
       border: 1px solid var(--border-medium);
       border-radius: 32px;
       padding: 44px;
-      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4);
+      box-shadow: var(--shadow-card);
     }
 
     .scope-card-title {
@@ -1290,6 +1348,7 @@
       font-weight: 800;
       letter-spacing: -0.02em;
       margin-bottom: 6px;
+      color: var(--text-main);
     }
 
     .scope-card-sub {
@@ -1312,7 +1371,7 @@
 
     .form-control {
       width: 100%;
-      background: #090a0d;
+      background: var(--bg-input);
       border: 1px solid var(--border-medium);
       border-radius: var(--radius-md);
       padding: 14px 18px;
@@ -1322,8 +1381,8 @@
     }
 
     .form-control:focus {
-      border-color: var(--accent-yellow);
-      background: #0e0f14;
+      border-color: var(--border-focus);
+      background: var(--bg-surface);
       box-shadow: 0 0 0 3px rgba(255, 230, 0, 0.15);
     }
 
@@ -1352,7 +1411,7 @@
     }
 
     .service-chip-option {
-      background: #1c1e28;
+      background: var(--bg-surface-elevated);
       border: 1px solid var(--border-subtle);
       border-radius: var(--radius-pill);
       padding: 8px 18px;
@@ -1395,7 +1454,7 @@
        FOOTER (Page 9)
        =================================================================== */
     .site-footer {
-      background: #08090b;
+      background: var(--bg-footer);
       border-top: 1px solid var(--border-subtle);
       padding: 90px 0 50px;
       position: relative;
@@ -1418,6 +1477,7 @@
       font-weight: 800;
       letter-spacing: -0.03em;
       margin-bottom: 8px;
+      color: var(--text-main);
     }
 
     .footer-cta-text p {
@@ -1583,26 +1643,12 @@
             </div>
           </div>
 
-          <!-- Right: 3D Hardware Device Showcase with Blueprint Crosshairs -->
+          <!-- Right: Luxury Hardware Showcase -->
           <div class="hero-architectural-frame" id="heroDeviceShowcase">
             <div class="device-ambient-glow"></div>
-            <div class="crosshair-line-v"></div>
-            <div class="crosshair-line-h"></div>
-            <div class="blueprint-marker marker-top-right"></div>
-            <div class="blueprint-marker marker-top-left"></div>
 
             <div class="device-card-3d" id="heroDeviceCard">
-              <div class="device-floating-badge">
-                <span class="led-dot"></span>
-                <span>SmartLink Hardware Hub</span>
-              </div>
-
-              <img src="/images/smartlink-device.jpg" alt="SmartLink Hardware Hub" class="device-card-image" id="deviceImg">
-
-              <div class="device-bottom-banner">
-                <div>Contactless NFC & QR Cloud Hub</div>
-                <span>● Live Ready</span>
-              </div>
+              <img src="/images/smartlink-luxury-hardware.jpg" alt="SmartLink Luxury Hardware Showcase" class="device-card-image" id="deviceImg">
             </div>
           </div>
         </div>
@@ -1633,7 +1679,7 @@
     <!-- ===================================================================
          SELECTED WORK (Pages 3, 4, 5) - The Signature Folder Cutout Cards
          =================================================================== -->
-    <section id="work" class="selected-work-section">
+    <section id="work" class="selected-work-section reveal-on-scroll">
       <div class="container">
         <div class="section-intro-grid">
           <div>
@@ -1655,7 +1701,7 @@
         <!-- 4 Distinct Folder-Cutout Shape Cards -->
         <div class="folder-cards-grid">
           <!-- Card 1: Lilac Folder -->
-          <div class="folder-card folder-card-lilac" onclick="location.href='#demos'">
+          <div class="folder-card folder-card-lilac reveal-on-scroll reveal-delay-1" onclick="location.href='#demos'">
             <div class="folder-tab-header">
               <span class="folder-chip">Digital Menu</span>
               <span class="folder-chip">QR Stand</span>
@@ -1674,7 +1720,7 @@
           </div>
 
           <!-- Card 2: Minimalist White Folder -->
-          <div class="folder-card folder-card-white" onclick="location.href='#demos'">
+          <div class="folder-card folder-card-white reveal-on-scroll reveal-delay-2" onclick="location.href='#demos'">
             <div class="folder-tab-header">
               <span class="folder-chip">Branding</span>
               <span class="folder-chip">Strategy</span>
@@ -1693,7 +1739,7 @@
           </div>
 
           <!-- Card 3: Deep Graphite Folder -->
-          <div class="folder-card folder-card-dark" onclick="location.href='#demos'">
+          <div class="folder-card folder-card-dark reveal-on-scroll reveal-delay-3" onclick="location.href='#demos'">
             <div class="folder-tab-header">
               <span class="folder-chip">Web</span>
               <span class="folder-chip">Apps</span>
@@ -1713,7 +1759,7 @@
           </div>
 
           <!-- Card 4: Vibrant Coral Folder -->
-          <div class="folder-card folder-card-coral" onclick="location.href='#demos'">
+          <div class="folder-card folder-card-coral reveal-on-scroll reveal-delay-4" onclick="location.href='#demos'">
             <div class="folder-tab-header">
               <span class="folder-chip">NFC Tap</span>
               <span class="folder-chip">Reviews</span>
@@ -1738,7 +1784,7 @@
     <!-- ===================================================================
          OUR EXPERTISE / SERVICES LIST (Page 6)
          =================================================================== -->
-    <section id="services" class="services-section">
+    <section id="services" class="services-section reveal-on-scroll">
       <div class="container">
         <div class="services-header-row">
           <div>
@@ -1757,7 +1803,7 @@
 
         <div class="services-list-container">
           <!-- Service 1 -->
-          <div class="service-row-item" onclick="location.href='#contact'">
+          <div class="service-row-item reveal-on-scroll reveal-delay-1" onclick="location.href='#contact'">
             <div class="service-row-thumb">
               <div class="thumb-placeholder" style="background: linear-gradient(135deg, #1c202a, #111319); color: var(--accent-yellow);">
                 📱
@@ -1771,7 +1817,7 @@
           </div>
 
           <!-- Service 2 -->
-          <div class="service-row-item" onclick="location.href='#contact'">
+          <div class="service-row-item reveal-on-scroll reveal-delay-2" onclick="location.href='#contact'">
             <div class="service-row-thumb">
               <div class="thumb-placeholder" style="background: linear-gradient(135deg, #2a201c, #191211); color: var(--accent-coral);">
                 🌐
@@ -1785,7 +1831,7 @@
           </div>
 
           <!-- Service 3 -->
-          <div class="service-row-item" onclick="location.href='#contact'">
+          <div class="service-row-item reveal-on-scroll reveal-delay-3" onclick="location.href='#contact'">
             <div class="service-row-thumb">
               <div class="thumb-placeholder" style="background: linear-gradient(135deg, #201c2a, #131119); color: var(--accent-lilac);">
                 💳
@@ -1799,7 +1845,7 @@
           </div>
 
           <!-- Service 4 -->
-          <div class="service-row-item" onclick="location.href='#contact'">
+          <div class="service-row-item reveal-on-scroll reveal-delay-4" onclick="location.href='#contact'">
             <div class="service-row-thumb">
               <div class="thumb-placeholder" style="background: linear-gradient(135deg, #18241c, #0f1611); color: var(--accent-emerald);">
                 🏬
@@ -1813,7 +1859,7 @@
           </div>
 
           <!-- Service 5 -->
-          <div class="service-row-item" onclick="location.href='#contact'">
+          <div class="service-row-item reveal-on-scroll reveal-delay-1" onclick="location.href='#contact'">
             <div class="service-row-thumb">
               <div class="thumb-placeholder" style="background: linear-gradient(135deg, #28241c, #1a1711); color: var(--accent-yellow);">
                 📈
@@ -1832,7 +1878,7 @@
     <!-- ===================================================================
          STUDIO & TEAM BANNER (Page 7)
          =================================================================== -->
-    <section class="studio-team-section">
+    <section class="studio-team-section reveal-on-scroll">
       <div class="container">
         <div class="studio-card-wrapper">
           <div class="studio-speech-bubble">
@@ -1864,10 +1910,10 @@
     <!-- ===================================================================
          AI ASSISTANTS & HIGH-VOLTAGE CTA (Page 8)
          =================================================================== -->
-    <section class="ai-and-cta-section">
+    <section class="ai-and-cta-section reveal-on-scroll">
       <div class="container">
         <!-- AI Assistant Launchers -->
-        <div class="ai-box-centered">
+        <div class="ai-box-centered reveal-on-scroll">
           <div class="section-kicker">
             <span class="kicker-dot"></span>
             Don't believe the hype?
@@ -1897,7 +1943,7 @@
         </div>
 
         <!-- Giant CTA Banner (Page 8) -->
-        <div class="giant-cta-banner">
+        <div class="giant-cta-banner reveal-on-scroll">
           <div class="ghost-watermark-text">
             LET'S CONNECT LET'S CONNECT
           </div>
@@ -1920,7 +1966,7 @@
     <!-- ===================================================================
          LIVE PROJECTS SHOWCASE (Page 10)
          =================================================================== -->
-    <section id="demos" class="projects-showcase-section">
+    <section id="demos" class="projects-showcase-section reveal-on-scroll">
       <div class="container">
         <div class="section-kicker">
           <span class="kicker-dot"></span>
@@ -1983,7 +2029,7 @@
     <!-- ===================================================================
          CONTACT & SCOPE INQUIRY FORM (Pages 11 & 12)
          =================================================================== -->
-    <section id="contact" class="contact-scope-section">
+    <section id="contact" class="contact-scope-section reveal-on-scroll">
       <div class="container">
         <div class="contact-grid">
           <!-- Left: Direct Channels -->
@@ -2144,18 +2190,28 @@
        CLIENT LOGIC & FORM SUBMISSION
        =================================================================== -->
   <script>
-    // Theme toggle
+    // Theme toggle with localStorage persistence
     const themeBtn = document.getElementById('themeToggleBtn');
-    themeBtn.addEventListener('click', () => {
-      const isLight = document.documentElement.getAttribute('data-theme') === 'light';
-      if (isLight) {
-        document.documentElement.removeAttribute('data-theme');
-        themeBtn.textContent = '☾';
-      } else {
-        document.documentElement.setAttribute('data-theme', 'light');
-        themeBtn.textContent = '☼';
-      }
-    });
+    const savedTheme = localStorage.getItem('smartlink_theme');
+    if (savedTheme === 'light') {
+      document.documentElement.setAttribute('data-theme', 'light');
+      if (themeBtn) themeBtn.textContent = '☼';
+    }
+
+    if (themeBtn) {
+      themeBtn.addEventListener('click', () => {
+        const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+        if (isLight) {
+          document.documentElement.removeAttribute('data-theme');
+          themeBtn.textContent = '☾';
+          localStorage.setItem('smartlink_theme', 'dark');
+        } else {
+          document.documentElement.setAttribute('data-theme', 'light');
+          themeBtn.textContent = '☼';
+          localStorage.setItem('smartlink_theme', 'light');
+        }
+      });
+    }
 
     // Project Switcher
     const projectData = {
@@ -2285,6 +2341,26 @@
         isHovering = false;
         deviceCard.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
       });
+    }
+
+    // Scroll reveal observer (Smooth subtle animation on scroll down)
+    const revealElements = document.querySelectorAll('.reveal-on-scroll');
+    if ('IntersectionObserver' in window) {
+      const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.08,
+        rootMargin: '0px 0px -40px 0px'
+      });
+
+      revealElements.forEach(el => revealObserver.observe(el));
+    } else {
+      revealElements.forEach(el => el.classList.add('revealed'));
     }
   </script>
 </body>
