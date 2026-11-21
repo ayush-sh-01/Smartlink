@@ -1554,6 +1554,382 @@
       flex-wrap: wrap;
       gap: 16px;
     }
+
+    /* Mobile Hamburger Menu & Drawer Styles */
+    .mobile-menu-btn {
+      display: none;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: 1px solid var(--border-medium);
+      background: transparent;
+      color: var(--text-main);
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 5px;
+      padding: 0;
+      transition: var(--transition);
+      z-index: 1002;
+    }
+
+    .mobile-menu-btn span {
+      display: block;
+      width: 18px;
+      height: 2px;
+      background: currentColor;
+      border-radius: 2px;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+    }
+
+    .mobile-menu-btn.active span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+    .mobile-menu-btn.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .mobile-menu-btn.active span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    .mobile-nav-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(4px);
+      z-index: 1001;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+    .mobile-nav-backdrop.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .mobile-nav-drawer {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 82%;
+      max-width: 320px;
+      height: 100%;
+      background: var(--bg-surface);
+      border-left: 1px solid var(--border-medium);
+      z-index: 1002;
+      display: flex;
+      flex-direction: column;
+      padding: 85px 24px 30px;
+      box-shadow: -10px 0 30px rgba(0,0,0,0.4);
+      transition: right 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .mobile-nav-drawer.active {
+      right: 0;
+    }
+
+    .mobile-drawer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      margin-bottom: 30px;
+    }
+
+    .mobile-drawer-link {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-main);
+      display: block;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border-subtle);
+      transition: color 0.2s ease, transform 0.2s ease;
+    }
+    .mobile-drawer-link:hover {
+      color: var(--accent-yellow);
+      transform: translateX(4px);
+    }
+
+    .mobile-drawer-actions {
+      margin-top: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    /* ===================================================================
+       COMPREHENSIVE RESPONSIVE STYLES (Tablets, Mobile, Android)
+       =================================================================== */
+    @media (max-width: 900px) {
+      .header-nav {
+        display: none;
+      }
+      .mobile-menu-btn {
+        display: flex;
+      }
+      .header-actions .pill-btn {
+        display: none;
+      }
+    }
+
+    @media (max-width: 768px) {
+      /* Base & Typography Adjustments */
+      body {
+        overflow-x: hidden;
+      }
+      .container {
+        padding: 0 16px;
+      }
+      .site-header {
+        position: sticky;
+      }
+      .header-inner {
+        height: 64px;
+      }
+      .brand-logo {
+        font-size: 1.35rem;
+      }
+
+      /* Floating Social Bar: dock subtly on mobile */
+      .floating-social-bar {
+        left: 10px;
+        bottom: 16px;
+        gap: 8px;
+      }
+      .social-floating-btn {
+        width: 38px;
+        height: 38px;
+        font-size: 0.95rem;
+      }
+
+      /* Hero Section */
+      .hero-section {
+        padding: 40px 0 45px;
+      }
+      .hero-headline {
+        font-size: 2.2rem;
+        line-height: 1.15;
+        margin-bottom: 22px;
+      }
+      .hero-cta-group {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+      }
+      .hero-cta-group .pill-btn {
+        width: 100%;
+        text-align: center;
+        padding: 14px 20px;
+      }
+      .hero-trust-badges {
+        flex-wrap: wrap;
+        gap: 12px;
+        font-size: 0.8rem;
+        justify-content: flex-start;
+      }
+
+      /* 3D Hardware Showcase Frame */
+      .hero-architectural-frame {
+        max-width: 100%;
+        padding: 4px;
+        margin-top: 10px;
+      }
+      .device-card-3d {
+        border-radius: 24px;
+      }
+
+      /* Selected Work Cards */
+      .selected-work-section {
+        padding: 60px 0;
+      }
+      .section-headline-large {
+        font-size: 2rem;
+        line-height: 1.15;
+      }
+      .folder-card {
+        padding: 24px 20px 20px;
+        border-radius: 24px;
+        min-height: 380px;
+      }
+      .folder-center-title {
+        font-size: 2.5rem;
+      }
+
+      /* Services Section */
+      .services-section {
+        padding: 60px 0;
+      }
+      .services-header-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 18px;
+        margin-bottom: 30px;
+      }
+      .services-header-row .pill-btn {
+        width: 100%;
+        text-align: center;
+      }
+      .service-row-item {
+        grid-template-columns: 60px 1fr;
+        gap: 14px;
+        padding: 20px 0;
+      }
+      .service-row-thumb .thumb-placeholder {
+        width: 60px;
+        height: 60px;
+        font-size: 1.4rem;
+        border-radius: 14px;
+      }
+      .service-row-text h3 {
+        font-size: 1.15rem;
+      }
+      .service-row-text p {
+        font-size: 0.9rem;
+      }
+
+      /* Studio & Team Banner */
+      .studio-team-section {
+        padding: 50px 0;
+      }
+      .studio-card-wrapper {
+        padding: 24px 18px;
+        min-height: 360px;
+        border-radius: 26px;
+      }
+      .studio-speech-bubble {
+        font-size: 1.05rem;
+        padding: 16px 20px;
+        max-width: 100%;
+      }
+      .studio-card-footer {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 14px;
+      }
+      .studio-badge-box {
+        padding: 12px 16px;
+      }
+      .studio-btn-group {
+        flex-direction: column;
+        gap: 10px;
+      }
+      .studio-btn-group .pill-btn {
+        width: 100%;
+        text-align: center;
+      }
+
+      /* AI & Giant CTA */
+      .ai-and-cta-section {
+        padding: 50px 0 70px;
+      }
+      .ai-button-row {
+        gap: 10px;
+      }
+      .ai-launcher-btn {
+        padding: 10px 18px;
+        font-size: 0.88rem;
+      }
+      .giant-cta-banner {
+        padding: 45px 20px;
+        border-radius: 26px;
+      }
+      .cta-giant-headline {
+        font-size: 2.1rem;
+        margin-bottom: 28px;
+      }
+      .cta-giant-button {
+        width: 100%;
+        justify-content: center;
+        padding: 16px 24px;
+        font-size: 1rem;
+      }
+
+      /* Live Demos Showcase */
+      .projects-showcase-section {
+        padding: 60px 0 50px;
+      }
+      .projects-card-container {
+        padding: 18px;
+        border-radius: 24px;
+        margin-top: 24px;
+      }
+      .browser-top-bar {
+        padding: 10px 12px;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .browser-url-pill {
+        max-width: 170px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-size: 0.72rem;
+      }
+      .browser-frame-view {
+        height: 380px;
+      }
+      .project-meta-details h3 {
+        font-size: 1.6rem;
+      }
+      .project-tabs-switcher {
+        overflow-x: auto;
+        white-space: nowrap;
+        padding-bottom: 6px;
+        flex-wrap: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      /* Contact Scope Form */
+      .contact-scope-section {
+        padding: 60px 0;
+      }
+      .scope-form-card {
+        padding: 24px 18px;
+        border-radius: 24px;
+      }
+      .contact-info-col h2 {
+        font-size: 2rem;
+      }
+
+      /* Footer */
+      .site-footer {
+        padding: 60px 0 40px;
+      }
+      .footer-top-cta {
+        margin-bottom: 45px;
+        padding-bottom: 40px;
+      }
+      .footer-top-cta .pill-btn {
+        width: 100%;
+        text-align: center;
+      }
+      .footer-bottom-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-headline {
+        font-size: 1.85rem;
+      }
+      .section-headline-large {
+        font-size: 1.7rem;
+      }
+      .folder-center-title {
+        font-size: 2.1rem;
+      }
+      .cta-giant-headline {
+        font-size: 1.85rem;
+      }
+      .browser-frame-view {
+        height: 320px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -1604,10 +1980,35 @@
           <a href="#contact" class="pill-btn pill-btn-white">
             Start a project <span class="arrow-icon">↗</span>
           </a>
+          <!-- Mobile Hamburger Menu Button -->
+          <button id="mobileMenuToggle" class="mobile-menu-btn" title="Open navigation" aria-label="Open navigation menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
         </div>
       </div>
     </div>
   </header>
+
+  <!-- Mobile Drawer & Backdrop -->
+  <div id="mobileNavBackdrop" class="mobile-nav-backdrop"></div>
+  <aside id="mobileNavDrawer" class="mobile-nav-drawer" aria-label="Mobile Navigation">
+    <ul class="mobile-drawer-links">
+      <li><a href="#work" class="mobile-drawer-link">Selected Work</a></li>
+      <li><a href="#services" class="mobile-drawer-link">Services</a></li>
+      <li><a href="#demos" class="mobile-drawer-link">Live Demos</a></li>
+      <li><a href="#contact" class="mobile-drawer-link">Contact</a></li>
+    </ul>
+    <div class="mobile-drawer-actions">
+      <a href="#contact" class="pill-btn pill-btn-white" style="width: 100%; text-align: center;">
+        Start a project <span class="arrow-icon">↗</span>
+      </a>
+      <a href="https://wa.me/917697912636" target="_blank" rel="noopener noreferrer" class="pill-btn pill-btn-yellow" style="width: 100%; text-align: center;">
+        WhatsApp Us 💬
+      </a>
+    </div>
+  </aside>
 
   <main>
     <!-- ===================================================================
@@ -2361,6 +2762,28 @@
       revealElements.forEach(el => revealObserver.observe(el));
     } else {
       revealElements.forEach(el => el.classList.add('revealed'));
+    }
+
+    // Mobile Navigation Drawer Toggle Logic
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const mobileNavDrawer = document.getElementById('mobileNavDrawer');
+    const mobileNavBackdrop = document.getElementById('mobileNavBackdrop');
+    const mobileDrawerLinks = document.querySelectorAll('.mobile-drawer-link, .mobile-drawer-actions a');
+
+    function toggleMobileMenu(isOpen) {
+      const open = typeof isOpen === 'boolean' ? isOpen : !mobileNavDrawer.classList.contains('active');
+      mobileNavDrawer.classList.toggle('active', open);
+      mobileNavBackdrop.classList.toggle('active', open);
+      mobileMenuToggle.classList.toggle('active', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+    }
+
+    if (mobileMenuToggle && mobileNavDrawer && mobileNavBackdrop) {
+      mobileMenuToggle.addEventListener('click', () => toggleMobileMenu());
+      mobileNavBackdrop.addEventListener('click', () => toggleMobileMenu(false));
+      mobileDrawerLinks.forEach(link => {
+        link.addEventListener('click', () => toggleMobileMenu(false));
+      });
     }
   </script>
 </body>
