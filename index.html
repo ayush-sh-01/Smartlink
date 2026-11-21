@@ -1450,6 +1450,111 @@
       color: #f87171;
     }
 
+    /* Modal / Pop-up Notification for Submission */
+    .submission-modal-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(8px);
+      z-index: 2000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+    .submission-modal-backdrop.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .submission-modal-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-medium);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+      border-radius: 28px;
+      max-width: 480px;
+      width: 100%;
+      padding: 40px 32px 32px;
+      text-align: center;
+      transform: scale(0.92) translateY(20px);
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+    }
+    .submission-modal-backdrop.active .submission-modal-card {
+      transform: scale(1) translateY(0);
+    }
+
+    .modal-success-icon-badge {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: rgba(16, 185, 129, 0.15);
+      border: 2px solid var(--accent-emerald);
+      color: #34d399;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.2rem;
+      margin: 0 auto 20px;
+      box-shadow: 0 0 30px rgba(16, 185, 129, 0.3);
+      animation: popBadge 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    @keyframes popBadge {
+      0% { transform: scale(0.5); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .modal-success-title {
+      font-family: var(--font-heading);
+      font-size: 1.7rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--text-main);
+      margin-bottom: 12px;
+    }
+
+    .modal-success-desc {
+      color: var(--text-muted);
+      font-size: 0.98rem;
+      line-height: 1.55;
+      margin-bottom: 26px;
+    }
+
+    .modal-client-preview {
+      background: var(--bg-surface-elevated);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      padding: 14px 18px;
+      text-align: left;
+      font-size: 0.88rem;
+      color: var(--text-main);
+      margin-bottom: 26px;
+    }
+    .modal-client-preview-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 4px 0;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .modal-client-preview-item:last-child {
+      border-bottom: none;
+    }
+    .modal-client-preview-label {
+      color: var(--text-muted);
+    }
+
+    .modal-btn-row {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
     /* ===================================================================
        FOOTER (Page 9)
        =================================================================== */
@@ -2483,8 +2588,8 @@
               </div>
 
               <div class="form-group">
-                <label class="form-label" for="clientPhone">Phone (optional)</label>
-                <input type="tel" id="clientPhone" class="form-control" placeholder="+91 98765 43210">
+                <label class="form-label" for="clientPhone">Phone Number *</label>
+                <input type="tel" id="clientPhone" class="form-control" placeholder="+91 98765 43210" required>
               </div>
 
               <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
@@ -2523,6 +2628,45 @@
       </div>
     </section>
   </main>
+
+  <!-- Submission Confirmation Pop-up / Modal -->
+  <div id="submissionModal" class="submission-modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="submission-modal-card">
+      <div class="modal-success-icon-badge">✓</div>
+      <h3 id="modalTitle" class="modal-success-title">Brief Received!</h3>
+      <p class="modal-success-desc">
+        Thank you! Your project request has been successfully submitted and delivered directly to our leadership team.
+      </p>
+
+      <div class="modal-client-preview">
+        <div class="modal-client-preview-item">
+          <span class="modal-client-preview-label">Client Name</span>
+          <strong id="modalClientName">-</strong>
+        </div>
+        <div class="modal-client-preview-item">
+          <span class="modal-client-preview-label">Contact</span>
+          <strong id="modalClientContact">-</strong>
+        </div>
+        <div class="modal-client-preview-item">
+          <span class="modal-client-preview-label">Interested In</span>
+          <strong id="modalClientServices">-</strong>
+        </div>
+        <div class="modal-client-preview-item">
+          <span class="modal-client-preview-label">Status</span>
+          <strong style="color: var(--accent-emerald);">Delivered & Queued</strong>
+        </div>
+      </div>
+
+      <div class="modal-btn-row">
+        <a id="modalWhatsAppBtn" href="https://wa.me/917697912636" target="_blank" rel="noopener noreferrer" class="pill-btn pill-btn-yellow" style="width: 100%; text-align: center;">
+          Instant WhatsApp Follow-up 💬
+        </a>
+        <button id="modalCloseBtn" type="button" class="pill-btn pill-btn-ghost" style="width: 100%; text-align: center;">
+          Back to website
+        </button>
+      </div>
+    </div>
+  </div>
 
   <!-- ===================================================================
        FOOTER (Page 9)
@@ -2699,6 +2843,26 @@
         if (response.ok && result.success) {
           feedbackAlert.className = 'form-feedback-alert success';
           feedbackAlert.textContent = '✓ Your brief has been received! Our team will contact you within one business day.';
+          
+          // Show interactive Confirmation Pop-up / Modal
+          const modal = document.getElementById('submissionModal');
+          const modalClientName = document.getElementById('modalClientName');
+          const modalClientContact = document.getElementById('modalClientContact');
+          const modalClientServices = document.getElementById('modalClientServices');
+          const modalWhatsAppBtn = document.getElementById('modalWhatsAppBtn');
+
+          if (modal) {
+            modalClientName.textContent = name;
+            modalClientContact.textContent = phone ? `${phone} (${email})` : email;
+            modalClientServices.textContent = selectedServices.join(', ') || 'General Project Scope';
+            
+            const waText = encodeURIComponent(`Hi SmartLink, I just submitted a project brief on your website.\nName: ${name}\nPhone: ${phone}\nServices: ${selectedServices.join(', ') || 'Project Scope'}`);
+            modalWhatsAppBtn.href = `https://wa.me/917697912636?text=${waText}`;
+            
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+          }
+
           scopeForm.reset();
           document.querySelectorAll('.service-chip-option').forEach(chip => chip.classList.remove('selected'));
         } else {
@@ -2713,6 +2877,22 @@
         submitBtn.innerHTML = 'Submit brief <span class="arrow-icon">↗</span>';
       }
     });
+
+    // Close Confirmation Modal Event Listeners
+    const submissionModal = document.getElementById('submissionModal');
+    const modalCloseBtn = document.getElementById('modalCloseBtn');
+    if (submissionModal && modalCloseBtn) {
+      modalCloseBtn.addEventListener('click', () => {
+        submissionModal.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+      submissionModal.addEventListener('click', (e) => {
+        if (e.target === submissionModal) {
+          submissionModal.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      });
+    }
 
     // Interactive 3D tilt effect on mouse movement for the hero device
     const deviceShowcase = document.getElementById('heroDeviceShowcase');

@@ -39,12 +39,21 @@ module.exports = async (req, res) => {
     }
   }
 
-  const { fullName, businessName, city, tablesCount, email, phone, service, message, timestamp } = body || {};
+  // Support both frontend field shapes (name/fullName, tables/tablesCount)
+  const fullName = body?.fullName || body?.name || '';
+  const businessName = body?.businessName || '';
+  const city = body?.city || '';
+  const tablesCount = body?.tablesCount || body?.tables || '';
+  const email = body?.email || '';
+  const phone = body?.phone || '';
+  const service = body?.service || 'General Scope';
+  const message = body?.message || '';
+  const timestamp = body?.timestamp || new Date().toISOString();
 
   if (!fullName || (!email && !phone)) {
     return res.status(400).json({
       success: false,
-      message: 'Please provide your name and at least a phone number or email.'
+      message: 'Please provide your name and phone number or email.'
     });
   }
 
